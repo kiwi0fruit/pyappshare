@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+
+from enaml.widgets.api import (
+    Window, Container, PushButton, Timer, Label
+    )
+from enaml.stdlib.message_box import information
+
+from pyqtgraphwidget import PGPlotWidget
+from utf8names import UTF8Names
+
+enamldef Main(Window): window:
+    attr names = UTF8Names()
+
+    attr data
+    attr timerTrigger
+    timerTrigger :: timer.start()
+    
+    title = names.title
+    Container:
+        PGPlotWidget: pgPlot:
+            startData = data[0]
+        
+        PushButton:
+            text = names.button
+            clicked ::
+                information(self, "And...", "So?")
+
+        Label:
+            text = names.text
+        
+        Timer: timer:
+            attr i = 1
+            interval = 50
+            timeout ::
+                pgPlot.update(data[timer.i % 10])
+                timer.i += 1

@@ -1,0 +1,1 @@
+﻿This program should be distributed with a license that is compatible with licenses of the components listed in "License and Source and Info\PackagesList.txt".

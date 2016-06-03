@@ -1,0 +1,75 @@
+setx -m pyenv enaml_test
+
+conda create -n %pyenv%_py35 python=3.5 vs2015_runtime=14.00.23026.0=0 ply future setuptools pyqtgraph pip wheel
+conda create -n %pyenv%_py27 python=2.7 enaml pyqtgraph
+
+activate %pyenv%_%pyver%
+
+:: if py27:
+	:: Set compiler to Microsoft Visual C++ for Python (It is stable but has no OpenMP support)
+	------%pyfolder%\envs\%pyenv%_%pyver%\Lib\distutils\distutils.cfg
+		[build]
+		compiler = msvc
+	------
+	
+	:: or
+	
+	:: Install Mingwpy -- mingw-w64 gcc toolchain customized for building Python extensions (less stable than Microsoft Visual C++ for Python but supports OpenMP)
+	pip install -i https://pypi.anaconda.org/carlkl/simple mingwpy
+	------%pyfolder%\envs\%pyenv%_%pyver%\Lib\distutils\distutils.cfg
+		[build]
+		compiler = mingw32
+	------
+:: endif
+
+
+:: if py27
+	conda remove --force pyqt sip qt
+	conda install pyside
+:: endif
+
+:: if py35:
+	pip install git+https://github.com/nucleic/kiwi.git#egg=kiwisolver
+	pip install git+https://github.com/MatthieuDartiailh/atom.git@py23#egg=atom
+	pip install git+https://github.com/MatthieuDartiailh/enaml.git@parser23#egg=enaml
+:: endif
+
+:: apply Enaml-PySide patch:
+	github.com/frmdstryr/enaml/commit/c9cebd72ac6152217ac8a0689a882576c240ba31
+:: more info:
+	github.com/nucleic/enaml/pull/111
+
+
+deactivate
+
+:: if py27
+	:: Remove PyQt dependencies
+	
+	:: 1) Apply patches from "Python portable assistant\files\no_pyqt"
+	:: 2) Apply patches via Notepad++
+	:: Modify files:
+--------%APPDATA%\Notepad++\config.xml
+        <GUIConfig name="AppPosition" x="100" y="100" width="600" height="600" isMaximized="no" />
+
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="yes" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="2" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Path name="CustomPathToPythonSitePackages" />
+        <Filter name="*.py *.enaml" />
+        <Find name="from( )+?pyqt(|5|4)(\.|,|;|:| |\n|\r\n)" />
+		<Find name="import( .*? | )pyqt(|5|4)(\.|,|;|:| |\n|\r\n)" />
+        <Replace name="from( )" />
+    </FindHistory>
+	<History nbMaxFile="15" inSubMenu="no" customLength="-1">
+    </History>
+--------
+	:: replace CustomPathToPythonSitePackages -> %pypath%\%pyfolder%\envs\%pyenv%_%pyver%\Lib\site-packages
+
+--------%APPDATA%\Notepad++\session.xml
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="0" />
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>
+--------
+	:: run Notepad++, press	Ctrl+Shift+F, use intuition.
+:: endif

@@ -1,0 +1,11 @@
+name: enaml_test_py35
+dependencies:
+  - python=3.5
+  - ply
+  - future
+  - setuptools
+  - pyqtgraph
+  - pip
+  - wheel
+  - vs2015_runtime=14.00.23026.0=0
+  - qtpy

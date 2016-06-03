@@ -1,0 +1,1 @@
+setx -m pycomp msvc
