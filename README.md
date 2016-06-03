@@ -1,2 +1,2 @@
-# python-portable-assistant
-Python portable assistant (for Windows)
+# Python portable assistant (for Windows)
+
