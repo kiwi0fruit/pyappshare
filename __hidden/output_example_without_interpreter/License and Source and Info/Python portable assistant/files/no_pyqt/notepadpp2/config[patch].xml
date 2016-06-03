@@ -1,0 +1,10 @@
+        <GUIConfig name="AppPosition" x="100" y="100" width="600" height="600" isMaximized="no" />
+...
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="yes" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="2" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Path name="CustomPathToPythonSitePackages" />
+        <Filter name="*.py *.enaml" />
+		<Find name="import( .*? | )pyqt(|5|4)(\.|,|;|:| |\n|\r\n)" />
+        <Replace name="from( )" />
+    </FindHistory>
+	<History nbMaxFile="15" inSubMenu="no" customLength="-1">
+    </History>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://docs.continuum.io/sites/all/themes/continuum_foundation/favicon.ico" />
+<meta http-equiv="ImageToolbar" content="false" />
+<meta name="description" content="Developed specifically for science, engineering, and financial computations, Intel Math Kernel Library (MKL) is a set of threaded and vectorized math routines that work to accelerate various math functions and applications. Continuum has packaged MKL-powered binary versions of some of the most popular" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://docs.continuum.io/mkl-optimizations/index" />
+<link rel="shortlink" href="https://docs.continuum.io/node/77" />
+    <title>MKL Optimizations | Continuum Analytics: Documentation</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://docs.continuum.io/sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" />
+<link rel="stylesheet" href="https://docs.continuum.io/sites/default/files/css/css_tGTNtRAsNJmcVz4r7F6YCijbrQGDbBmziHSrRd1Stqc.css" />
+<link rel="stylesheet" href="https://docs.continuum.io/sites/default/files/css/css_cw4bnvRT32hUwV7sG1paGMXRZeTG6Wlq2d4j9aqT4vA.css" />
+<link rel="stylesheet" href="https://docs.continuum.io/sites/default/files/css/css_UnXx6HVnwN3ivKwwkzI1DUFaBCeFgYwbL32wP-XQtrI.css" />
+<link rel="stylesheet" href="https://docs.continuum.io/sites/default/files/css/css_YpWMK0Bt9WMq2_PW9UQo2cC8Txyd3vgJts2jG-pXLWk.css" />
+    <script src="https://docs.continuum.io/sites/all/libraries/modernizr/modernizr-latest.js?o73vsg"></script>
+<script src="https://docs.continuum.io/sites/default/files/js/js_cDfSr2FXPXcK1gvn1bGJotjGggYy9AyIYPQ5Hw_Sx7s.js"></script>
+<script src="https://docs.continuum.io/sites/default/files/js/js_m_jimcnhFIj9PrGKuriUbpJzGdzO-vls5g5KWzKAIPc.js"></script>
+<script src="https://docs.continuum.io/sites/default/files/js/js_hDg2cAn4kQEMa_Y6cxLCtK3XsiwPV2KxtUxDJKNJ-kc.js"></script>
+<script src="https://docs.continuum.io/sites/default/files/js/js_lLdEF7XRm1RHYpnBwnz7FkTuI2Nq_E5y6MbjDbJB7Zk.js"></script>
+<script src="https://docs.continuum.io/sites/default/files/js/js_YNUT22rqF51pSrLsAq_P4UUPAvEGBnBW9H3ydIOTbqk.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"continuum_foundation","theme_token":"1cW8OodBTNe5sRbbO0x6VgnnN_1zT6hPLxUrPIT3Xu0","js":{"sites\/all\/modules\/contrib\/syntaxhighlighter\/syntaxhighlighter.min.js":1,"sites\/all\/libraries\/modernizr\/modernizr-latest.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/2.1\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/syntaxhighlighter_insert\/syntaxhighlighter_insert.utils.js":1,"sites\/all\/modules\/contrib\/syntaxhighlighter_insert\/syntaxhighlighter_insert.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.draggable.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.resizable.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/scripts\/shCore.js":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/scripts\/shBrushPhp.js":1,"misc\/textarea.js":1,"sites\/all\/modules\/contrib\/webform\/js\/webform.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.alert.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.topbar.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.accordion.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.tab.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.reveal.js":1,"sites\/all\/themes\/continuum_foundation\/js\/continuum_foundation.js":1,"sites\/all\/themes\/continuum_foundation\/assets\/jscrollpane\/jquery.jscrollpane.min.js":1,"sites\/all\/themes\/continuum_foundation\/..\/contrib\/zurb_foundation\/js\/foundation\/foundation.equalizer.js":1},"css":{"modules\/system\/system.base.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/styles\/shCore.css":1,"sites\/all\/libraries\/syntaxhighlighter_3.0.83\/styles\/shThemeDefault.css":1,"sites\/all\/modules\/contrib\/webform\/css\/webform.css":1,"sites\/all\/modules\/contrib\/syntaxhighlighter_insert\/syntaxhighlighter_insert_wysiwyg\/syntaxhighlighter_insert_wysiwyg.css":1,"sites\/all\/themes\/continuum_foundation\/css\/normalize.css":1,"sites\/all\/themes\/continuum_foundation\/styles\/css\/style.css":1}},"syntaxhighlighter_insert_wysiwyg":{"current_form":"form-MJ7pI4sP6_jRYiwEjbnXz5ZzsoujawzRmUtH_0vK2LM"},"webform":{"conditionals":{"webform-client-form-100":{"ruleGroups":{"rgid_0":{"andor":"or","actions":{"aid_0":{"target":"webform-component--how-to-improve-this-page","invert":0,"action":"show","argument":""},"aid_1":{"target":"webform-component--email","invert":0,"action":"show","argument":""}},"rules":{"rid_0":{"source":"webform-component--was-this-helpful","value":"Yes","callback":"conditionalOperatorStringEqual"},"rid_1":{"source":"webform-component--was-this-helpful","value":"No","callback":"conditionalOperatorStringEqual"}}}},"sourceMap":{"webform-component--was-this-helpful":{"rgid_0":"rgid_0"}},"values":[]}}},"urlIsAjaxTrusted":{"\/mkl-optimizations\/index":true}});</script>
+  </head>
+  <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-77 node-type-doc-cache section-mkl-optimizations panels-layout-continuum_two_col" >
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MTFQWW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTFQWW');</script>
+<!-- End Google Tag Manager -->
+        <div class="wrapper">
+    <header class="header">
+    <div class="header__inner">
+        <div class="header__title-bar">
+            <div class="toggle-sidebar menu-icon">
+                <a class="toggle-link" href="#">
+                    <span class="toggle-text-wrapper">
+                        <span class="toggle-text">Menu</span>
+                    </span>
+                </a>
+            </div>
+
+            <h1 class="header__title">
+                <a class="header__title-link" href="/">
+                    <span class="header__title-text">Continuum Analytics: Documentation</span>
+                    <span class="header__title-logo"></span>
+                </a>
+            </h1>
+            <div class="header__bar">
+                <span class="header__title_header">DOCUMENTATION</span>
+            </div>
+
+
+            <div class="header-search">
+                                    <form class="header-search__form" action="/search_docs" role="search" method="POST" id="apachesolr-panels-search-form" accept-charset="UTF-8">
+                        <label class="header-search__input-label" for="search-input">Search</label>
+                        <input class="header-search__input" name="apachesolr_panels_search_form" type="text" placeholder="Search" />
+                        <input type="hidden" name="form_id" value="apachesolr_panels_search_form" />
+                        <input type="hidden" name="form_build_id" value="form-MJ7pI4sP6_jRYiwEjbnXz5ZzsoujawzRmUtH_0vK2LM" />
+                                                <input class="header-search__submit" type="submit" />
+                    </form>
+                                <a href="/search_docs" class="header-search__link">
+                    <span class="header-search__link-text">Search</span>
+                    <span class="header-search__link-icon"></span>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</header>
+    <div class="page-wrapper">    
+         <div class="page-utility-wrapper">
+  
+  
+        
+   </div>
+        <div class="page-layout-wrapper">
+                            <div class="page-breadcrumb-wrapper">
+                    <div class="toggle toggle-sidebar menu-icon">
+                        <a class="toggle-link" href="#">
+                            <span class="toggle-text-wrapper">
+                                <span class="toggle-text">Menu</span>
+                            </span>
+                        </a>
+                    </div>
+
+                      <section class="block block-crumbs block-crumbs-breadcrumb">
+  
+      
+    <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="crumbs-separator"> / </span><span class="crumbs-current-page">MKL Optimizations</span></div>  
+  </section>                </div>
+            
+
+              
+      
+    <div class="layout-two-col "  data-equalizer="2col_layout">
+  <aside class="layout-two-col__second" role="complementary" data-equalizer-watch="2col_layout" id="layout-two-col-sidebar">
+    <div class="panel-pane pane-menu-tree pane-menu-docs-menu"  >
+  
+        <div class="pane-title">
+      Select Product    </div>
+    
+  
+  <div class="pane-content">
+    
+<ul class="menu"><li class="first leaf menu-mlid-871 menu-bold"><span class="nolink">Anaconda Platform</span></li>
+<li class="leaf menu-mlid-872"><a href="/" title="">Welcome</a></li>
+<li class="leaf has-children menu-mlid-586"><a href="/anaconda/index">Anaconda</a></li>
+<li class="leaf has-children menu-mlid-585"><a href="/anaconda-repository/index">Anaconda repository</a></li>
+<li class="leaf menu-mlid-875"><a href="http://docs.wakari.io/">Enterprise notebooks</a></li>
+<li class="leaf menu-mlid-873"><a href="http://conda.pydata.org/">Package &amp; environment management</a></li>
+<li class="leaf has-children menu-mlid-582"><a href="/anaconda-cluster/index">Anaconda for cluster management</a></li>
+<li class="leaf menu-mlid-874"><a href="http://docs.anaconda.org/">Anaconda Cloud</a></li>
+<li class="leaf menu-mlid-877"><span title="" class="separator"><hr></span></li>
+<li class="leaf menu-mlid-878 menu-bold"><a href="https://www.continuum.io/open-source-core-modern-software">Open source incubated projects</a></li>
+<li class="leaf menu-mlid-879"><a href="http://blaze.pydata.org/" title="">Blaze</a></li>
+<li class="leaf menu-mlid-880"><a href="http://bokeh.pydata.org/" title="">Bokeh</a></li>
+<li class="leaf menu-mlid-881"><a href="http://conda.pydata.org/" title="">conda</a></li>
+<li class="leaf menu-mlid-882"><a href="http://dask.readthedocs.org/en/latest/" title="">dask</a></li>
+<li class="leaf menu-mlid-885"><a href="http://llvmlite.readthedocs.org/en/latest/" title="">llvmlite</a></li>
+<li class="leaf menu-mlid-886"><a href="https://phosphorjs.github.io/docs.html" title="">PhosphorJS</a></li>
+<li class="last leaf menu-mlid-887"><a href="http://numba.pydata.org/" title="">Numba</a></li>
+</ul>  </div>
+
+  
+  </div>
+<div class="panel-pane pane-entity-field pane-node-field-doc-navigation-menu"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="field field-name-field-doc-navigation-menu field-type-text-long field-label-hidden field-wrapper">
+    <div class="field-items" class="field-items">
+          <div class="field-item even" class="field-item even">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://docs.continuum.io">Anaconda Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://docs.continuum.io">&#8211; Welcome</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../anaconda/index">&#8211; Anaconda</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#user-guide">User Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#conda-anaconda-and-miniconda">conda, Anaconda and Miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#product-specifications">Product specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#packages-available-in-anaconda">Packages available in Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#managing-packages-in-anaconda">Managing packages in Anaconda</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../anaconda/index.html#high-performance">High performance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../accelerate/index">Anaconda Accelerate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../iopro/index">IOPro</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">MKL Optimizations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#included-packages">Included Packages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../mkl-service/index">mkl-service</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uninstalling-mkl">Uninstalling MKL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating">Updating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dismissing-mkl-trial-warnings">Dismissing MKL Trial warnings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resolving-mkl-shared-library-permission-denied-errors">Resolving MKL shared library &#8220;permission denied&#8221; errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#license-agreement">License Agreement</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="eula">MKL Optimizations End User License Agreement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../numbapro/index">NumbaPro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anaconda/license-installation">License installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#what-s-new-in-anaconda-4-0">What&#8217;s new in Anaconda 4.0?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#older-versions-of-anaconda">Older versions of Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anaconda/index.html#support">Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../anaconda-repository/index">&#8211; Repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://docs.wakari.io/">&#8211; Enterprise notebooks</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://conda.pydata.org/">&#8211; Package &amp; environment management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anaconda-cluster/index">&#8211; Cluster management</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://docs.anaconda.org/">&#8211; Anaconda Cloud</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://continuum.io/developer-resources">Open source incubated projects</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://blaze.pydata.org/">&#8211; Blaze</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://bokeh.pydata.org/">&#8211; Bokeh</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://conda.pydata.org/">&#8211; conda</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://dask.readthedocs.org/en/latest/">&#8211; dask</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://llvmlite.readthedocs.org/en/latest/">&#8211; llvmlite</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://phosphorjs.github.io/docs">&#8211; PhosphorJS</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://numba.pydata.org/">&#8211; Numba</a></li>
+</ul>
+
+</div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+  </aside>  
+   <main class="layout-two-col__first" role="main" data-equalizer-watch="2col_layout">
+    <div class="panel-pane pane-entity-view pane-node"  >
+  
+      
+  
+  <div class="pane-content">
+    <article class="node node-doc-cache view-mode-full" about="/mkl-optimizations/index" typeof="sioc:Item foaf:Document">
+
+        <h1>MKL Optimizations</h1>
+    <span property="dc:title" content="MKL Optimizations" class="rdf-meta element-hidden"></span>
+  
+  <div class="body-content">
+      
+                
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mkl-optimizations">
+<h1><a class="headerlink" href="#mkl-optimizations" title="Permalink to this headline"></a></h1>
+<p>Developed specifically for science, engineering, and financial computations,
+Intel Math Kernel Library (MKL) is a set of threaded and vectorized math
+routines that work to accelerate various math functions and applications.
+Continuum has packaged MKL-powered binary versions of some of the most popular
+numerical/scientific Python libraries into MKL Optimizations for improved
+performance.</p>
+<dl class="docutils">
+<dt>MKL Optimizations includes:</dt>
+<dd><ul class="first last simple">
+<li>Speed-boosted NumPy, SciPy, scikit-learn, and NumExpr</li>
+<li>The packaging of MKL with redistributable binaries in Anaconda for easy access to the MKL runtime library.</li>
+<li>Python bindings to the low level MKL service functions, which allow for the modification of the number of threads being used during runtime.</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="included-packages">
+<h2>Included Packages<a class="headerlink" href="#included-packages" title="Permalink to this headline"></a></h2>
+<dl class="docutils">
+<dt><a class="reference external" href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation">Packages upgraded to use MKL</a></dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://docs.scipy.org/doc/">NumPy</a></li>
+<li><a class="reference external" href="http://code.google.com/p/numexpr/">NumExpr</a></li>
+<li><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/">SciPy</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/user_guide.html">Scikit-Learn</a></li>
+</ul>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mkl-service/index.html">mkl-service</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>In Anaconda versions 2.5 and later, MKL is <a class="reference external" href="https://www.continuum.io/blog/developer-blog/anaconda-25-release-now-mkl-optimizations">freely available by default in Anaconda</a>.</p>
+<p>If you already have the free <a class="reference external" href="http://continuum.io/downloads.html">Anaconda</a>
+Python distribution installed, get MKL by upgrading to the latest version:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda update conda
+conda update anaconda
+</pre></div>
+</div>
+<p>If you do not have Anaconda installed, you can download it
+<a class="reference external" href="http://continuum.io/downloads.html">here</a>.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
+<p>Anaconda now also includes a small utility package called
+<a class="reference external" href="../mkl-service/">mkl-service</a> which provides a Python interface to some
+useful MKL functions that are declared in <code class="docutils literal"><span class="pre">mkl_service.h</span></code>, such as setting
+the number of threads to use.</p>
+</div>
+<div class="section" id="uninstalling-mkl">
+<h2>Uninstalling MKL<a class="headerlink" href="#uninstalling-mkl" title="Permalink to this headline"></a></h2>
+<p>MKL takes roughly 100MB and some use cases do not need it, so users can opt out
+of MKL and instead use <a class="reference external" href="http://www.openblas.net/">OpenBLAS</a> for Linux or the
+native Accelerate Framework for MacOSX. To opt out, run <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nomkl</span></code>
+and then use <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span></code> to install packages that would normally include
+MKL or depend on packages that include MKL, such as <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">numpy</span></code>, and
+<code class="docutils literal"><span class="pre">pandas</span></code>. Conda will install the non-MKL versions of these packages together
+with their dependencies. If you are using OS X or Linux, have already installed
+these packages or already installed all of Anaconda, and wish to switch away
+from MKL, use the command <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">nomkl</span> <span class="pre">numpy</span> <span class="pre">scipy</span> <span class="pre">scikit-learn</span> <span class="pre">numexpr</span></code>
+followed by <code class="docutils literal"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">mkl</span> <span class="pre">mkl-service</span></code>.</p>
+</div>
+<div class="section" id="updating">
+<h2>Updating<a class="headerlink" href="#updating" title="Permalink to this headline"></a></h2>
+<p>If you already have the free Anaconda Python distribution installed and wish to update MKL:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda update conda
+conda update mkl
+</pre></div>
+</div>
+</div>
+<div class="section" id="dismissing-mkl-trial-warnings">
+<h2>Dismissing MKL Trial warnings<a class="headerlink" href="#dismissing-mkl-trial-warnings" title="Permalink to this headline"></a></h2>
+<p>Because past versions of Anaconda did not include MKL linked binaries by default,
+some users who have used <code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--all</span></code> may see an MKL Trial warning or
+a license expiration error, even though MKL linked packages are now free and
+installed by default. A license expiration error message may read, &#8220;You cannot
+run MKL without a license any longer.&#8221;</p>
+<p>To resolve this, set your installation to use the mkl-linked libraries that do not require a license:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda remove mkl-rt
+conda install -f mkl
+</pre></div>
+</div>
+<p>Then run conda install with the specific packages you choose:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda install numpy scipy scikit-learn numexpr
+</pre></div>
+</div>
+<p>or with all of Anaconda:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda install anaconda
+</pre></div>
+</div>
+</div>
+<div class="section" id="resolving-mkl-shared-library-permission-denied-errors">
+<h2>Resolving MKL shared library &#8220;permission denied&#8221; errors<a class="headerlink" href="#resolving-mkl-shared-library-permission-denied-errors" title="Permalink to this headline"></a></h2>
+<p>On Linux platforms that have SELinux enabled, you may encounter security errors like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>error while loading shared libraries: &lt;libmkl_intel.so&gt;: cannot restore segment prot after reloc: Permission denied
+</pre></div>
+</div>
+<p>This is because MKL requires text relocation permissions, which SELinux denies by default. This prevents MKL from being loaded by Numpy, preventing Numpy from being imported.</p>
+<p>There are two known solutions to this issue:</p>
+<ol class="arabic">
+<li><p class="first">Does not require root privileges. Replace MKL with OpenBLAS by issuing the command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda install nomkl numpy scipy scikit-learn numexpr
+</pre></div>
+</div>
+<p>You may revert back to the MKL default versions at any time by using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>conda remove nomkl
+conda install mkl
+</pre></div>
+</div>
+</li>
+<li><p class="first">Requires root privileges. Temporarily disable SELinux enforcement. From a root-privileged terminal enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>/usr/sbin/setenforce 0
+</pre></div>
+</div>
+<p>NOTE: If you prefer to make this change permanent, in the file <code class="docutils literal"><span class="pre">/etc/selinux/config</span></code> change &#8220;enforcing&#8221; to &#8220;disabled&#8221; and then reboot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="license-agreement">
+<h2>License Agreement<a class="headerlink" href="#license-agreement" title="Permalink to this headline"></a></h2>
+<p>The MKL Optimizations are included in the free Anaconda python distribution, and have been made available by the terms of the <a class="reference internal" href="../anaconda/eula.html"><em>Anaconda End User License Agreement</em></a>.</p>
+<p>Past versions of MKL Optimizations were not freely available in Anaconda, and have been made available separately by the terms of the <a class="reference internal" href="eula.html"><em>MKL Optimizations End User License Agreement</em></a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+        
+    
+</article>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-webform-client-block-100 helpful-form"  >
+  
+        <h2 class="pane-title">
+      Was this helpful?    </h2>
+    
+  
+  <div class="pane-content">
+    <form class="webform-client-form webform-client-form-100" enctype="multipart/form-data" action="/mkl-optimizations/index" method="post" id="webform-client-form-100" accept-charset="UTF-8"><div><div  class="form-item webform-component webform-component-radios webform-component--was-this-helpful">
+  <label class="element-invisible" for="edit-submitted-was-this-helpful">Was this helpful? <span class="form-required" title="This field is required.">*</span></label>
+ <div id="edit-submitted-was-this-helpful" class="form-radios"><div class="form-item form-type-radio form-item-submitted-was-this-helpful">
+ <input required="required" type="radio" id="edit-submitted-was-this-helpful-1" name="submitted[was_this_helpful]" value="Yes" class="form-radio" />  <label class="option" for="edit-submitted-was-this-helpful-1">Yes </label>
+
+</div>
+<div class="form-item form-type-radio form-item-submitted-was-this-helpful">
+ <input required="required" type="radio" id="edit-submitted-was-this-helpful-2" name="submitted[was_this_helpful]" value="No" class="form-radio" />  <label class="option" for="edit-submitted-was-this-helpful-2">No </label>
+
+</div>
+</div>
+</div>
+<div  class="form-item webform-component webform-component-email webform-component--email">
+  <label class="element-invisible" for="edit-submitted-email">Email </label>
+ <input class="email form-text form-email" placeholder="Email" type="email" id="edit-submitted-email" name="submitted[email]" size="60" />
+</div>
+<div  class="form-item webform-component webform-component-textarea webform-component--how-to-improve-this-page">
+  <label for="edit-submitted-how-to-improve-this-page">Please let us know how to improve this page </label>
+ <div class="form-textarea-wrapper resizable"><textarea id="edit-submitted-how-to-improve-this-page" name="submitted[how_to_improve_this_page]" cols="60" rows="3" class="form-textarea"></textarea></div>
+</div>
+<div  class="form-item webform-component webform-component-hidden webform-component--page-referrer" style="display: none">
+ <input type="hidden" name="submitted[page_referrer]" value="https://docs.continuum.io/mkl-optimizations/index" />
+
+</div>
+<input type="hidden" name="details[sid]" />
+<input type="hidden" name="details[page_num]" value="1" />
+<input type="hidden" name="details[page_count]" value="1" />
+<input type="hidden" name="details[finished]" value="0" />
+<input type="hidden" name="form_build_id" value="form-xwqh7TDOnZ-F74L6_CtTA9HO9f4S-l1hylgrXqc8Fqo" />
+<input type="hidden" name="form_id" value="webform_client_form_100" />
+<button class="webform-submit button-primary secondary button radius form-submit" name="op" value="Submit" type="submit">Submit</button>
+</div></form>  </div>
+
+  
+  </div>
+  </main>
+
+</div>
+  
+          </div>
+    </div>
+    <footer class="footer">
+    <div class="footer__main">
+        <div class="footer__main-inner">
+            <div class="footer__main-logo"></div>
+            <div class="footer__main-top">
+                                      
+<nav class="footer-main-menu">
+  <ul class="menu"><li class="first leaf"><a href="/" title="">Docs Home</a></li>
+<li class="leaf"><a href="https://www.continuum.io/" title="">Continuum Analytics Home</a></li>
+<li class="last leaf"><a href="https://www.continuum.io/support" title="">More Help &amp; Support</a></li>
+</ul></nav>
+                 
+            </div>            
+        </div>
+    </div>
+    <div class="footer__details">
+        <div class="footer__details-inner">
+            <div class="footer__details-content">
+                <span class="footer__privacy-terms">
+                    <a href="https://www.continuum.io/privacy-policy" class="footer__privacy-link">Privacy Policy</a> | <a href="https://www.continuum.io/anaconda-end-user-license-agreement" class="footer__terms-link">EULA</a>
+                </span>
+				
+                <span class="footer__copyright-rights">
+                    <span class="footer__copyright">&copy; 2016 Continuum Analytics, Inc.</span> <span class="footer__rights">All Rights Reserved.</span></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>    <script src="https://docs.continuum.io/sites/default/files/js/js_Rk5YIkK6m2gKTGH-GrMu0pM_PlMKXnI0ktQUgXw1XgA.js"></script>
+    <script>
+      (function ($, Drupal, window, document, undefined) {
+        $(document).foundation();
+      })(jQuery, Drupal, this, this.document);
+    </script>
+  </body>
+</html>
