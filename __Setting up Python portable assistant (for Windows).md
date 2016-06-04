@@ -1,9 +1,8 @@
 # Setting up Python portable assistant (for Windows)
 
-* Path to Python portable assistant folder should contain english names only. Make sure that there are no Python distributions in the PATH. To do this run:
-```
-    echo %PATH%
-```
+* Path to Python portable assistant folder should contain english names only. Make sure that there are no Python distributions in the PATH. To do this run 
+  `echo %PATH%`
+
 * Install [Miniconda Python 2.7 64-bit](https://repo.continuum.io/miniconda/Miniconda2-latest-Windows-x86_64.exe) to `<<SamePath>>\Miniconda\Miniconda64`.
 
   Install [Miniconda Python 2.7 32-bit](https://repo.continuum.io/miniconda/Miniconda2-latest-Windows-x86.exe) to `<<SamePath>>\Miniconda\Miniconda32`.
@@ -35,31 +34,20 @@
   
   `<<Output_Path>>` should contain english names only. It's the path to the folder (e.g. `D:`) to which __one folder only__ with portable Python will be copied. The copied folder will be named `Miniconda32` or `Miniconda64`.
 
-* Run:
-  ```
-    setx -m pyfolder Miniconda32
-  ```
+* Run 
+  `setx -m pyfolder Miniconda32`
   or
-  ```
-    setx -m pyfolder Miniconda64
-  ```
-* Run:
-  ```
-    setx -m pyver py27
-  ```
-  or
-  ```
-    setx -m pyver py35
-  ```
-* If using Python 2.7 run:
-  ```
-    setx -m pycomp msvc
-  ```
-  or
-  ```
-    setx -m pycomp mingwpy
-  ```
-  endif
+  `setx -m pyfolder Miniconda64`
+
+* Run 
+  `setx -m pyver py27`
+  or 
+  `setx -m pyver py35`
+
+* If using Python 2.7 run 
+  `setx -m pycomp msvc`
+  or 
+  `setx -m pycomp mingwpy`
 
 * Run:
   ```
