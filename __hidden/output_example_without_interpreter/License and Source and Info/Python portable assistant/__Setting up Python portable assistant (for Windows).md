@@ -1,4 +1,5 @@
-# Setting up Python portable assistant (for Windows)
+Setting up Python portable assistant (for Windows)
+====================================================
 
 * Path to Python portable assistant folder should contain english names only. Make sure that there are no Python distributions in the PATH. To do this run 
   `echo %PATH%`
@@ -23,7 +24,7 @@
   ```
   **IMPORTANT**: `setx` command works only with administrator privileges and it's changes are available only after command prompt restart.
 
-* Use `N *.cmd` files in this folder to change variables and start scripts. These scripts do the same as described in this file below and in `envs\<<PythonEnvironmentName>>\information.md`. Here is [an example](https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/information.md) of such file.
+* Use `N *.cmd` files in this folder to change variables and start scripts. These scripts do the same as described in this file below and in `envs\enaml_test\information.md`: [link](https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/information.md).
 
 * Edit `0 set pypath = X set pyout = Y.cmd` file and specify the system variables:
   ```
