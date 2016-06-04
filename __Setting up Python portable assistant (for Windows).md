@@ -1,4 +1,5 @@
-# Setting up Python portable assistant (for Windows)
+Setting up Python portable assistant (for Windows)
+====================================================
 
 * Path to Python portable assistant folder should contain english names only. Make sure that there are no Python distributions in the PATH. To do this run 
   `echo %PATH%`
