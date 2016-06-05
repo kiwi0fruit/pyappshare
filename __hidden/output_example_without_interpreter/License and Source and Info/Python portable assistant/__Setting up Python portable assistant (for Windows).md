@@ -31,11 +31,11 @@ Setting up Python portable assistant (for Windows)
 * Edit `0 set pypath = X set pyout = Y.cmd` file and specify the system variables:
   ```
     setx -m pypath <<SamePath>>\Miniconda
-    setx -m pyout <<Output_Path>>
+    setx -m pyout <<OutputPath>>
   ```
   First is the path to the folder that contain Miniconda32 and Miniconda64 folders (e.g. `C:\Miniconda`)
   
-  `<<Output_Path>>` should contain english names only. It's the path to the folder (e.g. `D:`) to which __one folder only__ with portable Python will be copied. The copied folder will be named `Miniconda32` or `Miniconda64`.
+  `<<OutputPath>>` should contain english names only. It's the path to the folder (e.g. `D:`) to which __one folder only__ with portable Python will be copied. The copied folder will be named `Miniconda32` or `Miniconda64`.
 
 * Run 
   `setx -m pyfolder Miniconda32`
@@ -54,8 +54,8 @@ Setting up Python portable assistant (for Windows)
 
 * Run:
   ```
-    setx -m pyenv <<Environment_Name>>
-    setx -m pyapp <<Application_Name>>
+    setx -m pyenv <<PythonEnvironmentName>>
+    setx -m pyapp <<ApplicationName>>
   ```
   Names should match folder names from `envs` and `apps` folders.
 
