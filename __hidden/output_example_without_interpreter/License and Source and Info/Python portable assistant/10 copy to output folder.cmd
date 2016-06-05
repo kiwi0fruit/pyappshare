@@ -9,6 +9,7 @@ set funcs=%thispath%\files\functions.cmd
 call "%funcs%" checkvars
 pause
 
+
 robocopy "%pypath%\%pyfolder%" "%workdir%\%pyfolder%" /e /xd "%pypath%\%pyfolder%\envs" "%pypath%\%pyfolder%\pkgs"
 robocopy "%pypath%\%pyfolder%\envs\%pyenv%_%pyver%" "%workdir%\%pyfolder%\envs\%pyenv%_%pyver%" /e
 robocopy "%pypath%\%pyfolder%\pkgs\cache" "%workdir%\%pyfolder%\pkgs\cache" /e

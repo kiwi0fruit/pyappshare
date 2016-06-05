@@ -3,6 +3,13 @@ set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
 set here=%~dp0
 set thispath=%here:~0,-1%
+set funcs=%thispath%\files\functions.cmd
+
+
+call "%funcs%" checkvars
+pause
+
+
 set envcache=%pypath%\%pyfolder%\pkgs\envs\%pyenv%_%pyver%
 
 
@@ -19,7 +26,6 @@ set /p EnvCacheURL=<__temp__.txt
 del __temp__.txt
 
 
-set funcs=%thispath%\files\functions.cmd
 :: needed for functions.cmd:
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
 set hash=0

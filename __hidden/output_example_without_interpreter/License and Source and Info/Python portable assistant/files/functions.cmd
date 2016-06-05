@@ -68,13 +68,15 @@ exit/b
 
 
 :checkvars
-IF not "%pypath%"=="" IF not "%pyfolder%"=="" IF not "%pyver%"=="" IF not "%pyenv%"=="" IF not "%pyapp%"=="" (
+IF not "%pypath%"=="" IF not "%pyfolder%"=="" IF not "%pyver%"=="" IF not "%pyenv%"=="" (
 	Powershell write-host -foregroundcolor Green "All variables were set"
 )
-
 Powershell write-host -foregroundcolor Yellow "If you do not see the green message above then something went wrong"
 IF "%pycomp%"=="" (
 	Powershell write-host -foregroundcolor Red "pycomp is not set"
+)
+IF "%pyapp%"=="" (
+	Powershell write-host -foregroundcolor Red "pyapp is not set"
 )
 echo press any key to continue script
 
