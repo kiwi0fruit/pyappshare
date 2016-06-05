@@ -8,7 +8,7 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 
 - The workflow of creating standalone application is inteded to consist of writing the scripts that are pretty short:
     
-    - `apps\<<AppName>>\shortcuts.cmd`
+    - `apps\<<ApplicationName>>\shortcuts.cmd`
 	
     - `envs\<<PythonEnvironmentName>>\<<PythonVersion>>.yml`
 	
