@@ -1,7 +1,9 @@
 Setting up Python portable assistant (for Windows)
 ====================================================
 
-* Path to Python portable assistant folder should contain english names only. Make sure that there are no Python distributions in the PATH. To do this run 
+* Path to Python portable assistant folder should contain english names only.
+
+* Make sure that there are no Python distributions in the PATH. To do this run 
   `echo %PATH%`
 
 * Install [Miniconda Python 2.7 64-bit](https://repo.continuum.io/miniconda/Miniconda2-latest-Windows-x86_64.exe) to `<<SamePath>>\Miniconda\Miniconda64`.
