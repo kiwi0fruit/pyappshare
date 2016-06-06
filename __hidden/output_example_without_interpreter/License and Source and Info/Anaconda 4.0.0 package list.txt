@@ -1,1 +1,0 @@
-https://docs.continuum.io/anaconda/pkg-docs
