@@ -8,7 +8,7 @@ set hashAlg=SHA256
 
 Powershell write-host -foregroundcolor White "hash=%hash%, algorithm=%hashAlg%, target=%target%"
 
-set command=PowerShell -C "$($(CertUtil -hashfile %target% %hashAlg%)[1] -replace ' ','')"
+set command=PowerShell -C "$($(CertUtil -hashfile '%target%' %hashAlg%)[1] -replace ' ','')"
 set targethash=O
 IF exist "%target%" (
 	FOR /F "delims=" %%i IN ('%command%') DO set targethash=%%i
