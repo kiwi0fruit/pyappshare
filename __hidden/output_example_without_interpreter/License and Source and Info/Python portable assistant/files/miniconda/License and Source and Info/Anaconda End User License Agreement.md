@@ -1,0 +1,1 @@
+https://docs.continuum.io/anaconda/eula
