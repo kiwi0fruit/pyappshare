@@ -14,7 +14,7 @@ IF exist "%target%" (
 	FOR /F "delims=" %%i IN ('%command%') DO set targethash=%%i
 )
 
-IF %targethash%==%hash% (
+IF /i %targethash%==%hash% (
 	Powershell write-host -foregroundcolor Green "Hash values match"
 ) ELSE (
 	Powershell write-host -foregroundcolor Red "Hash values do not match"

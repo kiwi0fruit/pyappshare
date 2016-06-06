@@ -15,12 +15,12 @@ IF exist "%envpath%\%todir%\%target%" (
 
 set "True="
 IF "%4"=="nofile" IF not exist "%envpath%\%todir%\%target%" set True=1
-IF %targethash%==%hash% set True=1
-IF %targethash%==%hash2% set True=1
+IF /i %targethash%==%hash% set True=1
+IF /i %targethash%==%hash2% set True=1
 IF defined True (
 	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
 	Powershell write-host -foregroundcolor Green "Patch was applied."
-) ELSE IF %targethash%==%hashA% (
+) ELSE IF /i %targethash%==%hashA% (
 	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
 ) ELSE (
 	Powershell write-host -foregroundcolor Red "WARNING! Hash does not match. Patch was not applied."
