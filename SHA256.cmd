@@ -1,6 +1,6 @@
 @ echo off
 
-set target=C:\Windows\explorer.exe
+set target=C:\Program Files\Windows Media Player\wmplayer.exe
 set hash=0
 set hashAlg=SHA256
 :: hashAlg choices: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
