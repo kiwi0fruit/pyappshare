@@ -15,6 +15,9 @@ robocopy "%pypath%\%pyfolder%\envs\%pyenv%_%pyver%" "%workdir%\%pyfolder%\envs\%
 robocopy "%pypath%\%pyfolder%\pkgs\cache" "%workdir%\%pyfolder%\pkgs\cache" /e
 robocopy "%pypath%\%pyfolder%\pkgs" "%workdir%\%pyfolder%\pkgs" urls.txt
 robocopy "%thispath%\files\miniconda" "%workdir%" /e
+IF exist "%thispath%\envs\%pyenv%\config" (
+	robocopy "%thispath%\envs\%pyenv%\config" "%workdir%\config" /e
+)
 
 echo Read the log if needed and press any key to continue.
 %debug%
