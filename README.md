@@ -3,7 +3,7 @@
 
 Python portable assistant is a set of batch scripts (and also standards of writing new batch scripts) that partially automate the process of creation of standalone Python applications for Windows. It's intended to be used with Anaconda packages repository and Qt-PySide. It also supports rapid concurrent creation of applications for 32 bit and 64 bit operational systems and for different Python versions. 
 
-- The instructions of setting up are given in [__Setting up Python portable assistant (for Windows).md](setup).
+- The instructions of setting up are given in [__Setting up Python portable assistant (for Windows).md][setup].
 
 - The assistant uses Miniconda Python distribution and it's package repository as a basis but also allows using pip (sure it does).
 
@@ -27,8 +27,8 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 ## Brief description of the work
 
 1. The assistant should be installed to proper folders.
-2. Python compilers and Notepad++ should be installed ([example](setup)). 
-3. User fills batch script that specifies shortcuts to python scripts ([example](setup)).
+2. Python compilers and Notepad++ should be installed ([example][setup]). 
+3. User fills batch script that specifies shortcuts to python scripts ([example][setup]).
 4. User fills `*.yml` file that specifies conda environment.
 5. User fills *optional* batch script that caches pip wheels and git repositories.
 6. User fills batch script that perform additional conda and pip installations, and also patches files if needed.
