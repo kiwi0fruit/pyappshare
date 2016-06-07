@@ -33,7 +33,7 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 5. User fills *optional* batch script that caches pip wheels and git repositories ([example][enaml_test_download]).
 6. User fills batch script that perform additional conda and pip installations, and also patches files if needed ([example][enaml_test_install]).
 7. The alogorithms from 4-6 are described in the [example][enaml_test_information] description. 
-8. Then the environment is created and patched (if needed).
+8. Then the environment is created and patched (if needed). To do this the user edits `0 *.cmd` and then successively runs `N *.cmd` files: `N = 0,...,10`.
 9. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution ([example][output_example]). So the folder can be zipped and sent to end-user.
 10. In 9. cached conda and pip packages are not copied to the new folder. MKL package is uninstalled. Mingwpy package is uninstalled. The `tar.bz2` package with latest MKL version is determined in conda cache folder and copied to the new folder. Batch script that can install MKL package on the end-user computer is added.
 11. About patches. There are two kinds of them:
