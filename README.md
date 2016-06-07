@@ -36,7 +36,9 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 8. Then the environment is created and patched (if needed).
 9. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution. So the folder can be zipped and sent to end-user.
 10. In 9. cached conda and pip packages are not copied to the new folder. MKL package is uninstalled. Mingwpy package is uninstalled. The `tar.bz2` package with latest MKL version is determined in conda cache folder and copied to the new folder. Batch script that can install MKL package on the end-user computer is added.
-11. About patches. Some patches are applied to the files specified. User also provides hash for the file to be patched. If the specified file's hash checksum matches with the provided hash then the patch is applied (actually the file is replaced by patched version). If it doesn't match then warning nessage is shown.
+11. About patches. There are two kinds of them:
+  - If needed some patches are applied to the files specified. User also provides hash for the file to be patched. If the specified file's hash checksum matches with the provided hash then the patch is applied (actually the file is replaced by patched version). If it doesn't match then warning nessage is shown.
+  - If needed regualar expressions patches are applied to all files in the specified directories via Notepad++. Notepadd++ is automatically opened with automatically added regular expressions. So the user doesn't need to copy-paste anything.
 
 
 [setup]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/__Setting%20up%20Python%20portable%20assistant%20(for%20Windows).md
