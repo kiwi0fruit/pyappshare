@@ -34,7 +34,7 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 6. User fills batch script that perform additional conda and pip installations, and also patches files if needed ([example][enaml_test_install]).
 7. The alogorithms from 4-6 are described in the [example][enaml_test_information] description. 
 8. Then the environment is created and patched (if needed).
-9. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution. So the folder can be zipped and sent to end-user.
+9. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution ([example][output_example]). So the folder can be zipped and sent to end-user.
 10. In 9. cached conda and pip packages are not copied to the new folder. MKL package is uninstalled. Mingwpy package is uninstalled. The `tar.bz2` package with latest MKL version is determined in conda cache folder and copied to the new folder. Batch script that can install MKL package on the end-user computer is added.
 11. About patches. There are two kinds of them:
   - If needed some patches are applied to the files specified. User also provides hash for the file to be patched. If the specified file's hash checksum matches with the provided hash then the patch is applied (actually the file is replaced by patched version). If it doesn't match then warning nessage is shown.
@@ -47,3 +47,4 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 [enaml_test_download]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/download.cmd
 [enaml_test_install]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/install.cmd
 [enaml_test_information]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/information.md
+[output_example]: https://github.com/kiwi0fruit/python-portable-assistant/tree/master/__hidden/output_example_without_interpreter
