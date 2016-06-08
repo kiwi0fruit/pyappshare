@@ -51,6 +51,6 @@ call "%funcs%" hashcopy no_pyqt\qtpy Lib\site-packages\qtpy __init__.py
 call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\enaml "Patch Enaml"
 call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\pyqtgraph "Patch PyQtGraph"
 call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\qtpy "Patch QtPy"
-call "%funcs%" notepadppRegExp no_pyqt\notepadpp2 Lib\site-packages "Check _import PyQt_ but do not replace!"
+call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages "Check _import/from PyQt_ but do not replace!"
 
 )
