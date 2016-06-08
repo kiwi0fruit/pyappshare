@@ -1,7 +1,7 @@
 """
 This module exists to smooth out some of the differences between PySide and PyQt4:
 
-* Automatically import either PyQt4 or PySide depending on availability
+* Automatically import either qtpy1 or PySide depending on availability
 * Allow to import QtCore/QtGui pyqtgraph.Qt without specifying which Qt wrapper
   you want to use.
 * Declare QtCore.Signal, .Slot in PyQt4  
@@ -15,7 +15,7 @@ from .python2_3 import asUnicode
 
 ## Automatically determine whether to use PyQt or PySide. 
 ## This is done by first checking to see whether one of the libraries
-## is already imported. If not, then attempt to import PyQt4, then PySide.
+## is already imported. If not, then attempt to import qtpy1, then PySide.
 
 if 'PySide' in sys.modules:
     USE_PYSIDE = True

@@ -84,15 +84,15 @@ class PythonQtError(Exception):
 
 if API in PYQT5_API:
     try:
-        from PyQt5.QtCore import PYQT_VERSION_STR as __version__
-        from PyQt5 import uic                                     # analysis:ignore
+        from qtpy1.QtCore import PYQT_VERSION_STR as __version__
+        from qtpy1 import uic                                     # analysis:ignore
     except ImportError:
         API = os.environ['QT_API'] = 'pyqt'
         API_NAME = 'PyQt4'
 
 if API in PYQT4_API:
     try:
-        import sip
+        import qtpy1
         try:
             sip.setapi('QString', 2)
             sip.setapi('QVariant', 2)
@@ -105,8 +105,8 @@ if API in PYQT4_API:
             # PyQt < v4.6
             pass
 
-        from PyQt4.QtCore import PYQT_VERSION_STR as __version__  # analysis:ignore
-        from PyQt4 import uic                                     # analysis:ignore
+        from qtpy1.QtCore import PYQT_VERSION_STR as __version__  # analysis:ignore
+        from qtpy1 import uic                                     # analysis:ignore
         PYQT5 = False
         PYQT4 = True
     except ImportError:
@@ -115,7 +115,7 @@ if API in PYQT4_API:
     else:
         is_old_pyqt = __version__.startswith(('4.4', '4.5', '4.6', '4.7'))
         is_pyqt46 = __version__.startswith('4.6')
-        import sip
+        import qtpy1
         try:
             API_NAME += (" (API v{0})".format(sip.getapi('QString')))
         except AttributeError:
