@@ -1,3 +1,6 @@
+conda remove --force mkl
+conda install --force --copy mkl
+
 IF %pyver%==py27 (
 	pip install --find-links="%envcache%" mingwpy
 	conda remove --force pyqt sip qt enaml pyqtgraph qtpy
