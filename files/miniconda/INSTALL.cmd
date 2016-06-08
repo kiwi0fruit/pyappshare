@@ -8,7 +8,7 @@ set PYTHONPATH=%thispath%\%pyfolder%
 set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
 cd /d %thispath%\%pyfolder%\Scripts
-cmd "/c activate %pyenv%_%pyver% && conda install --force --copy --yes --offline %mklfile% && deactivate"
+cmd "/c activate %pyenv%_%pyver% && conda install --force --yes --offline %mklfile% && deactivate"
 
 pause
 

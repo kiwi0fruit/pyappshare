@@ -1,3 +1,6 @@
+set PYTHONPATH=%pypath%\%pyfolder%
+set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
+
 set here=%~dp0
 set thispath=%here:~0,-1%
 set workdir=%pyout%\%pyfolder%
@@ -8,6 +11,19 @@ set funcs=%thispath%\files\functions.cmd
 
 call "%funcs%" checkvars
 pause
+
+
+
+cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
+
+cd /d "%workdir%\License and Source and Info"
+cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
+cmd "/c activate %pyenv%_%pyver% && conda remove --force mkl && deactivate"
+
+
+echo Read the log if needed and press any key to continue.
+%debug%
+
 
 
 robocopy "%pypath%\%pyfolder%" "%workdir%\%pyfolder%" /e /xd "%pypath%\%pyfolder%\envs" "%pypath%\%pyfolder%\pkgs"
@@ -75,18 +91,7 @@ set targetpath=%workdir%\INSTALL.cmd
 powershell -Command "(Get-Content '%targetpath%') -replace '__mklfile', '%mklfile%' | Set-Content '%targetpath%'"
 
 
-set PYTHONPATH=%workdir%\%pyfolder%
-set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
-
-echo Read the log if needed and press any key to continue.
-%debug%
-
-
-cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
-
-cd /d "%workdir%\License and Source and Info"
-cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
-cmd "/c activate %pyenv%_%pyver% && conda remove --force mkl && deactivate"
+cmd "/c activate %pyenv%_%pyver% && conda install --force mkl && deactivate"
 
 pause
