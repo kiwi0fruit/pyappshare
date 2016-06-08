@@ -16,7 +16,9 @@ pause
 
 cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
 
-cd /d "%workdir%\License and Source and Info"
+set outdir=%workdir%\License and Source and Info
+IF not exist "%outdir%" mkdir "%outdir%"
+cd /d "%outdir%"
 cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
 cmd "/c activate %pyenv%_%pyver% && conda remove --force mkl && deactivate"
 
