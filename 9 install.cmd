@@ -30,7 +30,6 @@ del __temp__.txt
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
 set hash=0
 set hash2=0
-set hashA=0
 :: hashA: hash after
 
 cd /d %thispath%\envs\%pyenv%

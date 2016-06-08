@@ -1,6 +1,0 @@
-name: enaml_test_py27
-dependencies:
-  - python=2.7
-  - pyqtgraph
-  - enaml
-  - qtpy

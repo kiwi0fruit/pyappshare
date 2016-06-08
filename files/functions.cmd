@@ -7,10 +7,19 @@ set fromdir=%~1
 set todir=%~2
 set target=%~3
 
-set command=PowerShell -C "$($(CertUtil -hashfile '%envpath%\%todir%\%target%' SHA256)[1] -replace ' ','')"
+
+set hashtarget=%envpath%\%todir%\%target%
+set command=PowerShell -C "$($(CertUtil -hashfile '%hashtarget%' SHA256)[1] -replace ' ','')"
 set targethash=O
-IF exist "%envpath%\%todir%\%target%" (
+IF exist "%hashtarget%" (
 	FOR /F "delims=" %%i IN ('%command%') DO set targethash=%%i
+)
+
+set hashtarget=%thispath%\files\%fromdir%\%target%
+set command=PowerShell -C "$($(CertUtil -hashfile '%hashtarget%' SHA256)[1] -replace ' ','')"
+set hashAfter=O
+IF exist "%hashtarget%" (
+	FOR /F "delims=" %%i IN ('%command%') DO set hashAfter=%%i
 )
 
 set "True="
@@ -20,7 +29,7 @@ IF /i %targethash%==%hash2% set True=1
 IF defined True (
 	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
 	Powershell write-host -foregroundcolor Green "Patch was applied."
-) ELSE IF /i %targethash%==%hashA% (
+) ELSE IF /i %targethash%==%hashAfter% (
 	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
 ) ELSE (
 	Powershell write-host -foregroundcolor Red "WARNING! Hash does not match. Patch was not applied."

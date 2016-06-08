@@ -1,1 +1,0 @@
-﻿Distributable QtPy, PyQtGraph and Enaml modules were patched and they can not import from PyQt. They can only work with PySide.

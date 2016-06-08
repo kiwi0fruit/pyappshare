@@ -1,7 +1,12 @@
 @ echo off
+set here=%~dp0
+set thispath=%here:~0,-1%
+
 
 set target=C:\Program Files\Windows Media Player\wmplayer.exe
 set hash=0
+
+
 set hashAlg=SHA256
 :: hashAlg choices: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
 
