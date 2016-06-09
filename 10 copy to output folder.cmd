@@ -89,7 +89,7 @@ set targetpath=%workdir%\config\config.cmd
 powershell -Command "(Get-Content '%targetpath%') -replace '__pyfolder', '%pyfolder%' | Set-Content '%targetpath%'"
 powershell -Command "(Get-Content '%targetpath%') -replace '__pyenv', '%pyenv%' | Set-Content '%targetpath%'"
 powershell -Command "(Get-Content '%targetpath%') -replace '__pyver', '%pyver%' | Set-Content '%targetpath%'"
-set targetpath=%workdir%\INSTALL.cmd
+set targetpath=%workdir%\config\mkl.cmd
 powershell -Command "(Get-Content '%targetpath%') -replace '__mklfile', '%mklfile%' | Set-Content '%targetpath%'"
 
 
