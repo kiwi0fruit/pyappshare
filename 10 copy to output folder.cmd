@@ -6,13 +6,13 @@ set thispath=%here:~0,-1%
 
 set xbit=ERROR
 IF %pyfolder%==Miniconda64 (
-	set xbit=64
+	set xbit=64bit
 )
 IF %pyfolder%==Miniconda32 (
-	set xbit=32
+	set xbit=32bit
 )
 
-set workdir=%pyout%\%pyapp%-%xbit%bit-%pyver%
+set workdir=%pyout%\%pyapp%-%xbit%-%pyver%.7z
 set "debug="
 ::set debug=pause
 set funcs=%thispath%\files\functions.cmd

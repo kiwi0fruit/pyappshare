@@ -16,6 +16,8 @@ Setting up Python portable assistant (for Windows)
 
 * Install [Git](https://git-scm.com/downloads) with default settings.
 
+* (*Optional*) Install [7-Zip](http://www.7-zip.org/) for creation of SFX archives. 
+
 * Install compiler for Python 3.5.
 
   Install [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126). Install it with Windows SDK 8.1. More info [here](https://blogs.msdn.microsoft.com/vcblog/2016/03/31/announcing-the-official-release-of-the-visual-c-build-tools-2015/).

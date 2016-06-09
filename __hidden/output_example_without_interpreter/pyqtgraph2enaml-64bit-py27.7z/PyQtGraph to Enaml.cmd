@@ -1,9 +1,3 @@
-if not "%minimized%"=="" goto :minimized
-set minimized=true
-start /min cmd /C "%~dpnx0"
-goto :EOF
-:minimized
-
 set pyscript=pyqtgraph2enaml\pyqtgraph2enaml.py
 
 set here=%~dp0
