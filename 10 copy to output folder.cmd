@@ -3,7 +3,16 @@ set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
 set here=%~dp0
 set thispath=%here:~0,-1%
-set workdir=%pyout%\%pyfolder%
+
+set xbit=ERROR
+IF %pyfolder%==Miniconda64 (
+	set xbit=64
+)
+IF %pyfolder%==Miniconda32 (
+	set xbit=32
+)
+
+set workdir=%pyout%\%pyapp%-%xbit%bit-%pyver%
 set "debug="
 ::set debug=pause
 set funcs=%thispath%\files\functions.cmd
@@ -13,10 +22,13 @@ call "%funcs%" checkvars
 pause
 
 
-
 cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
 
+IF exist "%workdir%\config" rd /s /q "%workdir%\config"
+IF exist "%workdir%\apps" rd /s /q "%workdir%\apps"
+IF exist "%workdir%\%pyfolder%\pkgs" rd /s /q "%workdir%\%pyfolder%\pkgs"
 set outdir=%workdir%\License and Source and Info
+IF exist "%outdir%" rd /s /q "%outdir%"
 IF not exist "%outdir%" mkdir "%outdir%"
 cd /d "%outdir%"
 cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
@@ -27,9 +39,8 @@ echo Read the log if needed and press any key to continue.
 %debug%
 
 
-
-robocopy "%pypath%\%pyfolder%" "%workdir%\%pyfolder%" /e /xd "%pypath%\%pyfolder%\envs" "%pypath%\%pyfolder%\pkgs"
-robocopy "%pypath%\%pyfolder%\envs\%pyenv%_%pyver%" "%workdir%\%pyfolder%\envs\%pyenv%_%pyver%" /e
+robocopy "%pypath%\%pyfolder%" "%workdir%\%pyfolder%" /mir /xd "%pypath%\%pyfolder%\envs" "%pypath%\%pyfolder%\pkgs"
+robocopy "%pypath%\%pyfolder%\envs\%pyenv%_%pyver%" "%workdir%\%pyfolder%\envs\%pyenv%_%pyver%" /mir
 robocopy "%pypath%\%pyfolder%\pkgs\cache" "%workdir%\%pyfolder%\pkgs\cache" /e
 robocopy "%pypath%\%pyfolder%\pkgs" "%workdir%\%pyfolder%\pkgs" urls.txt
 robocopy "%thispath%\files\miniconda" "%workdir%" /e
@@ -37,8 +48,10 @@ IF exist "%thispath%\envs\%pyenv%\config" (
 	robocopy "%thispath%\envs\%pyenv%\config" "%workdir%\config" /e
 )
 
+
 echo Read the log if needed and press any key to continue.
 %debug%
+
 
 robocopy "%thispath%\apps\%pyapp%" "%workdir%" /e /xf "shortcuts.cmd"
 

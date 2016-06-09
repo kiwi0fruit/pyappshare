@@ -7,9 +7,6 @@ set PYTHONPATH=%thispath%\%pyfolder%
 set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
 cd /d %thispath%\%pyfolder%\Scripts
-cmd "/c activate %pyenv%_%pyver% && conda remove --force --yes mkl && deactivate && conda clean --packages --yes"
-
-set targetfile=%thispath%\%pyfolder%\pkgs\%mklfile%
-IF exist "%targetfile%" del /q "%targetfile%"
+cmd "/c activate %pyenv%_%pyver% && conda install --force --yes --offline %mklfile% && deactivate"
 
 pause
