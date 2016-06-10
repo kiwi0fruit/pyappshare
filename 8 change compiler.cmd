@@ -19,8 +19,8 @@ set hash2=0
 
 IF %pyver%==py27 (
 	:: hash: msvc, hash2: mingwpy
-	set hash=ac67b06633f20e36b3255263c1e1977ae5eecb4fffbec2d42c3ba70cf4696051
-	set hash2=8cd72164a78c9fc7a2c0d969ca14881510d9422831bda5d23fbdc2192784d6e6
+	set hash=71113d631ff265080cb60e4b1e683bfbad7e93aebb84f654d4c92f34d5b5a424
+	set hash2=88607dc72aa8f66d6342bd38fe28606f9c0ff9fb8fbe27987807bfa9dfd5c01d
 	call "%funcs%" hashcopy compiler\%pycomp% Lib\distutils distutils.cfg nofile
 )
 
