@@ -4,7 +4,7 @@ call "%thispath%\config\config.cmd"
 call "%thispath%\config\mkl.cmd"
 
 set PYTHONPATH=%thispath%\%pyfolder%
-set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
+set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
 cd /d %thispath%\%pyfolder%\Scripts
 cmd "/c activate %pyenv%_%pyver% && conda remove --force --yes mkl && deactivate"
