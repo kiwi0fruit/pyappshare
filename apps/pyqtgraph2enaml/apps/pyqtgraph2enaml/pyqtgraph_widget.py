@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# pyqtgraph PlotWidget
+# PyQtGraph PlotWidget
 
 from enaml.widgets.api import RawWidget
 from enaml.core.declarative import d_
@@ -8,8 +8,8 @@ from pyqtgraph import PlotWidget, PlotDataItem
 from numpy import ndarray
 
 
-class PGPlotWidget(RawWidget):
-    startData = d_(Typed(ndarray))
+class PyQtGraphWidget(RawWidget):
+    start_data = d_(Typed(ndarray))
     _plot = Typed(PlotDataItem)
 
     #: expand freely in height and width by default.
@@ -19,7 +19,7 @@ class PGPlotWidget(RawWidget):
     def create_widget(self, parent):
         widget = PlotWidget(parent)
         self._plot = widget.plot(pen='y')
-        self._plot.setData(self.startData)
+        self._plot.setData(self.start_data)
         widget.enableAutoRange('xy', False)
         return widget
 

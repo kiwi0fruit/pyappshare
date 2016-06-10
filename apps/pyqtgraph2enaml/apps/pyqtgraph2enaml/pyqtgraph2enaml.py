@@ -1,29 +1,30 @@
 ﻿# -*- coding: utf-8 -*-
 from __future__ import unicode_literals    # at top of module
 
-# Model part:
+# MODEL:
 import numpy as np
-# Controller part:
+
+# CONTROLLER:
 import enaml
 from enaml.qt.qt_application import QtApplication
 # import qtpy
 
 
-# << Model part:
+# <MODEL>
 data = np.random.normal(size=(10, 1000))
-# >>
+# </MODEL>
 
 
-# << Controller part:
+# <CONTROLLER>
 with enaml.imports():
     from pyqtgraph2enaml_view import Main
 
-view = Main(data=data, timerTrigger=0)
+view = Main(data=data, timer_trigger=0)
 app = QtApplication()
-app.timed_call(50, setattr, view, "timerTrigger", 1)
+app.timed_call(50, setattr, view, "timer_trigger", 1)
 
 
 view.show()
 # Start the application event loop
 app.start()
-# >>
+# </CONTROLLER>
