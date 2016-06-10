@@ -4,3 +4,4 @@ IF exist "%thispath%\config\env.cmd" (
 )
 cd /d %thispath%\%pyfolder%\envs\%pyenv%_%pyver%
 python "%thispath%\apps\%pyscript%"
+exit
