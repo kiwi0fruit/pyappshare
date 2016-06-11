@@ -42,7 +42,7 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 
 
 [setup]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/__Setting%20up%20Python%20portable%20assistant%20(for%20Windows).md
-[shortcuts]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/apps/pyqtgraph2enaml/shortcuts.cmd
+[shortcuts]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/apps/pyqtgraph2enaml/shortcuts.ps1
 [enaml_test_yml]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/py27.yml
 [enaml_test_download]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/download.cmd
 [enaml_test_install]: https://github.com/kiwi0fruit/python-portable-assistant/blob/master/envs/enaml_test/install.cmd
