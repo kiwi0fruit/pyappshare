@@ -39,7 +39,7 @@ Setting up Python portable assistant (for Windows)
   ```
   First is the path to the folder that contain Miniconda32 and Miniconda64 folders (e.g. `C:\Miniconda`)
   
-  `<<OutputPath>>` should contain english names only. It's the path to the folder (e.g. `D:`) to which __one folder only__ with portable Python will be copied. The copied folder will be named `Miniconda32` or `Miniconda64`.
+  `<<OutputPath>>` should contain english names only. It's the path to the folder (e.g. `D:`) to which __one folder only__ with portable Python will be copied. The copied folder will be named `%pyapp%-32bit-%pyver%.7z` or `%pyapp%-64bit-%pyver%.7z` (see below the new variables).
 
 * Run 
   `setx -m pyfolder Miniconda32`
