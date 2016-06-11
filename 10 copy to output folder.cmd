@@ -16,6 +16,7 @@ set workdir=%pyout%\%pyapp%-%xbit%-%pyver%.7z
 set "debug="
 ::set debug=pause
 set funcs=%thispath%\files\functions.cmd
+set psfuncs=%thispath%\files\functions.psm1
 
 
 call "%funcs%" checkvars
@@ -53,10 +54,8 @@ echo Read the log if needed and press any key to continue.
 %debug%
 
 
-robocopy "%thispath%\apps\%pyapp%" "%workdir%" /e /xf "shortcuts.cmd"
-
-
-call "%thispath%\apps\%pyapp%\shortcuts.cmd"
+robocopy "%thispath%\apps\%pyapp%" "%workdir%" /e /xf "shortcuts.ps1"
+Powershell -executionpolicy remotesigned -File  "%thispath%\apps\%pyapp%\shortcuts.ps1"
 
 
 :: MKL begin

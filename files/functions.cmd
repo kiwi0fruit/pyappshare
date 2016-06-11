@@ -40,22 +40,6 @@ set hashA=0
 exit/b
 
 
-:shortcut
-set pyname=%~1
-set pyscript=%~2
-
-robocopy "%thispath%\files\shortcut" "%workdir%"
-set targetpath=%workdir%\shortcut.cmd
-powershell -Command "(Get-Content '%targetpath%') -replace '__pyscript', '%pyscript%' | Set-Content '%targetpath%'"
-cd /d "%workdir%"
-IF exist "%pyname%.cmd" (
-	del "%pyname%.cmd"
-)
-rename shortcut.cmd "%pyname%.cmd"
-
-exit/b
-
-
 :notepadppRegExp
 set fromfolder=%~1
 set targetfolder=%~2
