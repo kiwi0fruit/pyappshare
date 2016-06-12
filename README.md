@@ -28,7 +28,7 @@ Python portable assistant is a set of batch scripts (and also standards of writ
 
 1. The assistant should be installed to proper folders.
 2. Python compilers and Notepad++ should be installed ([example][setup]). 
-3. User fills batch script that specifies shortcuts to python scripts ([example][shortcuts]).
+3. User fills PowerShell script that specifies shortcuts to python scripts ([example][shortcuts]).
 4. User fills `*.yml` file that specifies conda environment ([example][enaml_test_yml]).
 5. User fills *optional* batch script that caches pip wheels and git repositories ([example][enaml_test_download]).
 6. User fills batch script that perform additional conda and pip installations, and also patches files if needed ([example][enaml_test_install]).
