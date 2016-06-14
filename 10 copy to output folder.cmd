@@ -26,6 +26,10 @@ call "%funcs%" checkvars
 pause
 
 
+set outdir=%workdir%\License and Source and Info
+IF exist "%outdir%" rd /s /q "%outdir%"
+
+
 IF exist "%workdir%\config" rd /s /q "%workdir%\config"
 IF exist "%workdir%\apps" rd /s /q "%workdir%\apps"
 IF exist "%workdir%\%pyfolder%\pkgs" rd /s /q "%workdir%\%pyfolder%\pkgs"
