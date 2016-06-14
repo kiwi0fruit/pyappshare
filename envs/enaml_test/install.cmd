@@ -1,5 +1,8 @@
-IF %pyver%==py27 (
+IF %pyver%==py27 IF %pycomp%==mingwpy (
 	pip install --find-links="%envcache%" mingwpy
+)
+
+IF %pyver%==py27 (
 	conda remove --force pyqt sip qt enaml pyqtgraph qtpy
 	conda install pyside
 	conda install --force --copy enaml pyqtgraph qtpy
@@ -48,9 +51,9 @@ call "%funcs%" hashcopy no_pyqt\qtpy Lib\site-packages\qtpy __init__.py
 
 
 :: no pyqt: notepad++ reg exp
-call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\enaml "Patch Enaml"
-call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\pyqtgraph "Patch PyQtGraph"
-call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\qtpy "Patch QtPy"
-call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages "Check _import/from PyQt_ but do not replace!"
+call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\enaml "Patch Enaml" Yellow
+call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\pyqtgraph "Patch PyQtGraph" Yellow
+call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages\qtpy "Patch QtPy" Yellow
+call "%funcs%" notepadppRegExp no_pyqt\notepadpp Lib\site-packages "Check _import/from PyQt_ but do not replace!" Red
 
 )

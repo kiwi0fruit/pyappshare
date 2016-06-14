@@ -6,7 +6,7 @@ function shortcut
 	robocopy "$env:thispath\files\shortcut" "$env:workdir"
 	$targetpath="$env:workdir\shortcut.cmd"
 	
-	(Get-Content "$targetpath") -replace '__pyscript', '$pyscript' | Set-Content "$targetpath"
+	(Get-Content "$targetpath") -replace '__pyscript', "$pyscript" | Set-Content "$targetpath"
 	
 	cd "$env:workdir"
 	IF (Test-Path "$pyname.cmd") {

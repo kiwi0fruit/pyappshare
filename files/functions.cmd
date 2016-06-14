@@ -44,6 +44,7 @@ exit/b
 set fromfolder=%~1
 set targetfolder=%~2
 set message=%~3
+set color=%~4
 
 taskkill /im notepad++.exe
 set notepadpp=%APPDATA%\Notepad++
@@ -51,9 +52,9 @@ robocopy "%notepadpp%" "%notepadpp%\__temp" session.xml config.xml
 robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" config.xml
 robocopy "%thispath%\files\notepadpp" "%notepadpp%" session.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'CustomPathToPythonSitePackages', '%pypath%\%pyfolder%\envs\%pyenv%_%pyver%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor Red "Do not close this window before closing Notepad++ window"
-Powershell write-host -foregroundcolor Green "Press Ctrl+Shift+F"
-Powershell write-host -foregroundcolor Yellow "%message%"
+Powershell write-host -foregroundcolor White "Do not close this window before closing Notepad++ window"
+Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F"
+Powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
 robocopy "%notepadpp%\__temp" "%notepadpp%" session.xml config.xml
 

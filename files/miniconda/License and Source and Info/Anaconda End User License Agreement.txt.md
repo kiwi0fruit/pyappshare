@@ -1,3 +1,4 @@
+https://docs.continuum.io/anaconda/eula
 ================
 Anaconda License
 ================

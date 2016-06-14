@@ -1,8 +1,11 @@
+set PathBackup=%PATH%
+
 set PYTHONPATH=%pypath%\%pyfolder%
-set PATH=%PATH%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
+set PATH=%PathBackup%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
 
 set here=%~dp0
 set thispath=%here:~0,-1%
+
 
 set xbit=ERROR
 IF %pyfolder%==Miniconda64 (
@@ -23,16 +26,9 @@ call "%funcs%" checkvars
 pause
 
 
-cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
-
 IF exist "%workdir%\config" rd /s /q "%workdir%\config"
 IF exist "%workdir%\apps" rd /s /q "%workdir%\apps"
 IF exist "%workdir%\%pyfolder%\pkgs" rd /s /q "%workdir%\%pyfolder%\pkgs"
-set outdir=%workdir%\License and Source and Info
-IF exist "%outdir%" rd /s /q "%outdir%"
-IF not exist "%outdir%" mkdir "%outdir%"
-cd /d "%outdir%"
-cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
 cmd "/c activate %pyenv%_%pyver% && conda remove --force mkl && deactivate"
 
 
@@ -105,7 +101,14 @@ set targetpath=%workdir%\config\mkl.cmd
 powershell -Command "(Get-Content '%targetpath%') -replace '__mklfile', '%mklfile%' | Set-Content '%targetpath%'"
 
 
-
 cmd "/c activate %pyenv%_%pyver% && conda install --force mkl && deactivate"
+
+
+set PYTHONPATH=%workdir%\%pyfolder%
+set PATH=%PathBackup%;%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;
+
+cmd "/c activate %pyenv%_%pyver% && pip uninstall mingwpy && deactivate"
+cd /d "%workdir%\License and Source and Info"
+cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
 
 pause
