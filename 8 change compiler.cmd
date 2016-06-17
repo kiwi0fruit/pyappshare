@@ -12,9 +12,6 @@ pause
 
 :: needed for functions.cmd:
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
-set hash=0
-set hash2=0
-:: hashA: hash after
 
 
 :: hash: msvc, hash2: mingwpy
