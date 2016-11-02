@@ -32,6 +32,6 @@ set hash=0
 set hash2=0
 :: hashA: hash after
 
-cd /d %thispath%\envs\%pyenv%
+cd /d %thispath%\envs\%pyenv%_%pyver%
 cmd "/c activate %pyenv%_%pyver% && install.cmd && deactivate"
 pause
