@@ -10,12 +10,14 @@ from atom.api import Typed, atomref
 from enaml.widgets.dialog import ProxyDialog
 from enaml.widgets.window import CloseEvent
 
-from .QtCore import Qt
-from .QtWidgets import QDialog
+from .QtCore import Qt, QSize
+from .QtWidgets import QDialog, QLayout
 
 from .q_deferred_caller import deferredCall
-from .q_window_base import QWindowBase
+from .q_window_base import QWindowBase, QWindowLayout
 from .qt_window import QtWindow, finalize_close
+
+from . import QT_API
 
 
 class QWindowDialog(QDialog, QWindowBase):
@@ -39,6 +41,14 @@ class QWindowDialog(QDialog, QWindowBase):
 
         """
         super(QWindowDialog, self).__init__(parent, flags)
+        # Pyside's mro goes off the rails and the QWindowBase.__init__ method does not get called.
+        # Copy in the necessary layout code here.
+        if QT_API == 'pyside':
+            self._expl_min_size = QSize()
+            self._expl_max_size = QSize()
+            layout = QWindowLayout()
+            layout.setSizeConstraint(QLayout.SetMinAndMaxSize)
+            self.setLayout(layout)
         self._proxy_ref = atomref(proxy)
 
     def closeEvent(self, event):

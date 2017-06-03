@@ -24,7 +24,7 @@ QT_LIB = os.getenv('PYQTGRAPH_QT_LIB')
 ## This is done by first checking to see whether one of the libraries
 ## is already imported. If not, then attempt to import PyQt4, then PySide.
 if QT_LIB is None:
-    libOrder = [PYQT4, PYSIDE, PYQT5]
+    libOrder = [PYSIDE]
 
     for lib in libOrder:
         if lib in sys.modules:
@@ -41,7 +41,7 @@ if QT_LIB is None:
             pass
 
 if QT_LIB is None:
-    raise Exception("PyQtGraph requires one of PyQt4, PyQt5 or PySide; none of these packages could be imported.")
+    raise Exception("PyQtGraph requires PySide; it couldn't be imported.")
 
 if QT_LIB == PYSIDE:
     from PySide import QtGui, QtCore, QtOpenGL, QtSvg
@@ -128,113 +128,17 @@ if QT_LIB == PYSIDE:
 
         return form_class, base_class
 
-elif QT_LIB == PYQT4:
-
-    from PyQt4 import QtGui, QtCore, uic
-    try:
-        from PyQt4 import QtSvg
-    except ImportError:
-        pass
-    try:
-        from PyQt4 import QtOpenGL
-    except ImportError:
-        pass
-    try:
-        from PyQt4 import QtTest
-    except ImportError:
-        pass
-
-    VERSION_INFO = 'PyQt4 ' + QtCore.PYQT_VERSION_STR + ' Qt ' + QtCore.QT_VERSION_STR
-
-elif QT_LIB == PYQT5:
-    
-    # We're using PyQt5 which has a different structure so we're going to use a shim to
-    # recreate the Qt4 structure for Qt5
-    from PyQt5 import QtGui, QtCore, QtWidgets, uic
-    try:
-        from PyQt5 import QtSvg
-    except ImportError:
-        pass
-    try:
-        from PyQt5 import QtOpenGL
-    except ImportError:
-        pass
-    try:
-        from PyQt5 import QtTest
-        QtTest.QTest.qWaitForWindowShown = QtTest.QTest.qWaitForWindowExposed
-    except ImportError:
-        pass
-
-    # Re-implement deprecated APIs
-
-    __QGraphicsItem_scale = QtWidgets.QGraphicsItem.scale
-
-    def scale(self, *args):
-        if args:
-            sx, sy = args
-            tr = self.transform()
-            tr.scale(sx, sy)
-            self.setTransform(tr)
-        else:
-            return __QGraphicsItem_scale(self)
-
-    QtWidgets.QGraphicsItem.scale = scale
-
-    def rotate(self, angle):
-        tr = self.transform()
-        tr.rotate(angle)
-        self.setTransform(tr)
-    QtWidgets.QGraphicsItem.rotate = rotate
-
-    def translate(self, dx, dy):
-        tr = self.transform()
-        tr.translate(dx, dy)
-        self.setTransform(tr)
-    QtWidgets.QGraphicsItem.translate = translate
-
-    def setMargin(self, i):
-        self.setContentsMargins(i, i, i, i)
-    QtWidgets.QGridLayout.setMargin = setMargin
-
-    def setResizeMode(self, *args):
-        self.setSectionResizeMode(*args)
-    QtWidgets.QHeaderView.setResizeMode = setResizeMode
-
-    
-    QtGui.QApplication = QtWidgets.QApplication
-    QtGui.QGraphicsScene = QtWidgets.QGraphicsScene
-    QtGui.QGraphicsObject = QtWidgets.QGraphicsObject
-    QtGui.QGraphicsWidget = QtWidgets.QGraphicsWidget
-
-    QtGui.QApplication.setGraphicsSystem = None
-    
-    # Import all QtWidgets objects into QtGui
-    for o in dir(QtWidgets):
-        if o.startswith('Q'):
-            setattr(QtGui, o, getattr(QtWidgets,o) )
-    
-    VERSION_INFO = 'PyQt5 ' + QtCore.PYQT_VERSION_STR + ' Qt ' + QtCore.QT_VERSION_STR
-
 else:
     raise ValueError("Invalid Qt lib '%s'" % QT_LIB)
 
-# Common to PyQt4 and 5
-if QT_LIB.startswith('PyQt'):
-    import sip
-    def isQObjectAlive(obj):
-        return not sip.isdeleted(obj)
-    loadUiType = uic.loadUiType
 
-    QtCore.Signal = QtCore.pyqtSignal
-    
 
-    
 ## Make sure we have Qt >= 4.7
 versionReq = [4, 7]
 USE_PYSIDE = QT_LIB == PYSIDE
 USE_PYQT4 = QT_LIB == PYQT4
 USE_PYQT5 = QT_LIB == PYQT5
-QtVersion = PySide.QtCore.__version__ if QT_LIB == PYSIDE else QtCore.QT_VERSION_STR
+QtVersion = PySide.QtCore.__version__
 m = re.match(r'(\d+)\.(\d+).*', QtVersion)
 if m is not None and list(map(int, m.groups())) < versionReq:
     print(list(map(int, m.groups())))
