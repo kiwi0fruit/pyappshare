@@ -2,7 +2,7 @@
 
 License Agreement
 
-The MKL Optimizations are included in the free Anaconda python distribution, and have been made available by the terms of the Anaconda End User License Agreement.
+The MKL Optimizations are included in the free Anaconda python distribution, and have been made available by the terms of the [Anaconda End User License Agreement](https://docs.continuum.io/anaconda/eula.html).
 
 Past versions of MKL Optimizations were not freely available in Anaconda, and have been made available separately by the terms of the [MKL Optimizations End User License Agreement](https://docs.continuum.io/mkl-optimizations/eula.html).
 

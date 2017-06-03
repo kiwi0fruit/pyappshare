@@ -6,7 +6,8 @@ from enaml.widgets.api import (
 from enaml.stdlib.message_box import information
 
 from pyqtgraph_widget import PyQtGraphWidget
-from utf8names import UTF8Names
+from enaml_unicode_names import u
+
 
 enamldef Main(Window): window:
     attr names = UTF8Names()
@@ -15,18 +16,21 @@ enamldef Main(Window): window:
     attr timer_trigger
     timer_trigger :: timer.start()
     
-    title = names.title
+    title = u('pyqtgragh_to_enaml_integration')
     Container:
         PyQtGraphWidget: pqg_plot:
             start_data = data[0]
         
         PushButton:
-            text = names.button
+            text = u('test_pyside_bug')
             clicked ::
-                information(self, "And...", "So?")
+                information(self, u('message_box_title'), u('pyside_bug_info'))
 
         Label:
-            text = names.text
+            text = u('unicode_from_py') + u('alpha_betta_gamma')
+
+        Label:
+            text = u('unicode_from_enaml') + "αβγ"
         
         Timer: timer:
             attr i = 1

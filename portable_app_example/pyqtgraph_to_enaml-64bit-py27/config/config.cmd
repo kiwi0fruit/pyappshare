@@ -1,3 +1,3 @@
-set pyfolder=Miniconda64
+set pyfolder=Miniconda3_x64
 set pyenv=enaml_test
-set pyver=py27
+set pyver=py36

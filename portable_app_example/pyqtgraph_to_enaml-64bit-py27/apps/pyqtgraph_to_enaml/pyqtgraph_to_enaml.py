@@ -17,7 +17,7 @@ data = np.random.normal(size=(10, 1000))
 
 # <CONTROLLER>
 with enaml.imports():
-    from pyqtgraph2enaml_view import Main
+    from pyqtgraph_to_enaml_view import Main
 
 view = Main(data=data, timer_trigger=0)
 app = QtApplication()
