@@ -1,0 +1,1 @@
+`Lib\site-packages\pyqtgraph`

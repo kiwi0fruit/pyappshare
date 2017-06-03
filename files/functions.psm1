@@ -3,7 +3,7 @@ function shortcut
 	$pyname=$args[0]
 	$pyscript=$args[1]
 	
-	robocopy "$env:thispath\files\shortcut" "$env:workdir"
+	robocopy "$env:thispath\files\root" "$env:workdir" shortcut.cmd
 	$targetpath="$env:workdir\shortcut.cmd"
 	
 	(Get-Content "$targetpath") -replace '__pyscript', "$pyscript" | Set-Content "$targetpath"

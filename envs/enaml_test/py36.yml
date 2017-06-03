@@ -1,0 +1,11 @@
+name: enaml_test_py36
+dependencies:
+  - python=3.6
+  - pyqtgraph
+  - qtpy
+  - matplotlib
+  - pip
+  - ply
+  - wheel
+  - future
+  - setuptools

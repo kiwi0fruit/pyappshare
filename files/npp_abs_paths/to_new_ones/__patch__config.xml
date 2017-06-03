@@ -1,0 +1,10 @@
+        <GUIConfig name="AppPosition" x="100" y="100" width="600" height="600" isMaximized="no" />
+...
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="yes" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="1" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Path name="nppStr_folder" />
+        <Filter name="*.*" />
+        <Find name="nppStr_find" />
+        <Replace name="nppStr_replace" />
+    </FindHistory>
+	<History nbMaxFile="15" inSubMenu="no" customLength="-1">
+    </History>

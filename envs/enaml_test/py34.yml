@@ -1,0 +1,11 @@
+name: enaml_test_py34
+dependencies:
+  - python=3.4
+  - pyqtgraph
+  - qtpy
+  - matplotlib
+  - pip
+  - ply
+  - wheel
+  - future
+  - setuptools

@@ -1,0 +1,10 @@
+        <GUIConfig name="AppPosition" x="100" y="100" width="600" height="600" isMaximized="no" />
+...
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="yes" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="yes" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="2" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Path name="nppRegExp_func_replace" />
+        <Filter name="*.py *.enaml" />
+        <Find name="(import|from)( .*? | )(PyQt5|PyQt4|sip|PyQt)(\.|,|;|:|-| |\n|\r\n)" />
+        <Replace name="$1$2qtpy1$4" />
+    </FindHistory>
+	<History nbMaxFile="15" inSubMenu="no" customLength="-1">
+    </History>

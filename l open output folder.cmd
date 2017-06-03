@@ -1,0 +1,2 @@
+cd /d %pyout%\
+start .
