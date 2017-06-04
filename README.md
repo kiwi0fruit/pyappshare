@@ -34,11 +34,11 @@
 4. User fills `*.yml` file that specifies conda environment ([example][enaml_test_yml]).
 5. User fills *optional* batch script that caches pip wheels and git repositories ([example][enaml_test_download]).
 6. User fills batch script that perform additional conda and pip installations, and also patches files if needed ([example][enaml_test_install]).
-7. Then the environment is created and patched (if needed). To do this the user edits `0 <...>.cmd` and then successively runs `N <...>.cmd` files: `N = 0,...,10`.
-8. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution ([example][output_example]). So the folder can be 7-zipped to self extracting archive and sent to end-user.
-9. In 8. cached conda and pip packages are not copied to the new folder. MKL package is uninstalled. Mingwpy package is uninstalled. The `tar.bz2` package with latest MKL version is determined in conda cache folder and copied to the new folder. Batch script that can install MKL package on the end-user computer is added.
+7. Then the environment is created and patched (if needed). To do this the user edits `0 <...>.cmd` and then successively runs `N <...>.cmd` files: `N = 0,...,9`.
+8. Then the Miniconda installation together with environment is copied to new folder. This folder already contains everything needed for distribution ([example][output_example]). So the folder can be 7-zipped to self extracting archive and sent to end-user (**7z** is preferable to **zip** because root python and environment python share lots of files and 7zip reuses them).
+9. In 8. cached conda and pip packages are not copied to the new folder. MKL package is uninstalled. Mingwpy package is uninstalled. The `tar.bz2` package with latest MKL version is determined in conda cache folder and copied to the new folder. Batch script that can install MKL package on the end-user computer is added. Some absolute paths are replaced.
 10. About patches. There are two kinds of them:
-  * If needed some patches are applied to the files specified. User also provides hash for the file to be patched. If the specified file's hash checksum matches with the provided hash then the patch is applied (actually the file is replaced by patched version). If it doesn't match then warning message is shown.
+  * If needed some patches are applied to the files specified. User also provides original version of the file to be patched. If the specified file's hash checksum matches with the original's file hash then the patch is applied (actually the file is replaced by patched version). If it doesn't match then warning message is shown.
   * If needed regular expressions patches are applied to all files in the specified directories via Notepad++. Notepad++ is automatically opened with automatically added regular expressions. So the user doesn't need to copy-paste anything.
 
 
