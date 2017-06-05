@@ -43,8 +43,8 @@
 
 
 [setup]: Setting_up_Python_Portable_Assistant.md
-[shortcuts]: apps/pyqtgraph2enaml/shortcuts.ps1
-[enaml_test_yml]: envs/enaml_test/py27.yml
+[shortcuts]: apps/pyqtgraph_to_enaml/shortcuts.ps1
+[enaml_test_yml]: envs/enaml_test/py36.yml
 [enaml_test_download]: envs/enaml_test/download.cmd
 [enaml_test_install]: envs/enaml_test/install.cmd
-[output_example]: app_output_example
+[output_example]: portable_app_example
