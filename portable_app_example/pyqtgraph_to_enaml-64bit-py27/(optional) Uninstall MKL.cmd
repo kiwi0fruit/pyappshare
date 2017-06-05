@@ -15,4 +15,7 @@ cmd "/c conda clean --packages --yes"
 set targetfile=%thispath%\%pyfolder%\pkgs\%mklfile%
 IF exist "%targetfile%" del /q "%targetfile%"
 
+set CondaTrash=%thispath%\%pyfolder%\pkgs\.trash
+IF exist "%CondaTrash%" rd /s /q "%CondaTrash%"
+
 pause
