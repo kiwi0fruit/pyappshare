@@ -40,3 +40,15 @@ REM // Pip direct URL download
 REM ===============================
 REM // set URL=https://pypi.python.org/<...>cp27-cp27m-win32.whl
 REM // IF %pyver%==py27 IF %pybit%==32 pip download %URL%
+
+
+
+REM // Enaml for Python 3 installation from GitHub
+REM ==============================================
+REM // cd /d "%envcache%"
+REM // rmdir kiwisolver /s /q
+REM // git clone https://github.com/nucleic/kiwi.git kiwisolver
+REM // rmdir atom /s /q
+REM // git clone -b py23 https://github.com/MatthieuDartiailh/atom.git
+REM // rmdir enaml /s /q
+REM // git clone -b python3-parsing https://github.com/MatthieuDartiailh/enaml.git

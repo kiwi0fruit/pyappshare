@@ -109,25 +109,21 @@ call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages            Red
 
 REM // Enaml for Python 3 installation from GitHub
 REM ==============================================
+REM // pip install git+%EnvCacheURL%/kiwisolver#egg=kiwisolver
+REM // pip install git+%EnvCacheURL%/atom#egg=atom
+REM // pip install git+%EnvCacheURL%/enaml#egg=enaml
+
+	REM // Installation without caching:
+	REM ================================
 	REM // pip install git+https://github.com/nucleic/kiwi.git#egg=kiwisolver
 	REM // pip install git+https://github.com/MatthieuDartiailh/atom.git@py23#egg=atom
-	REM // pip install git+https://github.com/MatthieuDartiailh/enaml.git@parser23#egg=enaml
+	REM // pip install git+https://github.com/MatthieuDartiailh/enaml.git@python3-parsing#egg=enaml
 
-	REM // cd /d "%envcache%"
-	REM // rmdir kiwisolver /s /q
-	REM // git clone https://github.com/nucleic/kiwi.git kiwisolver
-	REM // rmdir atom /s /q
-	REM // git clone -b py23 https://github.com/MatthieuDartiailh/atom.git
-	REM // rmdir enaml /s /q
-	REM // git clone -b parser23 https://github.com/MatthieuDartiailh/enaml.git
-	
+	REM // Installation by the particular commit hash (from particular branch):
+	REM ================================
 	REM // cd /d "%envcache%"
 	REM // rmdir enaml /s /q
 	REM // git clone -b python3-parsing https://github.com/MatthieuDartiailh/enaml.git
 	REM // cd /d %envcache%\enaml
 	REM // git reset --hard bd5adc89d314cafdbd0575cfa995ce857af490b9
-	REM // pip install git+%EnvCacheURL%/enaml#egg=enaml
-
-	REM // pip install git+%EnvCacheURL%/kiwisolver#egg=kiwisolver
-	REM // pip install git+%EnvCacheURL%/atom#egg=atom
 	REM // pip install git+%EnvCacheURL%/enaml#egg=enaml
