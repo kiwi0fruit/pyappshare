@@ -6,3 +6,4 @@ dependencies:
   - enaml
   - qtpy
   - pyside
+  - pyopengl
