@@ -1,23 +1,26 @@
 REM  this is a shortened version of 'enaml_test' scripts - without comments and for python >= 3.5
-
-pip install opencv_python
-
+REM  ==================================
+  
 REM  --copy pyqtgraph, qtpy
 cmd "/c conda remove --force pyqtgraph qtpy"
 cmd "/c conda install --force --copy qtpy pyqtgraph"
 
 REM  pyside enaml
 cmd "/c conda install -c ecpy enaml"
-cmd "/c conda install freetype libiconv libtiff tornado vc"
 cmd "/c conda install -c conda-forge pyside"
-	REM  conda-forge only: libxml2 libxslt
 
 REM  --copy matplotlib enaml
 cmd "/c conda remove --force matplotlib enaml"
 cmd "/c conda install --force --copy -c conda-forge matplotlib"
 cmd "/c conda install --force --copy -c ecpy enaml
 
+REM  pyqt
 cmd "/c conda remove --force pyqt sip"
+
+REM  ==================================
+
+REM opencv
+pip install opencv_python
 
 REM  no pyqt patch
 @echo off
