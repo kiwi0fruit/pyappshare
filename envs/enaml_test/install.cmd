@@ -7,19 +7,7 @@ set "py34win32="
 IF %pybit%==32 IF %pyver%==py34 set py34win32=1
 
 
-REM  MingwPy (py27 or py34)
-REM  ==============================================
-IF %pycomp%==mingwpy IF not defined py35plus (
-	pip install --no-cache-dir --no-index --find-links="%envcache%" mingwpy
-)
-
-
-REM  OpenCV
-REM  ==============================================
-pip install opencv_python
-
-
-REM  --copy install: pyqtgraph, qtpy
+REM  --copy install: pyqtgraph qtpy
 REM  ==============================================
 cmd "/c conda remove --force pyqtgraph qtpy"
 cmd "/c conda install --force --copy qtpy pyqtgraph"
@@ -28,25 +16,24 @@ cmd "/c conda install --force --copy qtpy pyqtgraph"
 	REM  such packages you modify all environments.
 
 
-REM  PySide, Enaml (py3)
+REM  Enaml: py3
 REM  ==============================================
-IF %pybit%==32 IF %pyver%==py34 (
-	pip install --no-cache-dir --no-index --find-links="%envcache%" pyside
+IF %pyver:~0,3%==py3 (
 	cmd "/c conda install -c ecpy enaml"
 )
+
+
+REM  PySide: py3 not py34win32
+REM  ==============================================
 IF not defined py34win32 IF %pyver:~0,3%==py3 (
-	cmd "/c conda install -c ecpy enaml"
 	cmd "/c conda install freetype libiconv libtiff tornado vc"
 	cmd "/c conda install -c conda-forge pyside libxml2 libxslt"
 )
-	REM  https://anaconda.org/ecpy/enaml
-	REM  py34,  x64       https://anaconda.org/bpentz/pyside
 	REM  py35,  x86, x64  https://github.com/krrr/PySide/releases
 	REM  py35+, x86, x64  http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyside
-	REM  py35+, x86, x64  https://anaconda.org/conda-forge/pyside
 
 
-REM  --copy install: matplotlib, enaml
+REM  --copy install: matplotlib enaml
 REM  ==============================================
 cmd "/c conda remove --force matplotlib enaml"
 IF %pyver%==py27 (
@@ -63,9 +50,41 @@ IF %pyver:~0,3%==py3 (
 )
 
 
-REM  Remove: pyqt, sip
+REM  Remove: pyqt sip
 REM  ==============================================
 cmd "/c conda remove --force pyqt sip"
+
+
+
+REM  conda above
+REM  ==============================================
+REM  pip below
+
+
+
+REM  Make sure that pip installs packages that were listed only.
+REM  Otherwise it may update some conda packages.
+REM  This will affect all environments.
+
+
+REM  PySide: py34win32
+REM  ==============================================
+IF %pybit%==32 IF %pyver%==py34 (
+	pip install --no-cache-dir --no-index --find-links="%envcache%" pyside
+)
+
+
+REM  MingwPy: py27 or py34
+REM  ==============================================
+IF %pycomp%==mingwpy IF not defined py35plus (
+	pip install --no-cache-dir --no-index --find-links="%envcache%" mingwpy
+)
+
+
+REM  OpenCV
+REM  ==============================================
+pip install opencv_python
+
 
 
 REM  Patch modules if hash match or with reg exp
