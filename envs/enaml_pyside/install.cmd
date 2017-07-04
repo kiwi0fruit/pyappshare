@@ -7,16 +7,13 @@ cmd "/c conda install -c conda-forge pyside"
 REM  enaml
 cmd "/c conda install -c ecpy enaml"
 
-REM  --copy pyqtgraph, qtpy
-cmd "/c conda remove --force pyqtgraph qtpy"
+REM  --copy pyqtgraph qtpy matplotlib enaml
+cmd "/c conda remove --force pyqtgraph qtpy matplotlib enaml"
 cmd "/c conda install --force --copy qtpy pyqtgraph"
-
-REM  --copy matplotlib enaml
-cmd "/c conda remove --force matplotlib enaml"
-cmd "/c conda install --force --copy -c conda-forge matplotlib"
+cmd "/c conda install --force --copy -c conda-forge matplotlib=1"
 cmd "/c conda install --force --copy -c ecpy enaml
 
-REM  pyqt
+REM  pyqt - remove
 cmd "/c conda remove --force pyqt sip"
 
 REM  ==================================
