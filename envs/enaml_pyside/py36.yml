@@ -1,6 +1,6 @@
-name: enaml_test_py34
+name: enaml_pyside_py36
 dependencies:
-  - python=3.4
+  - python=3.6
   - pyqtgraph
   - qtpy
   - matplotlib
