@@ -1,0 +1,2 @@
+start `I console at root.cmd`
+run `conda clean --packages`
