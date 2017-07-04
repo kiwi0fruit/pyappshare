@@ -1,13 +1,15 @@
 REM  this is a shortened version of 'enaml_test' scripts - without comments and for python >= 3.5
 REM  ==================================
-  
+
+REM  pyside - first to see matplotlib version
+cmd "/c conda install -c conda-forge pyside"
+
+REM  enaml
+cmd "/c conda install -c ecpy enaml"
+
 REM  --copy pyqtgraph, qtpy
 cmd "/c conda remove --force pyqtgraph qtpy"
 cmd "/c conda install --force --copy qtpy pyqtgraph"
-
-REM  pyside enaml
-cmd "/c conda install -c ecpy enaml"
-cmd "/c conda install -c conda-forge pyside"
 
 REM  --copy matplotlib enaml
 cmd "/c conda remove --force matplotlib enaml"

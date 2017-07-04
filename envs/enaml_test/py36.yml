@@ -10,3 +10,11 @@ dependencies:
   - future
   - setuptools
   - pyopengl
+  # [pyside]
+  - freetype
+  - libiconv
+  - libtiff
+  - tornado
+  - vc
+  # - libxml2
+  # - libxslt
