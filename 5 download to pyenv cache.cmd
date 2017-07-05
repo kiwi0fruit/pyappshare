@@ -17,8 +17,9 @@ set funcs=%thispath%\files\functions.cmd
 set envcache=%pypath%\%pyfolder%\pkgs\envs\%pyenv%_%pyver%
 call "%funcs%" setpybit
 
+set pyverMajor=%pyver:~0,3%
 set "py35plus="
-IF %pyver:~0,3%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==py32 IF not %pyver%==py33 IF not %pyver%==py34 (
+IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==py32 IF not %pyver%==py33 IF not %pyver%==py34 (
 	set py35plus=1
 )
 

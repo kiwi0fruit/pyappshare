@@ -1,26 +1,28 @@
 REM  @echo off
+REM  pip download
+REM  ==============================================
+REM  Use this script to pre-download packages that otherwise would
+REM  be downloaded every time you 'pip install'.
+
+REM  you can use: 'IF defined py35plus' (>=3.5)
+REM  or: 'IF %pyverMajor%==py3' (>=3.0)
+
+
 REM  we should be in %envcache% context
 cd /d "%envcache%"
-
-REM  you can use:
-REM  IF defined py35plus
-REM  >=3.5
-REM  IF %pyver:~0,3%==py3
 
 
 REM  MingwPy (py27 or py34)
 REM  ==============================================
 IF %pycomp%==mingwpy IF not defined py35plus (
 	pip download -i https://pypi.anaconda.org/carlkl/simple mingwpy
+	pause
 )
 
 
 REM  Deprecated manual pip caching
 REM  ==============================================
 REM  pip automatically caches in %LOCALAPPDATA%\pip\cache
-REM  IF %pybit%==32 IF %pyver%==py34 (
-REM  	pip download pyside
-REM  )
 REM  pip download opencv_python
 
 

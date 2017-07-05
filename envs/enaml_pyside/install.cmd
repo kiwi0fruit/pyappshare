@@ -18,8 +18,14 @@ cmd "/c conda remove --force pyqt sip"
 
 REM  ==================================
 
+REM check pip dependencies
+cmd "/c conda list"
+pip download -d pip opencv_python
+pause
+
 REM opencv
 pip install opencv_python
+pause
 
 REM  no pyqt patch
 @echo off
@@ -30,4 +36,5 @@ REM  notepad++ regex replacements
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\enaml      Yellow  "Patch Enaml"
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\pyqtgraph  Yellow  "Patch PyQtGraph"
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\qtpy       Yellow  "Patch QtPy"
+call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\matplotlib Yellow  "Patch Matplotlib"
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages            Red     "Check _import/from PyQt_. First search only but not replace. Then search again in case-insensitive mode. If something important is found then you can replace - decide yourself."
