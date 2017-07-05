@@ -18,7 +18,7 @@ REM  ==================================
 
 REM check pip dependencies
 cmd "/c conda list"
-pip download -d pip opencv_python
+pip download -d "%envcache%\pip" opencv_python
 pause
 
 REM opencv

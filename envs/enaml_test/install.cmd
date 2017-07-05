@@ -11,33 +11,18 @@ cmd "/c conda list"
 pause
 
 
-REM  PySide: py34x64
-REM  ===============================================
-IF %pyver%==py34 IF %pybit%==64 (
-	cmd "/c conda install -c bpentz pyside"
-)
-REM  py35,  x86, x64  https://github.com/krrr/PySide/releases
-REM  py35+, x86, x64  http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyside
-
-
 REM  --copy install: pyqtgraph qtpy matplotlib enaml
 REM  ===============================================
 REM  Hint: patch only packages that were installed with --copy parameter
 REM  Conda by default links packages but not copies them. So when patching
 REM  such packages you modify all environments.
-
 cmd "/c conda remove --force pyqtgraph qtpy matplotlib enaml"
-cmd "/c conda install --force --copy qtpy pyqtgraph"
-
-IF defined py35plus (
-	cmd "/c conda install --force --copy -c conda-forge matplotlib=1"
-) ELSE (
-	cmd "/c conda install --force --copy matplotlib"
-)
 IF %pyverMajor%==py3 (
+	cmd "/c conda install --force --copy qtpy pyqtgraph"
+	cmd "/c conda install --force --copy -c conda-forge matplotlib=1"
 	cmd "/c conda install --force --copy -c ecpy enaml
 ) ELSE (
-	cmd "/c conda install --force --copy enaml"
+	cmd "/c conda install --force --copy qtpy pyqtgraph matplotlib enaml"
 )
 
 

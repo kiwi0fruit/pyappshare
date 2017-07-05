@@ -47,3 +47,10 @@ REM  rmdir atom /s /q
 REM  git clone -b py23 https://github.com/MatthieuDartiailh/atom.git
 REM  rmdir enaml /s /q
 REM  git clone -b python3-parsing https://github.com/MatthieuDartiailh/enaml.git
+
+
+REM  PySise alt. binaries
+REM  ==============================================
+REM  py34,  x64       conda install -c bpentz pyside
+REM  py35,  x86, x64  https://github.com/krrr/PySide/releases
+REM  py35+, x86, x64  http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyside

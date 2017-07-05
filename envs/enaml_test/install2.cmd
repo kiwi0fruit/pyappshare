@@ -17,19 +17,8 @@ cd /d "%envcache%"
 REM  Check pip dedendencies
 REM  ===============================================
 cmd "/c conda list"
-IF %pyver%==py34 IF %pybit%==32 (
-	pip download -d pip pyside
-)
-pip download -d pip opencv_python
+pip download -d "%envcache%\pip" opencv_python
 pause
-
-
-REM  PySide: py34win32
-REM  ===============================================
-IF %pyver%==py34 IF %pybit%==32 (
-	pip install pyside
-	pause
-)
 
 
 REM  MingwPy: py27 or py34

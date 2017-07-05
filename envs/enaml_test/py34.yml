@@ -2,6 +2,7 @@ name: enaml_test_py34
 channels:
   - defaults
   - ecpy
+  - conda-forge
 dependencies:
   - python=3.4
   - pyqtgraph
@@ -11,5 +12,7 @@ dependencies:
   - wheel
   - setuptools
   - pyopengl
+  # [conda-forge]
+  - pyside
   # [ecpy]
   - enaml
