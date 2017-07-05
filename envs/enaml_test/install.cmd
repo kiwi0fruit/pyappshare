@@ -5,23 +5,19 @@ REM  you can use: 'IF defined py35plus' (>=3.5)
 REM  or: 'IF %pyverMajor%==py3' (>=3.0)
 
 
-REM  PySide: py35+ or py34x64 - first to see matplotlib version
+REM  See Matplotlib version
 REM  ===============================================
-IF defined py35plus (
-	cmd "/c conda install -c conda-forge pyside"
-)
+cmd "/c conda list"
+pause
+
+
+REM  PySide: py34x64
+REM  ===============================================
 IF %pyver%==py34 IF %pybit%==64 (
 	cmd "/c conda install -c bpentz pyside"
 )
 REM  py35,  x86, x64  https://github.com/krrr/PySide/releases
 REM  py35+, x86, x64  http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyside
-
-
-REM  Enaml: py3
-REM  ===============================================
-IF %pyverMajor%==py3 (
-	cmd "/c conda install -c ecpy enaml"
-)
 
 
 REM  --copy install: pyqtgraph qtpy matplotlib enaml

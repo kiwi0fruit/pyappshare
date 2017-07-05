@@ -1,12 +1,15 @@
 name: enaml_test_py34
+channels:
+  - defaults
+  - ecpy
 dependencies:
   - python=3.4
   - pyqtgraph
   - qtpy
   - matplotlib
   - pip
-  - ply
   - wheel
-  - future
   - setuptools
   - pyopengl
+  # [ecpy]
+  - enaml

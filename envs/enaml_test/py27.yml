@@ -1,9 +1,12 @@
 name: enaml_test_py27
 dependencies:
   - python=2.7
-  - matplotlib
   - pyqtgraph
-  - enaml
   - qtpy
-  - pyside
+  - matplotlib
+  - pip
+  - wheel
+  - setuptools
   - pyopengl
+  - pyside
+  - enaml

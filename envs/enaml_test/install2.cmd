@@ -20,7 +20,7 @@ cmd "/c conda list"
 IF %pyver%==py34 IF %pybit%==32 (
 	pip download -d pip pyside
 )
-pip download -d pip pyside opencv_python
+pip download -d pip opencv_python
 pause
 
 
