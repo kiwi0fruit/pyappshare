@@ -19,7 +19,7 @@ REM  such packages you modify all environments.
 cmd "/c conda remove --force pyqtgraph qtpy matplotlib enaml"
 IF %pyverMajor%==py3 (
 	cmd "/c conda install --force --copy qtpy pyqtgraph"
-	cmd "/c conda install --force --copy -c conda-forge matplotlib=1"
+	cmd "/c conda install --force --copy -c conda-forge matplotlib"
 	cmd "/c conda install --force --copy -c ecpy enaml
 ) ELSE (
 	cmd "/c conda install --force --copy qtpy pyqtgraph matplotlib enaml"

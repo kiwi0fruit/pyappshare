@@ -8,7 +8,7 @@ pause
 REM  --copy pyqtgraph qtpy matplotlib enaml
 cmd "/c conda remove --force pyqtgraph qtpy matplotlib enaml"
 cmd "/c conda install --force --copy qtpy pyqtgraph"
-cmd "/c conda install --force --copy -c conda-forge matplotlib=1"
+cmd "/c conda install --force --copy -c conda-forge matplotlib"
 cmd "/c conda install --force --copy -c ecpy enaml
 
 REM  pyqt - remove
