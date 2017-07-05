@@ -21,5 +21,5 @@ pause
 
 REM // Change compiler settings (hash: msvc, hash2: mingwpy)
 REM ==================================
-call "%funcs%" hashcopy compiler\%pycomp% Lib\distutils distutils.cfg nofile
+call "%funcs%" gitdiffcopy compiler\%pycomp% Lib\distutils distutils.cfg nofile
 pause

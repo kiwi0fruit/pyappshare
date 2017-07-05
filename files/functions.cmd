@@ -3,7 +3,7 @@ exit/b
 
 
 
-REM // Copy file with hash validation
+REM // Copy file with hash (or git diff) validation
 REM ============================================================
 REM // Copy the file only: if we know that there should be no such file
 REM // OR if hash of the file to replace matches the hash given
@@ -83,6 +83,79 @@ IF defined True (
 	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
 	Powershell write-host -foregroundcolor Green "Patch was applied."
 ) ELSE IF /i %targethash%==%patchedhash% (
+	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
+) ELSE (
+	Powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
+)
+
+exit/b
+
+
+
+:gitdiffcopy
+set fromdir=%~1
+set todir=%~2
+set target=%~3
+
+set "nofileTrue="
+IF "%4"=="nofile" set nofileTrue=1
+IF "%5"=="nofile" set nofileTrue=1
+IF "%6"=="nofile" set nofileTrue=1
+
+set "False="
+IF "%4"=="" set False=1
+IF "%4"=="nofile" set False=1
+IF defined False (
+	set hashfile=__original__%target%
+) ELSE (
+	set prepID=%~4
+	set hashfile=__original_%prepID%__%target%
+)
+
+set "False="
+IF "%5"=="" set False=1
+IF "%5"=="nofile" set False=1
+IF defined False (
+	set hashfile2=__original__%target%
+) ELSE (
+	set prepID=%~5
+	set hashfile2=__original_%prepID%__%target%
+)
+
+
+set maintarget=%envpath%\%todir%\%target%
+
+
+set filetarget=%thispath%\files\%fromdir%\%hashfile%
+git diff "%filetarget%" "%maintarget%" > tmp.diff
+set diff=1
+IF exist tmp.diff for %%a in ("tmp.diff") do set diff=%%~za
+
+
+set filetarget=%thispath%\files\%fromdir%\%hashfile2%
+git diff "%filetarget%" "%maintarget%" > tmp.diff
+set diff2=1
+IF exist tmp.diff for %%a in ("tmp.diff") do set diff2=%%~za
+IF "%hashfile%"=="%hashfile2%" set diff2=1
+
+
+set filetarget=%thispath%\files\%fromdir%\%target%
+git diff "%filetarget%" "%maintarget%" > tmp.diff
+set patchDiff=1
+IF exist tmp.diff for %%a in ("tmp.diff") do set patchDiff=%%~za
+
+
+IF exist tmp.diff del tmp.diff
+
+
+set "True="
+IF defined nofileTrue IF not exist "%envpath%\%todir%\%target%" set True=1
+IF /i %diff%==0 set True=1
+IF /i %diff2%==0 set True=1
+IF defined True (
+	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
+	Powershell write-host -foregroundcolor Green "Patch was applied."
+) ELSE IF /i %patchDiff%==0 (
 	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
 ) ELSE (
 	Powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
@@ -180,7 +253,7 @@ set notepadpp=%APPDATA%\Notepad++
 robocopy "%notepadpp%" "%notepadpp%\__temp" session.xml config.xml
 robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppRegExp_func_replace', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor White "Do not close this window before closing Notepad++ window"
+Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize will you loose your Notepad++ settings."
 Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
 Powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
@@ -213,7 +286,7 @@ robocopy "%notepadpp%" "%notepadpp%\__temp" session.xml config.xml
 robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_folder', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_find', '%StrToFind%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor White "Do not close this window before closing Notepad++ window"
+Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
 Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
 Powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
@@ -238,7 +311,7 @@ robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_folder', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_find', '%StrToFind%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_replace', '%StrToReplace%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor White "Do not close this window before closing Notepad++ window"
+Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
 Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
 Powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"

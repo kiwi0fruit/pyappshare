@@ -28,8 +28,8 @@ pause
 REM  no pyqt patch
 @echo off
 REM  pyqtgraph qtpy - if hash match
-call "%funcs%" hashcopy  no_pyqt\qtpy-1.2.1  Lib\site-packages\qtpy  __init__.py
-call "%funcs%" hashcopy  no_pyqt\pyqtgraph-0.10.0  Lib\site-packages\pyqtgraph  Qt.py
+call "%funcs%" gitdiffcopy  no_pyqt\qtpy-1.2.1  Lib\site-packages\qtpy  __init__.py
+call "%funcs%" gitdiffcopy  no_pyqt\pyqtgraph-0.10.0  Lib\site-packages\pyqtgraph  Qt.py
 REM  notepad++ regex replacements
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\enaml      Yellow  "Patch Enaml"
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\pyqtgraph  Yellow  "Patch PyQtGraph"

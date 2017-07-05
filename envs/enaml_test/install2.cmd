@@ -38,25 +38,25 @@ pause
 REM  Patch modules if hash match or with reg exp
 REM  ===============================================
 REM  Patch section should be in the end
-REM  See 'hashcopy' and 'nppVarFolder' functions description in 'files\functions.cmd'
+REM  See 'gitdiffcopy' and 'nppVarFolder' functions description in 'files\functions.cmd'
 
 @echo off
 REM  enaml-pyside bug patch
 echo enaml-pyside bug patch:
-call "%funcs%" hashcopy  enaml_pyside_fix_2\%pyverMajor%  Lib\site-packages\enaml\qt  q_window_base.py
-REM  call "%funcs%" hashcopy  enaml_pyside_fix_1  Lib\site-packages\enaml\qt  qt_dialog.py
+call "%funcs%" gitdiffcopy  enaml_pyside_fix_2\%pyverMajor%  Lib\site-packages\enaml\qt  q_window_base.py
+REM  call "%funcs%" gitdiffcopy  enaml_pyside_fix_1  Lib\site-packages\enaml\qt  qt_dialog.py
 
 REM  no pyqt patch: enaml pyqtgraph qtpy
 echo no pyqt patch - qtpy (two attemps, one should be successful):
-call "%funcs%" hashcopy  no_pyqt\qtpy-1.0.2  Lib\site-packages\qtpy  __init__.py
-call "%funcs%" hashcopy  no_pyqt\qtpy-1.2.1  Lib\site-packages\qtpy  __init__.py
+call "%funcs%" gitdiffcopy  no_pyqt\qtpy-1.0.2  Lib\site-packages\qtpy  __init__.py
+call "%funcs%" gitdiffcopy  no_pyqt\qtpy-1.2.1  Lib\site-packages\qtpy  __init__.py
 
 echo no pyqt patch - pyqtgraph (two attemps, one should be successful):
-call "%funcs%" hashcopy  no_pyqt\pyqtgraph-0.9.10  Lib\site-packages\pyqtgraph  Qt.py
-call "%funcs%" hashcopy  no_pyqt\pyqtgraph-0.10.0  Lib\site-packages\pyqtgraph  Qt.py
+call "%funcs%" gitdiffcopy  no_pyqt\pyqtgraph-0.9.10  Lib\site-packages\pyqtgraph  Qt.py
+call "%funcs%" gitdiffcopy  no_pyqt\pyqtgraph-0.10.0  Lib\site-packages\pyqtgraph  Qt.py
 
 echo no pyqt patch - enaml (for older versions, 0.10.0 doesn't need it):
-call "%funcs%" hashcopy  no_pyqt\enaml  Lib\site-packages\enaml\qt  __init__.py  py2  py3
+call "%funcs%" gitdiffcopy  no_pyqt\enaml  Lib\site-packages\enaml\qt  __init__.py  py2  py3
 
 REM  no pyqt patch: notepad++ regex replacements
 call "%funcs%" nppVarFolder  no_pyqt\notepadpp  Lib\site-packages\enaml      Yellow  "Patch Enaml"
