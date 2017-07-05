@@ -2,7 +2,7 @@ cmd "/c conda list"
 pause
 
 REM  update for tensorflow:
-cmd "/c conda install -c conda-forge html5lib"
+REM  cmd "/c conda install -c conda-forge html5lib=0.9999999"
 
 REM  R:
 cmd "/c conda install --force -c r rpy2"

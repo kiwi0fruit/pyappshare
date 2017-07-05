@@ -34,8 +34,7 @@ dependencies:
   - protobuf
   - mock
   - markdown
-  - html5lib
   - bleach
   # tensorflow@conda-forge:
+  - html5lib=0.9999999
   - backports.weakref
-  - webencodings
