@@ -7,19 +7,16 @@ REM  cmd "/c conda install -c conda-forge html5lib=0.9999999"
 REM  R:
 cmd "/c conda install --force -c r rpy2"
 
-
-REM conda above
 REM ===============================================
-REM pip below
 
-
-REM check pip dependencies:
+REM  check pip dependencies:
 cmd "/c conda list"
 pip download -d "%envcache%\pip" opencv_python knotr tensorflow
 pause
 
 REM  opencv:
 pip install opencv_python
+pause
 
 REM  stitch:
 pip install git+%EnvCacheURL%/stitch#egg=knotr

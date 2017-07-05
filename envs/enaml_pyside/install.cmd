@@ -1,5 +1,4 @@
 REM  this is a shortened version of 'enaml_test' scripts - without comments and for python >= 3.5
-REM  ==================================
 
 REM  see matplotlib version
 cmd "/c conda list"
