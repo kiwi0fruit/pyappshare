@@ -1,0 +1,15 @@
+name: enaml_pyqt_py36
+channels:
+  - defaults
+  - ecpy
+dependencies:
+  - python=3.6
+  - pyqtgraph
+  - qtpy
+  - matplotlib
+  - pip
+  - wheel
+  - setuptools
+  - pyopengl
+  # [ecpy]
+  - enaml

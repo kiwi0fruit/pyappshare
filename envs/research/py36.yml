@@ -1,0 +1,41 @@
+name: research_py36
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.6
+  - pip
+  - setuptools
+  - numpy
+  - pandas
+  - matplotlib
+  - notebook
+  - jupyter
+  - sympy
+  - qtpy
+  - vc
+  # feather@conda-forge:
+  - feather-format
+  # knotr:
+  - jupyter_core
+  - traitlets
+  - ipython
+  - jupyter_client
+  - nbconvert
+  - pandocfilters
+  - click
+  - psutil
+  # knotr@conda-forge:
+  - pypandoc
+  # tensorflow:
+  - wheel
+  - werkzeug
+  - six
+  - protobuf
+  - mock
+  - markdown
+  - html5lib
+  - bleach
+  # tensorflow@conda-forge:
+  - backports.weakref
+  - webencodings
