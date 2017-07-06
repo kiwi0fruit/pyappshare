@@ -4,7 +4,6 @@ set tensorflow=tensorflow-1.2.1-cp36-cp36m-win_amd64.whl
 cd /d "%envcache%"
 rmdir pip /s /q
 cmd "/c conda list > conda_list.txt"
-pause
 pip download -d pip opencv_python knotr %tensorflow%
 cd pip
 dir /b /a-d > ..\pip_list.txt
