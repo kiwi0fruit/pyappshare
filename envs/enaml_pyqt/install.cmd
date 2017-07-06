@@ -1,4 +1,4 @@
 pip download -d "%envcache%\pip" opencv_python
-pause
+@pause
 pip install opencv_python
-pause
+@pause

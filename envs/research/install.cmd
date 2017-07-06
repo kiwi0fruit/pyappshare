@@ -1,31 +1,21 @@
 cmd "/c conda list"
-pause
+@pause
 
-REM  update for tensorflow:
-REM  cmd "/c conda install -c conda-forge html5lib=0.9999999"
-
-REM  R:
+@REM  R:
 cmd "/c conda install --force -c r rpy2"
 
-REM ===============================================
+@REM  =========================================================
 
-REM  check pip dependencies:
+@REM  update setuptools:
+cmd "/c conda remove --force setuptools"
+pip install --ignore-installed setuptools
+
+@REM  check pip dependencies:
+cd /d "%envcache%"
+rmdir pip /s /q
 cmd "/c conda list"
 pip download -d "%envcache%\pip" opencv_python knotr tensorflow
-pause
+@pause
 
-REM  opencv:
-pip install opencv_python
-pause
-
-REM  stitch:
-pip install git+%EnvCacheURL%/stitch#egg=knotr
-REM  pip install git+https://github.com/kiwi0fruit/stitch.git#egg=knotr
-
-REM  tensorflow - last because of setuptools update:
-cmd "/c conda remove --force setuptools"
-pip install --ignore-installed --upgrade setuptools
-pip install tensorflow
-pause
-pip uninstall setuptools
-cmd "/c conda install --force setuptools"
+@REM  post-update:
+@REM  cmd "/c conda install -c conda-forge protobuf=3.3.0 entrypoints=0.2.3 markupsafe=1.0"

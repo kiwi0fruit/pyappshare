@@ -1,7 +1,7 @@
 set here=%~dp0
 set thispath=%here:~0,-1%
 
-REM // import %pyfolder%, %pyenv%, %pyver% and %mklfile%
+@REM  import %pyfolder%, %pyenv%, %pyver% and %mklfile%
 call "%thispath%\config\config.cmd"
 call "%thispath%\config\mkl.cmd"
 
@@ -18,4 +18,4 @@ IF exist "%targetfile%" del /q "%targetfile%"
 set CondaTrash=%thispath%\%pyfolder%\pkgs\.trash
 IF exist "%CondaTrash%" rd /s /q "%CondaTrash%"
 
-pause
+@pause

@@ -3,17 +3,17 @@ exit/b
 
 
 
-REM // Copy file with hash (or git diff) validation
-REM ============================================================
-REM // Copy the file only: if we know that there should be no such file
-REM // OR if hash of the file to replace matches the hash given
-REM // Input: (1) folder to copy from (that will be prepended with 'PPA\files\'),
-REM // (2) destination folder (that will be prepended with path to python environment)
-REM // (3) target file name.
-REM // For proper work function needs unpatched file samples in the folder to copy from.
-REM // Their names should be prepended with __original__ or __original_ID__
-REM // (4) first ID, (5) second ID, (4/5/6) if the last option is 'nofile' then copy if there is no such file
-REM // Function also uses environment variables: (1) hash, (2) hash2, (3) envpath, (4) thispath.
+REM  Copy file with hash (or git diff) validation
+REM  ============================================================
+REM  Copy the file only: if we know that there should be no such file
+REM  OR if hash of the file to replace matches the hash given
+REM  Input: (1) folder to copy from (that will be prepended with 'PPA\files\'),
+REM  (2) destination folder (that will be prepended with path to python environment)
+REM  (3) target file name.
+REM  For proper work function needs unpatched file samples in the folder to copy from.
+REM  Their names should be prepended with __original__ or __original_ID__
+REM  (4) first ID, (5) second ID, (4/5/6) if the last option is 'nofile' then copy if there is no such file
+REM  Function also uses environment variables: (1) hash, (2) hash2, (3) envpath, (4) thispath.
 
 :hashcopy
 set fromdir=%~1
@@ -165,9 +165,9 @@ exit/b
 
 
 
-REM // Checks if needed environment variables were set to something
-REM ===============================================================
-REM // Function uses environment variables: (1) pypath, (2) pyfolder, (3) pyver, (4) pycomp, (5) pyapp, (6) pyout.
+REM  Checks if needed environment variables were set to something
+REM  ===============================================================
+REM  Function uses environment variables: (1) pypath, (2) pyfolder, (3) pyver, (4) pycomp, (5) pyapp, (6) pyout.
 
 :checkvars
 set "False="
@@ -195,9 +195,9 @@ exit/b
 
 
 
-REM // Set pybit from pyfolder
-REM ==========================
-REM // Function uses environment variable (1) pyfolder and sets (2) pybit.
+REM  Set pybit from pyfolder
+REM  ==========================
+REM  Function uses environment variable (1) pyfolder and sets (2) pybit.
 
 :setpybit
 set LastTwo=%pyfolder:~-2%
@@ -214,10 +214,10 @@ exit/b
 
 
 
-REM // Shows download instructions
-REM ==============================
-REM // Input: (1) file description, (2) URL.
-REM // Function uses environment variables: (1) pybit, (2) pyver, (3) pyenv, (4) pyver, (5) pyfolder.
+REM  Shows download instructions
+REM  ==============================
+REM  Input: (1) file description, (2) URL.
+REM  Function uses environment variables: (1) pybit, (2) pyver, (3) pyenv, (4) pyver, (5) pyfolder.
 
 :filedownload
 set echotext=%~1
@@ -232,15 +232,15 @@ exit/b
 
 
 
-REM // Regular expressions replacements in a folder
-REM ============================================================
-REM // Temporary replaces Notepad++ settings with custom 'config.xml' and 'session.xml'
-REM // Edits python module target folder in this file. Displays instructions. Starts Notepad++.
-REM // Assumes that Notepad++ settings are in %APPDATA%\Notepad++.
-REM // Input: (1) folder with custom 'config.xml' (that will be prepended with 'PPA\files\'),
-REM // (2) target folder where to replace (that will be prepended with path to python environment),
-REM // (3) final message, (4) it's color.
-REM // Function also uses environment variables: (1) thispath, (2) envpath.
+REM  Regular expressions replacements in a folder
+REM  ============================================================
+REM  Temporary replaces Notepad++ settings with custom 'config.xml' and 'session.xml'
+REM  Edits python module target folder in this file. Displays instructions. Starts Notepad++.
+REM  Assumes that Notepad++ settings are in %APPDATA%\Notepad++.
+REM  Input: (1) folder with custom 'config.xml' (that will be prepended with 'PPA\files\'),
+REM  (2) target folder where to replace (that will be prepended with path to python environment),
+REM  (3) final message, (4) it's color.
+REM  Function also uses environment variables: (1) thispath, (2) envpath.
 
 :nppVarFolder
 set fromfolder=%~1
@@ -263,15 +263,15 @@ exit/b
 
 
 
-REM // String replacements in a folder
-REM ============================================================
-REM // Temporary replaces Notepad++ settings with custom 'config.xml' and 'session.xml'
-REM // Edits python module target folder in this file. Displays instructions. Starts Notepad++.
-REM // Assumes that Notepad++ settings are in %APPDATA%\Notepad++.
-REM // Input: (1) folder with custom 'config.xml' (that will be prepended with 'PPA\files\'),
-REM // (2) target folder where to replace (that will be prepended with path to OUTPUT python environment),
-REM // (3) string to find, (4) final message, (5) it's color.
-REM // Function also uses environment variables: (1) thispath, (2) envpath.
+REM  String replacements in a folder
+REM  ============================================================
+REM  Temporary replaces Notepad++ settings with custom 'config.xml' and 'session.xml'
+REM  Edits python module target folder in this file. Displays instructions. Starts Notepad++.
+REM  Assumes that Notepad++ settings are in %APPDATA%\Notepad++.
+REM  Input: (1) folder with custom 'config.xml' (that will be prepended with 'PPA\files\'),
+REM  (2) target folder where to replace (that will be prepended with path to OUTPUT python environment),
+REM  (3) string to find, (4) final message, (5) it's color.
+REM  Function also uses environment variables: (1) thispath, (2) envpath.
 
 :nppVarFindConstReplace
 set fromfolder=%~1

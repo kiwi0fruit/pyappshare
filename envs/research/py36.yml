@@ -31,10 +31,13 @@ dependencies:
   - wheel
   - werkzeug
   - six
-  - protobuf
   - mock
   - markdown
   - bleach
   # tensorflow@conda-forge:
   - html5lib=0.9999999
   - backports.weakref
+  - protobuf=3.3.0
+  # misc@conda-forge:
+  - entrypoints=0.2.3
+  - markupsafe=1.0

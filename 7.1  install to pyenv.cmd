@@ -1,14 +1,14 @@
-REM  @echo off
-REM  Modify PATH
-REM  ========================================
+@REM  @echo off
+@REM  Modify PATH
+@REM  ========================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
 
-REM  Set vars that are needed for 'PPA\envs\%pyenv%\install.cmd':
-REM  ========================================
-REM  'install.cmd' can use any function from 'functions.cmd'
-REM  So all env vars that may be used by functions are set:
+@REM  Set vars that are needed for 'PPA\envs\%pyenv%\install.cmd':
+@REM  ========================================
+@REM  'install.cmd' can use any function from 'functions.cmd'
+@REM  So all env vars that may be used by functions are set:
 set here=%~dp0
 set thispath=%here:~0,-1%
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
@@ -23,15 +23,15 @@ IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==p
 )
 
 
-REM  Check if all variables were set
-REM  ========================================
+@REM  Check if all variables were set
+@REM  ========================================
 call "%funcs%" checkvars
-pause
+@pause
 
 
-REM  Convert path to url: replace \ with /
-REM  ========================================
-REM  'PPA\envs\%pyenv%\install.cmd' needs %URLpath%
+@REM  Convert path to url: replace \ with /
+@REM  ========================================
+@REM  'PPA\envs\%pyenv%\install.cmd' needs %URLpath%
 setlocal disableDelayedExpansion
 set "URLpath=file:///%envcache%"
 setlocal enableDelayedExpansion
@@ -44,14 +44,14 @@ set /p EnvCacheURL=<__temp__.txt
 del __temp__.txt
 
 
-REM  Run main script
-REM  ========================================
-REM  'cd' so we can use simply 'install.cmd'
+@REM  Run main script
+@REM  ========================================
+@REM  'cd' so we can use simply 'install.cmd'
 cd /d "envs\%pyenv%"
 
 
-REM  activate %pyenv%_%pyver%
-REM  install.cmd
+@REM  activate %pyenv%_%pyver%
+@REM  install.cmd
 cmd "/c activate %pyenv%_%pyver% && install.cmd"
 
-pause
+@pause
