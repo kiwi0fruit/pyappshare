@@ -1,4 +1,5 @@
-pip download -d "%envcache%\pip" opencv_python
+call "%funcs%" pipResolve opencv_python
 @pause
+
 pip install opencv_python
 @pause

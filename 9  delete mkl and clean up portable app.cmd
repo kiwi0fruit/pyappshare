@@ -13,8 +13,6 @@ set envpath=%workdir%\%pyfolder%\envs\%pyenv%_%pyver%
 
 set LicenseFolder=License and Info
 
-
-
 @REM  Modify copied python: uninstall mkl, mingwpy & write packages list
 @REM  ================================================================
 set PYTHONPATH=%workdir%\%pyfolder%
@@ -25,5 +23,6 @@ cmd "/c activate %pyenv%_%pyver% && conda remove --force mkl && deactivate"
 
 cd /d "%workdir%\%LicenseFolder%"
 cmd "/c activate %pyenv%_%pyver% && conda env export -n %pyenv%_%pyver% -f PackagesList.txt && deactivate"
+
 
 @pause

@@ -1,13 +1,28 @@
 @REM  pip install
 @REM  ===============================================
 @REM  @echo off
-@REM  Make sure that pip installs packages that were listed only. Otherwise
-@REM  it may update some conda packages. And this will affect all environments.
-@REM  Download and pause before install are performed to track this issue.
-@REM  See '%envcache%\pip' folder for dependencies versions.
-
 @REM  you can use: 'IF defined py35plus' (>=3.5)
 @REM  or: 'IF %pyverMajor%==py3' (>=3.0)
+
+@REM  Make sure that pip installs packages that were listed only. Otherwise
+@REM  it may update some conda packages. And this will affect all environments.
+@REM  'pipResolve' is used to handle this issue. See '%envcache%\diff_list.txt'
+@REM  for packages versions conflicts.
+
+@REM  Vars:
+@REM  ===============================================
+set pkgs=opencv_python
+
+@REM  Conda post-update
+@REM  ===============================================
+@REM  cmd "/c conda remove --force setuptools"
+@REM  pip install --ignore-installed setuptools
+@REM  cmd "/c conda install -c conda-forge thepackage=1.0"
+
+@REM  Check pip dependencies
+@REM  ===============================================
+call "%funcs%" pipResolve "%pkgs%"
+@pause
 
 @REM  MingwPy: py27 or py34
 @REM  ===============================================

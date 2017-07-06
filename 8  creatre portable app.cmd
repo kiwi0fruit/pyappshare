@@ -7,14 +7,10 @@ set "debug="
 set debugecho=echo Read the log if needed and press any key to continue.
 @REM  set "debugecho="
 
-
-
 @REM  Modify PATH
 @REM  ====================================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
-
-
 
 @REM  Set some vars
 @REM  ====================================================
@@ -32,14 +28,9 @@ set envpath=%workdir%\%pyfolder%\envs\%pyenv%_%pyver%
 
 set LicenseFolder=License and Info
 
-
-
 @REM  Check if all variables were set
 @REM  ====================================================
 call "%funcs%" checkvars
-@pause
-
-
 
 @REM  Delete some folders from app folder
 @REM  ====================================================
@@ -50,12 +41,9 @@ IF exist "%workdir%\config" rd /s /q "%workdir%\config"
 IF exist "%workdir%\apps" rd /s /q "%workdir%\apps"
 IF exist "%workdir%\%pyfolder%\pkgs" rd /s /q "%workdir%\%pyfolder%\pkgs"
 
-
-
+@REM  ====================================================
 @%debugecho%
 @%debug%
-
-
 
 @REM  Copy root python and desired environment
 @REM  ====================================================
@@ -77,25 +65,20 @@ IF exist "%thispath%\envs\%pyenv%\license" (
 	robocopy "%thispath%\envs\%pyenv%\license" "%workdir%\%LicenseFolder%" /e
 )
 
-
-
+@REM  ====================================================
 @%debugecho%
 @%debug%
-
-
 
 @REM  Create shortcuts
 @REM  ====================================================
 @REM  Copy all from 'PPA\apps\%pyapp%' except 'shortcuts.ps1'
 robocopy "%thispath%\apps\%pyapp%" "%workdir%" /e /xf "shortcuts.ps1"
 @REM  Run 'shortcuts.ps1' that create a shortcut in %workdir%.
-Powershell -executionpolicy remotesigned -File  "%thispath%\apps\%pyapp%\shortcuts.ps1"
+powershell -executionpolicy remotesigned -File  "%thispath%\apps\%pyapp%\shortcuts.ps1"
 @REM  'shortcuts.ps1' is UTF-8 file it imports 'shortcut' function from 'functions.psm1'
 @REM  this function creates .cmd shortcuts with UFT-8 names
 @REM  It uses 'PPA\files\shortcut\shortcut.cmd' as a template
 @REM  Function input: 1) shortcut UTF-8 name, 2) path to the python script (that would be prepended with 'apps\') 
-
-
 
 @REM  Copy MKL .tar.bz2
 @REM  ====================================================
@@ -119,12 +102,9 @@ move "%pypkgs%\temp\%mklfile%" "%workdir%\%pyfolder%\Scripts"
 IF exist "%pypkgs%\temp0" rd /s /q "%pypkgs%\temp0"
 IF exist "%pypkgs%\temp" rd /s /q "%pypkgs%\temp"
 
-
-
+@REM  ====================================================
 @%debugecho%
 @%debug%
-
-
 
 @REM  Set app configs
 @REM  ====================================================
@@ -134,8 +114,6 @@ powershell -Command "(Get-Content '%targetpath%') -replace '__pyenv', '%pyenv%' 
 powershell -Command "(Get-Content '%targetpath%') -replace '__pyver', '%pyver%' | Set-Content '%targetpath%'"
 set targetpath=%workdir%\config\mkl.cmd
 powershell -Command "(Get-Content '%targetpath%') -replace '__mklfile', '%mklfile%' | Set-Content '%targetpath%'"
-
-
 
 @REM  Replace absolute paths with variable %PYTHONPATH%
 @REM  ====================================================

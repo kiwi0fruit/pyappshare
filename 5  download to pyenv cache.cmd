@@ -4,8 +4,6 @@
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-
-
 @REM  Set vars that are needed for 'PPA\envs\%pyenv%\download.cmd':
 @REM  ====================================
 @REM  'download.cmd' can use any function from 'functions.cmd'
@@ -23,24 +21,18 @@ IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==p
 	set py35plus=1
 )
 
-
-
 @REM  Check if all variables were set
 @REM  ====================================
 call "%funcs%" checkvars
-@pause
-
-
 
 @REM  Prepare folder
 @REM  ====================================
 mkdir "%envcache%"
-
-
 
 @REM  Run main script
 @REM  ====================================
 @REM  'cd' so we can use simply 'download.cmd'
 cd /d "envs\%pyenv%"
 cmd "/c activate %pyenv%_%pyver% && download.cmd && deactivate"
+
 @pause

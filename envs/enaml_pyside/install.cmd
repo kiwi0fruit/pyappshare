@@ -15,9 +15,8 @@ cmd "/c conda remove --force pyqt sip"
 
 @REM  ==================================
 
-@REM  check pip dependencies
-cmd "/c conda list"
-pip download -d "%envcache%\pip" opencv_python
+@REM  check pip dependencies:
+call "%funcs%" pipResolve opencv_python
 @pause
 
 @REM  opencv

@@ -4,6 +4,10 @@
 @REM  you can use: 'IF defined py35plus' (>=3.5)
 @REM  or: 'IF %pyverMajor%==py3' (>=3.0)
 
+@REM  Vars:
+@REM  ===============================================
+set pkgs=opencv_python
+
 @REM  See Matplotlib version
 @REM  ===============================================
 cmd "/c conda list"
@@ -27,17 +31,9 @@ IF %pyverMajor%==py3 (
 @REM  ===============================================
 cmd "/c conda remove --force pyqt sip"
 
-@REM  pip install preparations
+@REM  Check pip dependencies
 @REM  ===============================================
-@REM  Update setuptools:
-@REM  cmd "/c conda remove --force setuptools"
-@REM  pip install --ignore-installed setuptools
+call "%funcs%" pipResolve "%pkgs%"
+@pause
 
-@REM  Check pip dedendencies:
-cd /d "%envcache%"
-rmdir pip /s /q
-cmd "/c conda list"
-pip download -d "%envcache%\pip" opencv_python
 
-@REM  Post-update:
-@REM  cmd "/c conda install -c conda-forge thepackage=1.0"

@@ -4,7 +4,6 @@
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-
 @REM  Set vars that are needed for 'PPA\envs\%pyenv%\install.cmd':
 @REM  ========================================
 @REM  'install.cmd' can use any function from 'functions.cmd'
@@ -22,12 +21,9 @@ IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==p
 	set py35plus=1
 )
 
-
 @REM  Check if all variables were set
 @REM  ========================================
 call "%funcs%" checkvars
-@pause
-
 
 @REM  Convert path to url: replace \ with /
 @REM  ========================================
@@ -43,15 +39,10 @@ endlocal
 set /p EnvCacheURL=<__temp__.txt
 del __temp__.txt
 
-
 @REM  Run main script
 @REM  ========================================
 @REM  'cd' so we can use simply 'install.cmd'
 cd /d "envs\%pyenv%"
-
-
-@REM  activate %pyenv%_%pyver%
-@REM  install.cmd
 cmd "/c activate %pyenv%_%pyver% && install.cmd"
 
 @pause

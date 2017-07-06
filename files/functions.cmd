@@ -1,6 +1,5 @@
 call:%*
-exit/b
-
+@exit/b
 
 
 REM  Copy file with hash (or git diff) validation
@@ -45,7 +44,6 @@ IF defined False (
 	set hashfile2=__original_%prepID%__%target%
 )
 
-
 set hashtarget=%thispath%\files\%fromdir%\%hashfile%
 set hash=1
 set command=PowerShell -C "$($(CertUtil -hashfile '%hashtarget%' SHA256)[1] -replace ' ','')"
@@ -60,13 +58,11 @@ FOR /F "delims=" %%i IN ('%command%') DO set hash2=%%i
 IF not exist "%hashtarget%" set hash2=1
 IF "%hashfile%"=="%hashfile2%" set hash2=1
 
-
 set hashtarget=%envpath%\%todir%\%target%
 set targethash=0
 set command=PowerShell -C "$($(CertUtil -hashfile '%hashtarget%' SHA256)[1] -replace ' ','')"
 FOR /F "delims=" %%i IN ('%command%') DO set targethash=%%i
 IF not exist "%hashtarget%" set targethash=0
-
 
 set hashtarget=%thispath%\files\%fromdir%\%target%
 set patchedhash=0
@@ -74,22 +70,20 @@ set command=PowerShell -C "$($(CertUtil -hashfile '%hashtarget%' SHA256)[1] -rep
 FOR /F "delims=" %%i IN ('%command%') DO set patchedhash=%%i
 IF not exist "%hashtarget%" set patchedhash=0
 
-
 set "True="
 IF defined nofileTrue IF not exist "%envpath%\%todir%\%target%" set True=1
 IF /i %targethash%==%hash% set True=1
 IF /i %targethash%==%hash2% set True=1
 IF defined True (
 	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
-	Powershell write-host -foregroundcolor Green "Patch was applied."
+	powershell write-host -foregroundcolor Green "Patch was applied."
 ) ELSE IF /i %targethash%==%patchedhash% (
-	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
+	powershell write-host -foregroundcolor Yellow "Patch has been already applied."
 ) ELSE (
-	Powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
+	powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
 )
 
-exit/b
-
+@exit/b
 
 
 :gitdiffcopy
@@ -122,15 +116,12 @@ IF defined False (
 	set hashfile2=__original_%prepID%__%target%
 )
 
-
 set maintarget=%envpath%\%todir%\%target%
-
 
 set filetarget=%thispath%\files\%fromdir%\%hashfile%
 git diff "%filetarget%" "%maintarget%" > tmp.diff
 set diff=1
 IF exist tmp.diff for %%a in ("tmp.diff") do set diff=%%~za
-
 
 set filetarget=%thispath%\files\%fromdir%\%hashfile2%
 git diff "%filetarget%" "%maintarget%" > tmp.diff
@@ -138,15 +129,12 @@ set diff2=1
 IF exist tmp.diff for %%a in ("tmp.diff") do set diff2=%%~za
 IF "%hashfile%"=="%hashfile2%" set diff2=1
 
-
 set filetarget=%thispath%\files\%fromdir%\%target%
 git diff "%filetarget%" "%maintarget%" > tmp.diff
 set patchDiff=1
 IF exist tmp.diff for %%a in ("tmp.diff") do set patchDiff=%%~za
 
-
 IF exist tmp.diff del tmp.diff
-
 
 set "True="
 IF defined nofileTrue IF not exist "%envpath%\%todir%\%target%" set True=1
@@ -154,15 +142,14 @@ IF /i %diff%==0 set True=1
 IF /i %diff2%==0 set True=1
 IF defined True (
 	robocopy "%thispath%\files\%fromdir%" "%envpath%\%todir%" "%target%"
-	Powershell write-host -foregroundcolor Green "Patch was applied."
+	powershell write-host -foregroundcolor Green "Patch was applied."
 ) ELSE IF /i %patchDiff%==0 (
-	Powershell write-host -foregroundcolor Yellow "Patch has been already applied."
+	powershell write-host -foregroundcolor Yellow "Patch has been already applied."
 ) ELSE (
-	Powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
+	powershell write-host -foregroundcolor Red "Hash does not match. Patch was not applied."
 )
 
-exit/b
-
+@exit/b
 
 
 REM  Checks if needed environment variables were set to something
@@ -170,29 +157,36 @@ REM  ===============================================================
 REM  Function uses environment variables: (1) pypath, (2) pyfolder, (3) pyver, (4) pycomp, (5) pyapp, (6) pyout.
 
 :checkvars
-set "False="
-IF "%pypath%"=="" set False=1
-IF "%pyfolder%"=="" set False=1
-IF "%pyver%"=="" set False=1
-IF "%pyenv%"=="" set False=1
-If defined False (
-	Powershell write-host -foregroundcolor Red "pypath, pyfolder, pyver, pyenv variables were NOT set"
+@set "False="
+@IF "%pypath%"=="" set False=1
+@IF "%pyfolder%"=="" set False=1
+@IF "%pyver%"=="" set False=1
+@IF "%pyenv%"=="" set False=1
+@If defined False (
+	powershell write-host -foregroundcolor Red "pypath, pyfolder, pyver, pyenv variables were NOT set"
 ) ELSE (
-	Powershell write-host -foregroundcolor Green "pypath, pyfolder, pyver, pyenv, variables were set"
+	powershell write-host -foregroundcolor Green "pypath, pyfolder, pyver, pyenv, variables were set"
 )
-IF "%pycomp%"=="" (
-	Powershell write-host -foregroundcolor Red "pycomp is not set"
+@IF "%pycomp%"=="" (
+	powershell write-host -foregroundcolor Red "pycomp is not set"
 )
-IF "%pyapp%"=="" (
-	Powershell write-host -foregroundcolor Red "pyapp is not set"
+@IF "%pyapp%"=="" (
+	powershell write-host -foregroundcolor Red "pyapp is not set"
 )
-IF "%pyout%"=="" (
-	Powershell write-host -foregroundcolor Red "pyout is not set"
+@IF "%pyout%"=="" (
+	powershell write-host -foregroundcolor Red "pyout is not set"
 )
-echo press any key to continue script
+@echo pypath=%pypath%
+@echo pyfolder=%pyfolder%
+@echo pyver=%pyver%
+@echo pyenv=%pyenv%
+@echo pyapp=%pyapp%
+@echo pycomp=%pycomp%
+@echo pyout=%pyout%
+@echo press any key to continue script
+@pause
 
-exit/b
-
+@exit/b
 
 
 REM  Set pybit from pyfolder
@@ -206,12 +200,11 @@ IF %LastTwo%==64 (
 ) ELSE IF %LastTwo%==32 (
 	set pybit=32
 ) ELSE (
-	Powershell write-host -foregroundcolor Red "Wrong pyfolder name: %pyfolder%. Should end with 32 or 64."
+	powershell write-host -foregroundcolor Red "Wrong pyfolder name: %pyfolder%. Should end with 32 or 64."
 	pause
 )
 
-exit/b
-
+@exit/b
 
 
 REM  Shows download instructions
@@ -224,12 +217,11 @@ set echotext=%~1
 set url=%~2
 
 echo %url% | clip
-Powershell write-host -foregroundcolor Yellow "Download %echotext% for %pyver%-%pybit%bit`nto %pyfolder%\pkgs\envs\%pyenv%_%pyver%`nfrom URL that was copied to clipboard."
+@powershell write-host -foregroundcolor Yellow "Download %echotext% for %pyver%-%pybit%bit`nto %pyfolder%\pkgs\envs\%pyenv%_%pyver%`nfrom URL that was copied to clipboard."
 start .
 pause
 
-exit/b
-
+@exit/b
 
 
 REM  Regular expressions replacements in a folder
@@ -253,14 +245,13 @@ set notepadpp=%APPDATA%\Notepad++
 robocopy "%notepadpp%" "%notepadpp%\__temp" session.xml config.xml
 robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppRegExp_func_replace', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize will you loose your Notepad++ settings."
-Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
-Powershell write-host -foregroundcolor %color% "%message%"
+@powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize will you loose your Notepad++ settings."
+@powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
+@powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
 robocopy "%notepadpp%\__temp" "%notepadpp%" session.xml config.xml
 
-exit/b
-
+@exit/b
 
 
 REM  String replacements in a folder
@@ -286,14 +277,13 @@ robocopy "%notepadpp%" "%notepadpp%\__temp" session.xml config.xml
 robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_folder', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_find', '%StrToFind%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
-Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
-Powershell write-host -foregroundcolor %color% "%message%"
+@powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
+@powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
+@powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
 robocopy "%notepadpp%\__temp" "%notepadpp%" session.xml config.xml
 
-exit/b
-
+@exit/b
 
 
 :nppVarFindVarReplace
@@ -311,10 +301,33 @@ robocopy "%thispath%\files\%fromfolder%" "%notepadpp%" session.xml config.xml
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_folder', '%envpath%\%targetfolder%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_find', '%StrToFind%' | Set-Content '%notepadpp%\config.xml'"
 powershell -Command "(Get-Content '%notepadpp%\config.xml') -replace 'nppStr_replace', '%StrToReplace%' | Set-Content '%notepadpp%\config.xml'"
-Powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
-Powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
-Powershell write-host -foregroundcolor %color% "%message%"
+@powershell write-host -foregroundcolor Yellow "Do not close this window before closing Notepad++ window otherwize you will loose your Notepad++ settings."
+@powershell write-host -foregroundcolor White "Press Ctrl+Shift+F and replace in all files"
+@powershell write-host -foregroundcolor %color% "%message%"
 "%programfiles(x86)%\Notepad++\notepad++.exe"
 robocopy "%notepadpp%\__temp" "%notepadpp%" session.xml config.xml
 
-exit/b
+@exit/b
+
+
+REM  Resolve pip-conda dependencies
+REM  ============================================================
+REM  Compares installed packages (from 'conda list') with packages that
+REM  pip is going to install (from 'pip download thepackage').
+REM  Prints output to command prompt and writes to file '%envcache%\diff_list.txt'
+REM  Input: (1) whitespace separated list of packages.
+REM  Function also uses environment variables: (1) thispath, (2) envcache.
+
+:pipResolve
+set pkgs=%~1
+cd /d %envcache%
+rmdir pip /s /q
+cmd "/c conda list > conda_list.txt"
+pip download -d pip %pkgs%
+cd pip
+dir /b /a-d > ..\pip_list.txt
+cd ..
+@powershell write-host -foregroundcolor White "List of pip-conda differences:"
+python "%thispath%\files\pip_conda_diff.py"
+
+@exit/b

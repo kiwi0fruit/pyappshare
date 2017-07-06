@@ -1,15 +1,14 @@
+@REM  vars:
 set tensorflow=tensorflow-1.2.1-cp36-cp36m-win_amd64.whl
+set pkgs=opencv_python knotr %tensorflow%
+
+@REM  conda post-update:
+cmd "/c conda remove --force setuptools markdown"
+pip install --ignore-installed setuptools
+@REM  cmd "/c conda install -c conda-forge thepackage=1.0"
 
 @REM  check pip dependencies:
-cd /d "%envcache%"
-rmdir pip /s /q
-cmd "/c conda list > conda_list.txt"
-pip download -d pip opencv_python knotr %tensorflow%
-cd pip
-dir /b /a-d > ..\pip_list.txt
-cd ..
-Powershell write-host -foregroundcolor White "List of pip-conda differences:"
-python "%thispath%\files\pip_conda_diff.py"
+call "%funcs%" pipResolve "%pkgs%"
 @pause
 
 @REM  opencv:
@@ -18,7 +17,8 @@ pip install opencv_python
 
 @REM  stitch:
 pip install git+%EnvCacheURL%/stitch#egg=knotr
-@REM  pip install git+https://github.com/kiwi0fruit/stitch.git#egg=knotr
+@pause
+    @REM  git+https://github.com/kiwi0fruit/stitch.git#egg=knotr
 
-@REM  tensorflow - last because of setuptools update:
+@REM  tensorflow:
 pip install "%envcache%\%tensorflow%"
