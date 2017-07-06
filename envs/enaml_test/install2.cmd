@@ -23,8 +23,8 @@ pip install opencv_python
 
 @REM  Conda setuptools back
 @REM  ===============================================
-pip uninstall setuptools
-cmd "/c conda install --force setuptools"
+@REM  pip uninstall setuptools
+@REM  cmd "/c conda install --force setuptools"
 
 @REM  Patch modules if no git diff or with reg exp
 @REM  ===============================================

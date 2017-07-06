@@ -30,8 +30,8 @@ cmd "/c conda remove --force pyqt sip"
 @REM  pip install preparations
 @REM  ===============================================
 @REM  Update setuptools:
-cmd "/c conda remove --force setuptools"
-pip install --ignore-installed setuptools
+@REM  cmd "/c conda remove --force setuptools"
+@REM  pip install --ignore-installed setuptools
 
 @REM  Check pip dedendencies:
 cd /d "%envcache%"
