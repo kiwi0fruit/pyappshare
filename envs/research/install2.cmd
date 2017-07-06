@@ -8,6 +8,7 @@ pip download -d pip opencv_python knotr %tensorflow%
 cd pip
 dir /b /a-d > ..\pip_list.txt
 cd ..
+Powershell write-host -foregroundcolor White "List of pip-conda differences:"
 python "%thispath%\files\pip_conda_diff.py"
 @pause
 
