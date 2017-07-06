@@ -331,3 +331,12 @@ cd ..
 python "%thispath%\files\pip_conda_diff.py"
 
 @exit/b
+
+
+:pipResolveNoDownload
+cd /d %envcache%
+cmd "/c conda list > conda_list.txt"
+@powershell write-host -foregroundcolor White "List of pip-conda differences:"
+python "%thispath%\files\pip_conda_diff.py"
+
+@exit/b

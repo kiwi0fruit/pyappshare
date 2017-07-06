@@ -27,11 +27,13 @@ for s in pip_lines:
         if pip_ver == conda_ver:
             pass
         else:
-            diff_list.append(pip_pkg + ' pip-' + pip_ver + ' conda-' + conda_ver)
+            diff_list.append(pip_pkg + ' (' + pip_ver + ') (' + conda_ver + ')')
     except KeyError:
-        diff_list.append(pip_pkg + ' pip-' + pip_ver + ' conda-none')
+        conda_ver = '-'
+        diff_list.append(pip_pkg + ' (' + pip_ver + ') (' + conda_ver + ')')
 
 diff = '\n'.join(diff_list)
+diff = 'package (pip download) (conda list)\n' + diff
 print('')
 
 print(diff)
