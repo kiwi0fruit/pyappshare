@@ -13,9 +13,14 @@ cmd "/c conda install --force --copy -c ecpy enaml
 @REM  pyqt - remove
 cmd "/c conda remove --force pyqt sip"
 
+@REM  fix setuptools - needed for proper work of 'pipResolve'
+@REM  cmd "/c conda remove --force setuptools"
+@REM  cmd "/c conda install --force --copy setuptools"
+@REM  pip install --ignore-installed setuptools
+
 @REM  ==================================
 
-@REM  check pip dependencies:
+@REM  check pip dependencies
 call "%funcs%" pipResolve opencv_python
 @pause
 

@@ -31,9 +31,12 @@ IF %pyverMajor%==py3 (
 @REM  ===============================================
 cmd "/c conda remove --force pyqt sip"
 
+@REM  Fix setuptools - needed for proper work of 'pipResolve'
+@REM  ===============================================
+@REM  cmd "/c conda remove --force setuptools"
+@REM  cmd "/c conda install --force --copy setuptools"
+@REM  pip install --ignore-installed setuptools
+
 @REM  Check pip dependencies
 @REM  ===============================================
 call "%funcs%" pipResolve "%pkgs%"
-@pause
-
-

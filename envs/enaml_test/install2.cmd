@@ -15,8 +15,6 @@ set pkgs=opencv_python
 
 @REM  Conda post-update
 @REM  ===============================================
-@REM  cmd "/c conda remove --force setuptools"
-@REM  pip install --ignore-installed setuptools
 @REM  cmd "/c conda install -c conda-forge thepackage=1.0"
 
 @REM  Check pip dependencies
@@ -35,11 +33,6 @@ IF %pycomp%==mingwpy IF not defined py35plus (
 @REM  ===============================================
 pip install opencv_python
 @pause
-
-@REM  Conda setuptools back
-@REM  ===============================================
-@REM  pip uninstall setuptools
-@REM  cmd "/c conda install --force setuptools"
 
 @REM  Patch modules if no git diff or with reg exp
 @REM  ===============================================
