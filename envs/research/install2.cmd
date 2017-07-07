@@ -3,8 +3,9 @@ set tensorflow=tensorflow-1.2.1-cp36-cp36m-win_amd64.whl
 set pkgs=opencv_python knotr %tensorflow%
 
 @REM  conda post-update:
-cmd "/c conda remove --force markdown"
-@REM  cmd "/c conda install -c conda-forge thepackage=1.0"
+@REM  pipResolve found conda/pip versions mismatch: markdown bleach
+cmd "/c conda remove --force markdown bleach"
+cmd "/c conda install --force --copy bleach"
 
 @REM  check pip dependencies:
 call "%funcs%" pipResolve "%pkgs%"
