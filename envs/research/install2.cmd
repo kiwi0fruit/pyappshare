@@ -5,7 +5,7 @@ set pkgs=opencv_python knotr %tensorflow%
 @REM  conda post-update:
 @REM  pipResolve found conda/pip versions mismatch: markdown bleach
 cmd "/c conda remove --force markdown bleach"
-cmd "/c conda install --force --copy bleach"
+cmd "/c conda install --force --copy markdown bleach"
 
 @REM  check pip dependencies:
 call "%funcs%" pipResolve "%pkgs%"
