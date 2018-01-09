@@ -17,4 +17,4 @@ dependencies:
   - feather-format
   - pandoctools-pip
   - pip:
-    - pip install git+https://github.com/kiwi0fruit/pandoctools.git
+    - "git+https://github.com/kiwi0fruit/pandoctools.git"
