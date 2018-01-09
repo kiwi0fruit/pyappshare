@@ -14,5 +14,6 @@ dependencies:
   - pyopengl
   # [conda-forge]
   - pyside
+  - opencv
   # [ecpy]
   - enaml

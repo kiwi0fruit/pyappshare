@@ -1,13 +1,14 @@
-@REM  @echo off
-@REM  Modify PATH
-@REM  ====================================
+::@echo off
+::# Modify PATH
+::# ====================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-@REM  Set vars that are needed for 'PPA\envs\%pyenv%\download.cmd':
-@REM  ====================================
-@REM  'download.cmd' can use any function from 'functions.cmd'
-@REM  So all env vars that may be used by functions are set:
+
+::# Set vars that are needed for 'PPA\envs\%pyenv%\download.cmd':
+::# ====================================
+::# 'download.cmd' can use any function from 'functions.cmd'
+::# So all env vars that may be used by functions are set:
 set here=%~dp0
 set thispath=%here:~0,-1%
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
@@ -21,18 +22,22 @@ IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==p
 	set py35plus=1
 )
 
-@REM  Check if all variables were set
-@REM  ====================================
+
+::# Check if all variables were set
+::# ====================================
 call "%funcs%" checkvars
 
-@REM  Prepare folder
-@REM  ====================================
+
+::# Prepare folder
+::# ====================================
 mkdir "%envcache%"
 
-@REM  Run main script
-@REM  ====================================
-@REM  'cd' so we can use simply 'download.cmd'
+
+::# Run main script
+::# ====================================
+call activate %pyenv%_%pyver%
 cd /d "envs\%pyenv%"
-cmd "/c activate %pyenv%_%pyver% && download.cmd && deactivate"
+call download.cmd
+call deactivate
 
 @pause

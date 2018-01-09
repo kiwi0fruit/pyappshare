@@ -1,14 +1,16 @@
-@REM  Modify PATH
-@REM  ==================================
+::# Modify PATH
+::# ==================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-@REM  Check if all variables were set
-@REM  ==================================
+
+::# Check if all variables were set
+::# ==================================
 call "files\functions.cmd" checkvars
 
-@REM  Run main command
-@REM  ==================================
+
+::# Run main command
+::# ==================================
 conda env create -f "envs\%pyenv%\%pyver%.yml"
 
 @pause

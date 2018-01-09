@@ -1,20 +1,20 @@
 @echo off
 
-REM  Input options
-REM  =================
+::# Input options
+::# =================
 set target=C:\Program Files\Windows Media Player\wmplayer.exe
-REM  =C:\Program Files\Windows Media Player\wmplayer.exe
+::=C:\Program Files\Windows Media Player\wmplayer.exe
 set hash=0
-REM  =0
+::=0
 
 
 set hashAlg=SHA256
-REM  hashAlg choices: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
+::# hashAlg choices: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
 
 
 
-REM  Program
-REM  =================
+::# Program
+::# =================
 echo hash=%hash%, algorithm=%hashAlg%, target=%target%
 
 set command=PowerShell -C "$($(CertUtil -hashfile '%target%' %hashAlg%)[1] -replace ' ','')"

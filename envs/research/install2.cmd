@@ -1,24 +1,18 @@
-@REM  vars:
-set tensorflow=tensorflow-1.2.1-cp36-cp36m-win_amd64.whl
-set pkgs=opencv_python knotr %tensorflow%
+::@echo off
 
-@REM  conda post-update:
-@REM  pipResolve found conda/pip versions mismatch: markdown bleach
-cmd "/c conda remove --force markdown bleach"
-cmd "/c conda install --force --copy markdown bleach"
+::cd /d "%envcache%"
+::set tensorflow=tensorflow-<...>.whl
+::set pkgs=%tensorflow%
 
-@REM  check pip dependencies:
-call "%funcs%" pipResolve "%pkgs%"
+::# Conda post-update:
+::# 'pipResolve' found conda/pip versions mismatch: markdown bleach
+::call conda remove --force markdown bleach
+::call conda install --force --copy markdown bleach
+
+::# Check pip dependencies:
+::call "%funcs%" pipResolve "%pkgs%"
+::@pause
+
+::# Tensorflow:
+::pip install "%envcache%\%tensorflow%"
 @pause
-
-@REM  opencv:
-pip install opencv_python
-@pause
-
-@REM  stitch:
-pip install git+%EnvCacheURL%/stitch#egg=knotr
-@pause
-    @REM  git+https://github.com/kiwi0fruit/stitch.git#egg=knotr
-
-@REM  tensorflow:
-pip install "%envcache%\%tensorflow%"

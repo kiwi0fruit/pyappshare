@@ -1,22 +1,25 @@
-@REM  @echo off
-@REM  Modify PATH
-@REM  ====================================
+::@echo off
+::# Modify PATH
+::# ====================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-@REM  Set vars that are needed for 'hashcopy'/'gitdiffcopy' functions:
-@REM  ====================================
+
+::# Set vars that are needed for 'hashcopy'/'gitdiffcopy' functions:
+::# ====================================
 set here=%~dp0
 set thispath=%here:~0,-1%
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
 set funcs=%thispath%\files\functions.cmd
 
-@REM  Check if all variables were set
-@REM  ====================================
+
+::# Check if all variables were set
+::# ====================================
 call "%funcs%" checkvars
 
-@REM  Change compiler settings
-@REM  ====================================
+
+::# Change compiler settings
+::# ====================================
 call "%funcs%" gitdiffcopy compiler\%pycomp% Lib\distutils distutils.cfg nofile
 
-pause
+@pause

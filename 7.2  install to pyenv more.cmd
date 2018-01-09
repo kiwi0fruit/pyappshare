@@ -1,13 +1,14 @@
-@REM  @echo off
-@REM  Modify PATH
-@REM  ========================================
+::@echo off
+::# Modify PATH
+::# ========================================
 set PYTHONPATH=%pypath%\%pyfolder%
 set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PYTHONPATH%\Library\bin;%PATH%
 
-@REM  Set vars that are needed for 'PPA\envs\%pyenv%\install.cmd':
-@REM  ========================================
-@REM  'install.cmd' can use any function from 'functions.cmd'
-@REM  So all env vars that may be used by functions are set:
+
+::# Set vars that are needed for 'PPA\envs\%pyenv%\install.cmd':
+::# ========================================
+::# 'install.cmd' can use any function from 'functions.cmd'
+::# So all env vars that may be used by functions are set:
 set here=%~dp0
 set thispath=%here:~0,-1%
 set envpath=%pypath%\%pyfolder%\envs\%pyenv%_%pyver%
@@ -21,13 +22,15 @@ IF %pyverMajor%==py3 IF not %pyver%==py30 IF not %pyver%==py31 IF not %pyver%==p
 	set py35plus=1
 )
 
-@REM  Check if all variables were set
-@REM  ========================================
+
+::# Check if all variables were set
+::# ========================================
 call "%funcs%" checkvars
 
-@REM  Convert path to url: replace \ with /
-@REM  ========================================
-@REM  'PPA\envs\%pyenv%\install.cmd' needs %URLpath%
+
+::# Convert path to url: replace \ with /
+::# ========================================
+::# 'PPA\envs\%pyenv%\install.cmd' needs %URLpath%
 setlocal disableDelayedExpansion
 set "URLpath=file:///%envcache%"
 setlocal enableDelayedExpansion
@@ -39,10 +42,11 @@ endlocal
 set /p EnvCacheURL=<__temp__.txt
 del __temp__.txt
 
-@REM  Run main script
-@REM  ========================================
-@REM  'cd' so we can use simply 'install.cmd'
+
+::# Run main script
+::# ========================================
+call activate %pyenv%_%pyver%
 cd /d "envs\%pyenv%"
-cmd "/c activate %pyenv%_%pyver% && install2.cmd"
+call install2.cmd
 
 @pause

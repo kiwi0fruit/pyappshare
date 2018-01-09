@@ -1,15 +1,16 @@
-@REM  vars:
-set tensorflow=tensorflow-1.2.1-cp36-cp36m-win_amd64.whl
-set pkgs=opencv_python knotr %tensorflow%
+::@echo off
 
-@REM  R:
-cmd "/c conda install --force -c r rpy2"
+::cd /d "%envcache%"
+::set tensorflow=tensorflow-<...>.whl
+::set pkgs=%tensorflow%
 
-@REM  fix setuptools - needed for proper work of 'pipResolve':
-cmd "/c conda remove --force setuptools"
-cmd "/c conda install --force --copy setuptools"
-pip install --ignore-installed setuptools
+call conda install --force -c r rpy2
 
-@REM  check pip dependencies:
-call "%funcs%" pipResolve "%pkgs%"
+::# Fix setuptools - needed for proper work of 'pipResolve':
+::call conda remove --force setuptools
+::call conda install --force --copy setuptools
+::pip install --ignore-installed setuptools
+
+:: Check pip dependencies:
+::call "%funcs%" pipResolve "%pkgs%"
 @pause

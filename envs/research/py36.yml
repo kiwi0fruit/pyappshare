@@ -2,6 +2,7 @@ name: research_py36
 channels:
   - defaults
   - conda-forge
+  - kiwi0fruit
 dependencies:
   - python=3.6
   - pip
@@ -12,32 +13,8 @@ dependencies:
   - notebook
   - jupyter
   - sympy
-  - qtpy
-  - vc
-  # feather@conda-forge:
+  - opencv
   - feather-format
-  # knotr:
-  - jupyter_core
-  - traitlets
-  - ipython
-  - jupyter_client
-  - nbconvert
-  - pandocfilters
-  - click
-  - psutil
-  # knotr@conda-forge:
-  - pypandoc
-  # tensorflow:
-  - wheel
-  - werkzeug
-  - six
-  - mock
-  - markdown
-  - bleach
-  # tensorflow@conda-forge:
-  - html5lib=0.9999999
-  - backports.weakref
-  - protobuf=3.3.0
-  # misc@conda-forge:
-  - entrypoints=0.2.3
-  - markupsafe=1.0
+  - pandoctools-pip
+  - pip:
+    - pip install git+https://github.com/kiwi0fruit/pandoctools.git

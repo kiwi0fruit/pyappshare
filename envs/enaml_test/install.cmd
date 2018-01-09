@@ -1,42 +1,49 @@
-@REM  conda install
-@REM  ===============================================
-@REM  @echo off
-@REM  you can use: 'IF defined py35plus' (>=3.5)
-@REM  or: 'IF %pyverMajor%==py3' (>=3.0)
+::@echo off
 
-@REM  Vars:
-@REM  ===============================================
+::# conda install
+::# ===============================================
+::# you can use: 'IF defined py35plus' (>=3.5)
+::# or: 'IF %pyverMajor%==py3' (>=3.0)
+
+
+::# Vars:
+::# ===============================================
 set pkgs=opencv_python
 
-@REM  See Matplotlib version
-@REM  ===============================================
-cmd "/c conda list"
+
+::# See Matplotlib version
+::# ===============================================
+call conda list
 @pause
 
-@REM  --copy install: pyqtgraph qtpy matplotlib enaml
-@REM  ===============================================
-@REM  Hint: patch only packages that were installed with --copy parameter
-@REM  Conda by default links packages but not copies them. So when patching
-@REM  such packages you modify all environments.
-cmd "/c conda remove --force pyqtgraph qtpy matplotlib enaml"
+
+::# --copy install: pyqtgraph qtpy matplotlib enaml
+::# ===============================================
+::# Hint: patch only packages that were installed with --copy parameter
+::# Conda by default links packages but not copies them. So when patching
+::# such packages you modify all environments.
+call conda remove --force pyqtgraph qtpy matplotlib enaml
 IF %pyverMajor%==py3 (
-	cmd "/c conda install --force --copy qtpy pyqtgraph"
-	cmd "/c conda install --force --copy -c conda-forge matplotlib"
-	cmd "/c conda install --force --copy -c ecpy enaml
+	call conda install --force --copy qtpy pyqtgraph
+	call conda install --force --copy -c conda-forge matplotlib
+	call conda install --force --copy -c ecpy enaml
 ) ELSE (
-	cmd "/c conda install --force --copy qtpy pyqtgraph matplotlib enaml"
+	call conda install --force --copy qtpy pyqtgraph matplotlib enaml
 )
 
-@REM  Remove: pyqt sip
-@REM  ===============================================
-cmd "/c conda remove --force pyqt sip"
 
-@REM  Fix setuptools - needed for proper work of 'pipResolve'
-@REM  ===============================================
-@REM  cmd "/c conda remove --force setuptools"
-@REM  cmd "/c conda install --force --copy setuptools"
-@REM  pip install --ignore-installed setuptools
+::# Remove: pyqt sip
+::# ===============================================
+call conda remove --force pyqt sip
 
-@REM  Check pip dependencies
-@REM  ===============================================
+
+::# Fix setuptools - needed for proper work of 'pipResolve'
+::# ===============================================
+call conda remove --force setuptools
+call conda install --force --copy setuptools
+pip install --ignore-installed setuptools
+
+
+::# Check pip dependencies
+::# ===============================================
 call "%funcs%" pipResolve "%pkgs%"
