@@ -16,5 +16,3 @@ dependencies:
   - opencv
   - feather-format
   - pandoctools-pip
-  - pip:
-    - "git+https://github.com/kiwi0fruit/pandoctools.git"

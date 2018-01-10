@@ -43,6 +43,11 @@ set /p EnvCacheURL=<__temp__.txt
 del __temp__.txt
 
 
+::# Create folder
+::# ========================================
+mkdir "%envcache%"
+
+
 ::# Run main script
 ::# ========================================
 call activate %pyenv%_%pyver%

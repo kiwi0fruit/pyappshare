@@ -46,4 +46,5 @@ pip install --ignore-installed setuptools
 
 ::# Check pip dependencies
 ::# ===============================================
+cd /d "%envcache%"
 call "%funcs%" pipResolve "%pkgs%"

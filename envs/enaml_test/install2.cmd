@@ -23,6 +23,7 @@ set pkgs=opencv_python
 
 ::# Check pip dependencies
 ::# ===============================================
+cd /d "%envcache%"
 call "%funcs%" pipResolve "%pkgs%"
 @pause
 
