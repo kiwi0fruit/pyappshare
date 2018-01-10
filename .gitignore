@@ -1,4 +1,4 @@
 envs/setx pyenv to test.cmd
 envs/test/
-0  setx  pypath and pyout __my_at_home__.cmd
-0  setx  pypath and pyout __my_at_work__.cmd
+0_setx_pypath_and_pyout__my_at_home__.cmd
+0_setx_pypath_and_pyout__my_at_work__.cmd

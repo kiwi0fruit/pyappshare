@@ -1,7 +1,6 @@
 name: enaml_pyside_py36
 channels:
   - defaults
-  - ecpy
   - conda-forge
 dependencies:
   - python=3.6
@@ -13,7 +12,6 @@ dependencies:
   - setuptools
   - pyopengl
   # [conda-forge]
-  - pyside
+  - pyside2
   - opencv
-  # [ecpy]
   - enaml
