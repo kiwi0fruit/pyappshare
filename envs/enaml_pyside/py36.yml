@@ -12,6 +12,6 @@ dependencies:
   - setuptools
   - pyopengl
   # [conda-forge]
-  - pyside2
+  - pyside
   - opencv
   - enaml

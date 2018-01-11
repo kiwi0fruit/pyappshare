@@ -7,6 +7,10 @@ set pckgs=pyqtgraph qtpy matplotlib enaml
 call conda list
 @pause
 
-::# Remove pyqt sip / --copy install %pckgs%
-call conda remove --force %pckgs% pyqt sip
-call conda install --force --copy -c defaults -c conda-forge %pckgs%
+::# --copy install %pckgs%
+call conda remove --force %pckgs%
+call conda install --copy -c defaults -c conda-forge %pckgs%
+
+
+::# Remove pyqt sip
+call conda remove --force pyqt sip
