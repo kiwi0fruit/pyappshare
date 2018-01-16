@@ -2,7 +2,6 @@ name: research_py36
 channels:
   - defaults
   - conda-forge
-  - kiwi0fruit
 dependencies:
   - python=3.6
   - pip
@@ -15,4 +14,17 @@ dependencies:
   - sympy
   - opencv
   - feather-format
-  - pandoctools-pip
+  # ----
+  - pyyaml
+  - future
+  - shutilwhich
+  - psutil
+  - pandoc>=2.0,<2.1
+  - jupyter_core
+  - traitlets
+  - ipython
+  - jupyter_client
+  - nbconvert
+  - pandocfilters
+  - pypandoc
+  - click
