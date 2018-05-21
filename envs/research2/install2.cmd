@@ -2,7 +2,7 @@
 cd /d "%envcache%"
 
 ::# Check pip dependencies:
-call "%funcs%" pipResolve "pandoctools knitty sugartex"
+call "%funcs%" pipResolve "pandoctools knitty sugartex shortcut"
 @pause
 
 ::# pip install failed because 'pandoc-attributes' was missing:
@@ -28,7 +28,7 @@ call "%funcs%" pipResolve "pandoctools knitty sugartex"
 ::pip install "%envcache%\%tensorflow%"
 
 ::# Pandoctools:
-pip install pandoctools knitty sugartex
+pip install pandoctools knitty sugartex shortcut
 @pause
 
 ::call conda install --force -c r rpy2
