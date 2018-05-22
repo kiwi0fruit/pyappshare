@@ -28,3 +28,7 @@ dependencies:
   - pandocfilters
   - pypandoc
   - click
+  - pyperclip
+  - pandoc-attributes
+  - cython
+  - pywin32
