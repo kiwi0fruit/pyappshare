@@ -10,7 +10,7 @@ Share pyapp is a cookbook for creating cross-platform python applications in a m
   * crosspaltform app shortcuts creation via shortcut(s) module for running the app and managing Miniconda installation: add root Miniconda environment to PATH, activate the app's environment (shortcuts activate environment independent of whether Miniconda was added to the PATH or not),
   * sample PyQt stopper code that fixes licensing issues,
 * The template INSTALL.txt has install instructions for all platforms. Including how to:
-  * Install Visual Studio compiler,
-  * Install Git,
+  * Install Visual Studio compile(for modules that need compiling and are not in conda defaults/conda-forge repo),
+  * Install Git (for installing modules from GitHub),
   * Install Miniconda,
   * Create conda environment in the default location, etc. 
