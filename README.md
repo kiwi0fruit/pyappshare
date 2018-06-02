@@ -14,3 +14,9 @@ Share pyapp is a cookbook for creating cross-platform python applications in a m
   * Install Git (for installing modules from GitHub),
   * Install Miniconda,
   * Create conda environment in the default location, etc. 
+
+## ToDo
+
+Investigate creating conda package template
+
+instead of pip package   (check possibility of shortcut creation).
