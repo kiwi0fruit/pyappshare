@@ -1,4 +1,4 @@
-# Share pyapp
+# Share pyapp (is not finished)
 
 Share pyapp is a cookbook for creating cross-platform python applications in a moment. It suggests end-user to install Miniconda and all you left to do is:
 
