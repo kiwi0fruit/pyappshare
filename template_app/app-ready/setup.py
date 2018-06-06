@@ -12,6 +12,7 @@ class PostInstallCommand(install):
         sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut(test())
         sc.create_desktop_shortcut('pip')
+        sc.create_desktop_shortcut('app')
 
         f = open(os.path.join(os.path.expanduser('~'), 'app_install_error_log.txt'),
                  'w', encoding="utf-8")
