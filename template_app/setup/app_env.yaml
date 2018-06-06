@@ -1,0 +1,13 @@
+name: app_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+- python>=3.6
+- pip
+- pywin32
+- pip:
+  - winshell
+  - "git+https://github.com/kiwi0fruit/shortcutter.git"
+  - "./app-0.1.0.tar.gz"
+  - "./app-ready-0.1.0.tar.gz"

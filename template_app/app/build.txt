@@ -1,0 +1,3 @@
+# activate env
+# go to this folder
+python setup.py sdist
