@@ -11,7 +11,7 @@ class PostInstallCommand(install):
         from shortcutter import ShortCutter
         from app import test
 
-        sc = ShortCutter(raise_errors=False)
+        sc = ShortCutter()
         sc.create_desktop_shortcut(test())
 
         # ---------------------------------
