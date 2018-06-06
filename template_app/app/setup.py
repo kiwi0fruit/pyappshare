@@ -12,5 +12,5 @@ setup(
     license='Proprietary',
 
     packages=find_packages(),
-    install_requires=['shortcutter'],
+    install_requires=['setuptools'],
 )
