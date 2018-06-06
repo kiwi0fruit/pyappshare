@@ -13,4 +13,12 @@ setup(
 
     packages=find_packages(),
     install_requires=['setuptools'],
+    entry_points={
+        'console_scripts': [
+            'app=app.test:cli',
+        ],
+    },
+    # scripts=[
+    #     'scripts/myscript.bat',
+    # ],
 )

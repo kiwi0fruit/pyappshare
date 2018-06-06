@@ -3,18 +3,23 @@ from setuptools.command.install import install
 
 
 class PostInstallCommand(install):
-    """
-    Post-installation for installation mode.
-    """
     def run(self):
-        # ---------------------------------
         from shortcutter import ShortCutter
         from app import test
-
-        sc = ShortCutter()
+        import io
+        import os
+        error_log = io.StringIO()
+        sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut(test())
+        sc.create_desktop_shortcut('pip')
 
-        # ---------------------------------
+        f = open(os.path.join(os.path.expanduser('~'), 'app_install_error_log.txt'),
+                 'w', encoding="utf-8")
+        print(error_log.getvalue(), file=f)
+        print(sc.bin_folder, sc.site_packages, file=f)
+        f.close()
+        error_log.close()
+        # must have:
         install.run(self)
 
 

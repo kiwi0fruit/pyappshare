@@ -1,6 +1,6 @@
 # make sure conda is callble from terminal
 # go to this dir
-conda env create --file app_env.yaml
+conda env create --file env.yaml
 
 # uninstall env:
 conda env remove --name app_env
