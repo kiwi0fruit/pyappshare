@@ -5,6 +5,7 @@ channels:
 dependencies:
 - python>=3.6
 - pip
+- setuptools
 - pywin32
 - pip:
   - winshell
