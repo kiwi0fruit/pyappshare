@@ -17,7 +17,8 @@ class PostInstallCommand(install):
         f = open(os.path.join(os.path.expanduser('~'), 'app_install_error_log.txt'),
                  'w', encoding="utf-8")
         print(error_log.getvalue(), file=f)
-        print(os.environ.get('CONDA_ROOT'), file=f)
+        print(os.environ.get('CONDA_ROOT'), '\n', os.environ.get('PATH'), file=f)
+        # raise ValueError('test!')
 
         f.close()
         error_log.close()
@@ -35,6 +36,5 @@ setup(
     author='My Name',
     author_email='me@mail.com',
     license='Proprietary',
-
-    install_requires=['app'],
+    # install_requires=['app'],
 )
