@@ -17,8 +17,8 @@ class PostInstallCommand(install):
         f = open(os.path.join(os.path.expanduser('~'), 'app_install_error_log.txt'),
                  'w', encoding="utf-8")
         print(error_log.getvalue(), file=f)
-        print(sc.bin_folder, '', sc.site_packages, '', os.environ['PATH'], file=f)
-        
+        print(os.environ.get('CONDA_ROOT'), file=f)
+
         f.close()
         error_log.close()
         # must have:
