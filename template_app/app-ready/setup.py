@@ -14,11 +14,11 @@ class PostInstallCommand(install):
         sc.create_desktop_shortcut(test())
         sc.create_desktop_shortcut('pip')
         sc.create_desktop_shortcut('app')
+        sc.create_activated_terminal_shortcuts(menu=False)
 
         sc.activate_args = (None, None)
         sc.create_desktop_shortcut('app', 'app_naked')
         sc.create_desktop_shortcut(p.join(sc.site_packages, 'app'), 'app_dir')
-        sc.create_activated_terminal_shortcuts(menu=False)
 
         f = open(p.join(p.expanduser('~'), 'app_install_error_log.txt'),
                  'w', encoding="utf-8")
