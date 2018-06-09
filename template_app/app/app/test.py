@@ -1,6 +1,8 @@
+import os
+
 def test():
     return 'python'
 
 def cli():
-    print('Hello!')
+    print(os.environ.get('PATH'))
     input("Press Enter to exit.")
