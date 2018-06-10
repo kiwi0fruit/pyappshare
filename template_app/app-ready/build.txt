@@ -1,3 +1,4 @@
-# activate env
-# go to this folder
-python setup.py sdist
+# open terminal with activated environment
+# run build_to_clipboard.bat
+# paste clipboard to the terminal
+# copy python module whenever you want
