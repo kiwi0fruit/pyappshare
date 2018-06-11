@@ -14,7 +14,7 @@ class PostInstallCommand(install):
         sc.create_desktop_shortcut(test())
         sc.create_desktop_shortcut('pip')
         sc.create_desktop_shortcut('app')
-        sc.create_activated_terminal_shortcuts(menu=False)
+        sc.create_shortcut_to_env_terminal(menu=False)
 
         sc.activate_args = (None, None)
         sc.create_desktop_shortcut('app', 'app_naked')
