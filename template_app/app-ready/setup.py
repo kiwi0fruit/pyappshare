@@ -9,7 +9,7 @@ class PostInstallCommand(install):
         import io
         from os import path as p
         import os
-        import path
+        import site
         error_log = io.StringIO()
         sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut(test())
