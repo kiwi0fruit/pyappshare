@@ -25,7 +25,7 @@ class PostInstallCommand(install):
         f = open(p.join(p.expanduser('~'), 'app_install_error_log.txt'),
                  'w', encoding="utf-8")
         print(error_log.getvalue(), file=f)
-        print(sc.bin_folder, file=f)
+        # print(sc.bin_folder, file=f)
 
         f.close()
         error_log.close()
