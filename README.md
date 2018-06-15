@@ -1,6 +1,6 @@
 # PyAppShare (is not finished)
 
-PyAppShare is a cookbook for creating cross-platform python applications in a moment. It suggests end-user to install Miniconda and all you left to do is:
+PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment. It suggests end-user to install Miniconda and all you left to do is:
 
 * Specify conda environment like in a `setup/env.yaml` file by putting there all dependencies for your app, 
 * Wrap your app as a python module (for example "app") using predefined template `app/setup.py`. *You can also add dependencies there but it's redundant as you do not distribute module separately*.
