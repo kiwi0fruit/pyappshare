@@ -15,3 +15,4 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
   * Install Git (for installing modules from GitHub),
   * Install Miniconda,
   * Create conda environment in the default location, etc. 
+* The proposed user-algorithm can be automated like in [this project](https://github.com/deto/Miniconda-Install).
