@@ -1,4 +1,12 @@
 # open terminal with activated environment
-# run build_to_clipboard.bat
+# run build__to_clip.bat
 # paste clipboard to the terminal
 # copy python module whenever you want
+
+
+# hint: easily create shortcut to activated environment via Shortcutter:
+    # windows only preparation:
+    conda install pywin32
+    # cross-platform installation:
+    pip install shortcut
+    shortcut --terminal
