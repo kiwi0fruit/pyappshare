@@ -1,10 +1,18 @@
 # make sure conda is callble from terminal
+# (I assume that you didn't change default Miniconda install dir)
+#   on Windows:
+cd /d %UserProfile%\Miniconda3\Scripts
+set PATH=%PATH%;%cd%
+#   on Unix (Linux/macOS):
+cd ~/miniconda3/bin
+export PATH="$PATH:$(pwd)"
+
 # go to this dir
 # run:
 #   on Windows:
 conda env create --file env_win.yaml
 #   on Unix (Linux/macOS):
-conda env create --file env_unix.yaml
+conda env create --file ./env_unix.yaml
 
 # uninstall env:
-conda env remove --name app_env
+conda env remove --name app
