@@ -1,22 +1,20 @@
 # Installation
 
 1. Install [Miniconda3](https://conda.io/miniconda.html) (this instruction
-is for Python 3.6). I suggest not adding Miniconda to the PATH unless you 
+is for Python 3.6). I suggest not adding Miniconda to the PATH unless you
 have a reason - the app starts nicely via shortcut to be created.
     * on Windows installation is straight-forward,
     * this is [Linux installation instruction](https://conda.io/docs/user-guide/install/linux.html),
     * this is [macOS installation instruction](https://conda.io/docs/user-guide/install/macos.html).
 
-2. _(optional)_ Install Git.
-    * [Windows](http://git-scm.com/download/win),
-    * [Linux](https://git-scm.com/download/linux),
-    * [macOS](https://git-scm.com/download/mac). Another option is to install the Xcode Command Line  
-      Tools. On Mavericks (10.9) or above you can do this simply by trying to run git from the  
-      Terminal the very first time.
+2. _(optional)_ Install [Git](https://git-scm.com/downloads). Install instructions are
+  straight-forward. Another option on macOS is to install the Xcode Command Line Tools.
+  On Mavericks (10.9) or above you can do this simply by trying to run git from the Terminal
+  the very first time.
 
-          git --version
+       git --version
 
-      If you don’t have it installed already, it will prompt you to install it.
+    If you don’t have it installed already, it will prompt you to install it.
 
 $ git --version
 If you don’t have it installed already, it will prompt you to install it.
