@@ -10,7 +10,7 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 * The templates `setup.py` files already have:
   * cross-platform app shortcuts creation via [shortcutter](https://github.com/kiwi0fruit/shortcutter) module for running the app and managing Miniconda installation. Shortcuts activate Miniconda environment (`app` in case of [`env_unix.yaml`](template_app/setup/env_unix.yaml)) and launch the application (shortcuts activate environment independent of whether Miniconda was added to the PATH or not),
   * **TODO**: sample PyQt stopper code that fixes licensing issues,
-* The template `INSTALL.md` has install instructions for all platforms. Including how to:
+* The template [`setup/INSTALL.md`](template_app/setup/INSTALL.md) has install instructions for all platforms. Including how to:
   * **TODO**: Install Visual Studio compiler (for modules that need compiling and are not in conda defaults and conda-forge repos),
   * **TODO**: Install Git (for installing modules from GitHub),
   * **TODO**: Install Miniconda,
