@@ -7,6 +7,20 @@ have a reason - the app starts nicely via shortcut to be created.
     * this is [Linux installation instruction](https://conda.io/docs/user-guide/install/linux.html),
     * this is [macOS installation instruction](https://conda.io/docs/user-guide/install/macos.html).
 
+2. _(optional)_ Install Git.
+    * [Windows](http://git-scm.com/download/win),
+    * [Linux](https://git-scm.com/download/linux),
+    * [macOS](https://git-scm.com/download/mac). Another option is to install the Xcode Command Line  
+      Tools. On Mavericks (10.9) or above you can do this simply by trying to run git from the  
+      Terminal the very first time.
+
+          git --version
+
+      If you don’t have it installed already, it will prompt you to install it.
+
+$ git --version
+If you don’t have it installed already, it will prompt you to install it.
+
 2. Make sure conda is callble from terminal  
 (I assume that you didn't change default Miniconda3 
 install dir)
