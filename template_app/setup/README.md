@@ -1,9 +1,8 @@
 # Installation
 
-1. Install [Miniconda3](https://conda.io/miniconda.html)  
-(I suggest not adding it to the PATH unless you 
-have a reason - the app starts nicely via shortcut 
-to be created)
+1. Install [Miniconda3](https://conda.io/miniconda.html) (this instruction
+is for Python 3.6). I suggest not adding Miniconda to the PATH unless you 
+have a reason - the app starts nicely via shortcut to be created.
 
 2. Make sure conda is callble from terminal  
 (I assume that you didn't change default Miniconda3 
