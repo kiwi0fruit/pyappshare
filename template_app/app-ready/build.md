@@ -4,7 +4,8 @@
 * copy python module whenever you want
 
 
-Hint: easily create shortcut to activated environment via Shortcutter:
+Hint: easily create shortcut to activated 
+environment via Shortcutter:
 
 * windows only preparation:
 
