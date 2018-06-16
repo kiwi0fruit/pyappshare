@@ -7,7 +7,7 @@ class PostInstallCommand(install):
         import io
         import os
         from os import path as p
-        import app
+        import app  # always import the main module to make sure it's installed
         from shortcutter import ShortCutter
         import inspect
 
