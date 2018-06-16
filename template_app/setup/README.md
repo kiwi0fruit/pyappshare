@@ -16,6 +16,10 @@ have a reason - the app starts nicely via shortcut to be created.
 
     If you don’t have it installed already, it will prompt you to install it.
 
+3. _(optional)_ If on Windows install [Build Tools for Visual Studio 2017](https://www.visualstudio.com/ru/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
+  from [visualstudio.com](https://www.visualstudio.com/ru/downloads/) (as stated [here](https://wiki.python.org/moin/WindowsCompilers#Compilers_Installation_and_configuration)).
+  Check Windows 8.1 SDK and Windows 10 SDK options.
+
 2. Make sure conda is callble from terminal. I assume that you didn't change default Miniconda3
   install dir (otherwise drag'n'drop the dir to the terminal window or copy it's path from the file
   manager).
