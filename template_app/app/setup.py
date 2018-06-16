@@ -13,7 +13,7 @@ setup(
     license='Proprietary',
 
     packages=find_packages(),
-    install_requires=['setuptools'],
+    # install_requires=['setuptools'],
     entry_points={
         'console_scripts': [
             'app=app.test:cli',
