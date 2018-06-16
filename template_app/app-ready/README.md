@@ -6,7 +6,7 @@ Creates desktop shortcuts to app executable and app module folder via [shortcutt
 # Build (Windows)
 
 * open terminal with activated environment
-* run build__to_clip.bat
+* run `build__to_clip.bat`
 * paste clipboard to the terminal
 * copy python module whenever you want
 
