@@ -20,19 +20,18 @@ install dir)
           cd ~/miniconda3/bin
           export PATH="$PATH:$(pwd)"
 
-
-3. Go to this dir
-
-4. Run:
+3. Go to this dir (copy it's path from the file manager) and run:
     * on Windows:
 
+          cd /d <ThisDir>
           conda env create --file env_win.yaml
 
     * on Unix (Linux/macOS):
 
+          cd <ThisDir>
           conda env create --file ./env_unix.yaml
 
    * Important: do not specify custom `-p` / `--prefix` path: this might make shortcut creation fail.
-5. If you need - Uninstall env:
+4. If you need - Uninstall env:
 
         conda env remove --name app
