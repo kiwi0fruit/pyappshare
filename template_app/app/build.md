@@ -1,4 +1,4 @@
-run build__to_clip.bat
+* run build__to_clip.bat
 * paste clipboard to the terminal
 * copy python module whenever you want
 
