@@ -29,13 +29,13 @@ install dir)
           cd ~/miniconda3/bin
           export PATH="$PATH:$(pwd)"
 
-3. Go to this dir and run:
-    * on Windows (copy dir's path from the explorer):
+3. Go to this dir and run (drag'n'drop the dir to the terminal window or copy from the file manager):
+    * on Windows:
 
           cd /d <ThisDir>
           conda env create --file env_win.yaml
 
-    * on Unix (Linux/macOS) (drag'n'drop the dir to the terminal window):
+    * on Unix (Linux/macOS):
 
           cd <ThisDir>
           conda env create --file ./env_unix.yaml
