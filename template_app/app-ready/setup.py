@@ -36,7 +36,7 @@ setup(
     version='0.1.0',
     cmdclass={'install': PostInstallCommand},
 
-    description='My app shortcuts.',
+    description='Shortcuts for App.',
     url='https://github.com/me/app-ready',
     author='My Name',
     author_email='me@mail.com',
