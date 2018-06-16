@@ -1,3 +1,5 @@
+# Installation
+
 1. Install [Miniconda3](https://conda.io/miniconda.html)  
 (I suggest not adding it to the PATH unless you 
 have a reason - the app starts nicely via shortcut 
