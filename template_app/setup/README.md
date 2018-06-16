@@ -16,9 +16,6 @@ have a reason - the app starts nicely via shortcut to be created.
 
     If you don’t have it installed already, it will prompt you to install it.
 
-$ git --version
-If you don’t have it installed already, it will prompt you to install it.
-
 2. Make sure conda is callble from terminal  
 (I assume that you didn't change default Miniconda3 
 install dir)
