@@ -18,7 +18,8 @@ class PostInstallCommand(install):
         sc.create_desktop_shortcut(p.dirname(inspect.getfile(app)), 'app_dir')
         sc.create_shortcut_to_env_terminal(menu=False)
 
-        print(error_log.getvalue(), file=open(p.join(p.expanduser('~'), 'app_install_error_log.txt'),
+        print(error_log.getvalue(), file=open(p.join(p.expanduser('~'),
+                                                     'app_install_error_log.txt'),
                                               'w', encoding="utf-8"))
         error_log.close()
 
