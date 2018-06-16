@@ -12,7 +12,7 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
   * **TODO**: sample PyQt stopper code that fixes licensing issues,
 * The template [`setup/INSTALL.md`](template_app/setup/INSTALL.md) has install instructions for all platforms. Including how to:
   * **TODO**: Install Visual Studio compiler (for modules that need compiling and are not in conda defaults and conda-forge repos),
-  * **TODO**: Install Git (for installing modules from GitHub),
+  * Install Git (for installing modules from GitHub),
   * Install Miniconda,
   * Create conda environment in the default location, etc. 
 * The proposed user-side algorithm can be automated like in [this project](https://github.com/deto/Miniconda-Install).
