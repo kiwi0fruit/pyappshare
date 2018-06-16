@@ -1,3 +1,10 @@
+# App-ready
+
+Creates desktop shortcuts to app executable and app module folder via [shortcutter](https://github.com/kiwi0fruit/shortcutter). Logs shortcut creation errors to `~/app_install_error_log.txt`.
+
+
+# Build (Windows)
+
 * open terminal with activated environment
 * run build__to_clip.bat
 * paste clipboard to the terminal
