@@ -3,7 +3,7 @@
 PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment. It suggests end-user to install Miniconda and all you left to do is:
 
 * Specify conda environment like in a [`setup/env_unix.yaml`](template_app/setup/env_unix.yaml) file by putting there all dependencies for your app, 
-* Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant as you do not distribute module separately*.
+* Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*.
 * Create additional python module (for example "app-ready") using predefined template [`app-ready/setup.py`](template_app/app-ready/setup.py) that creates shortcuts and performs any additional user data manipulations after installation.
 * Write installation instructions using predefined template [`setup/INSTALL.md`](template_app/setup/INSTALL.md),
 * Pack `*.yaml` env, python modules, `INSTALL.md` to archive and send to the end-user: rough and ready but accessible and easy. See example in [`setup/`](template_app/setup) dir,
