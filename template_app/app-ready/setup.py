@@ -5,7 +5,8 @@ from setuptools.command.install import install
 class PostInstallCommand(install):
     def run(self):
         """
-        Creates desktop shortcuts to app exec. and app module folder.
+        Creates desktop shortcuts to app exec. and app module folder
+        via shortcutter: https://github.com/kiwi0fruit/shortcutter
         Logs shortcut creation errors to ~/app_install_error_log.txt
         """
         import io
