@@ -5,7 +5,8 @@ setup(
     name='app',
     version='0.1.0',
 
-    description='My app.',
+    description=('App. Imports `test` function, has `app` CLI executable that prints ' +
+                 'PATH to show that the app runs in the activated environment.'),
     url='https://github.com/me/app',
     author='My Name',
     author_email='me@mail.com',
