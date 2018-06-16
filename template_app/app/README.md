@@ -3,10 +3,10 @@
 Imports `test` function, has `app` CLI executable that prints PATH to show that the app runs in the activated environment.
 
 
-# Build instructions
+# Build instructions (Windows)
 
 * open terminal with activated environment
-* run build__to_clip.bat
+* run `build__to_clip.bat`
 * paste clipboard to the terminal
 * copy python module whenever you want
 
