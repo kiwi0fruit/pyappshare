@@ -22,7 +22,7 @@ have a reason - the app starts nicely via shortcut to be created.
   Check Windows 8.1 SDK and Windows 10 SDK options.
   Previous version: [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-2. Make sure conda is callble from terminal. I assume that you didn't change default Miniconda3
+2. Make sure conda is callble from terminal by modifying the PATH. I assume that you didn't change default Miniconda3
   install dir (otherwise drag'n'drop the dir to the terminal window or copy it's path from the file
   manager).
     * on Windows:
@@ -40,11 +40,13 @@ have a reason - the app starts nicely via shortcut to be created.
 
           cd /d <ThisDir>
           conda env create --file env_win.yaml
+          conda remove --force pyqt sip
 
     * on Unix (Linux/macOS):
 
           cd <ThisDir>
           conda env create --file ./env_unix.yaml
+          conda remove --force pyqt sip
 
    * Important: do not specify custom `-p` / `--prefix` path: this might make shortcut creation fail.
 4. If you need - Uninstall env:

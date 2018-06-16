@@ -1,1 +1,1 @@
-from .test import test
+from .app import test
