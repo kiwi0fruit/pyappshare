@@ -4,6 +4,10 @@ from setuptools.command.install import install
 
 class PostInstallCommand(install):
     def run(self):
+        """
+        Creates desktop shortcuts to app exec. and app module folder.
+        Logs shortcut creation errors to ~/app_install_error_log.txt
+        """
         import io
         import os
         from os import path as p
