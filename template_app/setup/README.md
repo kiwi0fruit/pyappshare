@@ -7,7 +7,7 @@ have a reason - the app starts nicely via shortcut to be created.
     * this is [Linux installation instruction](https://conda.io/docs/user-guide/install/linux.html),
     * this is [macOS installation instruction](https://conda.io/docs/user-guide/install/macos.html).
 
-2. _(optional)_ Install [Git](https://git-scm.com/downloads). Install instructions are
+2. _(Optional. Needed only if the app developer is lazy)_ Install [Git](https://git-scm.com/downloads). Install instructions are
   straight-forward. Another option on macOS is to install the Xcode Command Line Tools.
   On Mavericks (10.9) or above you can do this simply by trying to run git from the Terminal
   the very first time.
@@ -16,7 +16,7 @@ have a reason - the app starts nicely via shortcut to be created.
 
     If you don’t have it installed already, it will prompt you to install it.
 
-3. _(optional)_ If on Windows install [Build Tools for Visual Studio 2017](https://www.visualstudio.com/ru/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
+3. _(Optional. Needed only if the app developer is lazy)_ If on Windows install [Build Tools for Visual Studio 2017](https://www.visualstudio.com/ru/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
   from [visualstudio.com](https://www.visualstudio.com/ru/downloads/) (as stated [here](https://wiki.python.org/moin/WindowsCompilers#Compilers_Installation_and_configuration)).
   Check Windows 8.1 SDK and Windows 10 SDK options.
 
