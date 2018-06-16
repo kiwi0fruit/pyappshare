@@ -14,5 +14,6 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
   * Install Visual Studio compiler (for modules that need compiling and are not in conda defaults and conda-forge repos) - _needed only if the app developer is lazy_,
   * Install Git (for installing modules from GitHub) - _needed only if the app developer is lazy_,
   * Install Miniconda,
-  * Create conda environment in the default location, etc. 
+  * Create conda environment in the default location, etc,
+  * **TODO**: install Atom/Hydrogen,
 * The proposed user-side algorithm can be automated like in [this project](https://github.com/deto/Miniconda-Install).
