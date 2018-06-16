@@ -30,6 +30,7 @@ install dir)
 
           conda env create --file ./env_unix.yaml
 
+   * Important: do not specify custom `-p` / `--prefix` path: this might make shortcut creation fail.
 5. If you need - Uninstall env:
 
         conda env remove --name app
