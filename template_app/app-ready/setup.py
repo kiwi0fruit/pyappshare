@@ -9,12 +9,11 @@ class PostInstallCommand(install):
         via shortcutter: https://github.com/kiwi0fruit/shortcutter
         Logs shortcut creation errors to ~/app_install_error_log.txt
         """
-        import io
-        import os
-        from os import path as p
         import app  # always import the main module to make sure it's installed
-        from shortcutter import ShortCutter
+        import io
+        from os import path as p
         import inspect
+        from shortcutter import ShortCutter
 
         error_log = io.StringIO()
 
