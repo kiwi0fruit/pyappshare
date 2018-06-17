@@ -25,5 +25,5 @@ environment via Shortcutter:
 
 * cross-platform installation:
 
-      pip install shortcut
+      pip install shortcutter
       shortcutter --terminal
