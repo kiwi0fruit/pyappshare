@@ -1,14 +1,14 @@
 # ---- prevent GPL infecting: ----
-import pip
+import pkg_resources
 
 class LicenseError(Exception):
     pass
 
-blacklisted_pkgs = ['PyQt4', 'PyQt5', 'sip', 'PyQt', 'pyqt']
-installed_pkgs = [pkg.key for pkg in pip.get_installed_distributions()]
-for package in blacklisted_pkgs:
-    if package in installed_pkgs:
-        raise LicenseError('Uninstall {} module to use the app.'.format(package))
+blacklisted_pkgs = ['PyQt4', 'PyQt5', 'sip', 'pyqt']
+installed_pkgs = [pkg.key.lower() for pkg in pkg_resources.working_set]
+for pkg in blacklisted_pkgs:
+    if pkg.lower() in installed_pkgs:
+        raise LicenseError('Uninstall {} module to use the app (module name was lowercased).'.format(pkg.lower()))
 # ----
 
 import os
