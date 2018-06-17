@@ -14,7 +14,7 @@ setup(
 
     packages=find_packages(),
 
-    # install_requires=['setuptools'],
+    install_requires=['setuptools'],
     
     # add non .py files from MANIFEST.in:
     include_package_data=True,
@@ -22,7 +22,7 @@ setup(
     # create cross-platform executables:
     entry_points={
         'console_scripts': [
-            'app=app.test:cli',
+            'app=app.app:cli',
         ],
     },
 
