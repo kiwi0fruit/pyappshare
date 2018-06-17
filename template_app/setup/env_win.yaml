@@ -7,8 +7,11 @@ dependencies:
 - pip>=10.0.1
 - setuptools
 - pywin32
-- enaml
+- qt
 - pyside2
+- enaml
+- pyqtgraph
+- matplotlib
 - pip:
   - shortcutter
   - "./app-0.1.0.tar.gz"
