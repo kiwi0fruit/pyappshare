@@ -11,7 +11,8 @@ def check():
     blacklisted = ['PyQt4', 'PyQt5', 'sip', 'PyQt', 'pyqt']
     for mod in blacklisted:
         if find_module(mod) is not None:
-            raise LicenseError('Uninstall {} module to use the app.'.format(mod))
+            raise LicenseError("Try setting 'PYTHONNOUSERSITE=1' env var before activating conda env " +
+                               "or uninstall '{}' module from conda env to use the app.".format(mod))
 
 check()
 
