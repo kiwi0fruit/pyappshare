@@ -42,6 +42,8 @@ setup(
     author='My Name',
     author_email='me@mail.com',
     license='Proprietary',
+    # it's a sample setup.py. Actually this file's license is the same as the whole repo's
+
     # install_requires=['app'],  # Do not add such deps!
     # Because 'app' is already on pypi and setup.py will attempt to install from there.
     # And it's not the 'app' that we need.

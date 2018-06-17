@@ -11,6 +11,7 @@ setup(
     author='My Name',
     author_email='me@mail.com',
     license='Proprietary',
+    # it's a sample setup.py. Actually this file's license is the same as the whole repo's
 
     packages=find_packages(),
 
