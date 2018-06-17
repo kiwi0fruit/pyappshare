@@ -9,7 +9,7 @@ Logs shortcut creation errors to
 # Build instructions
 
 * open terminal with activated environment,
-* on Linux / macOS type `. ` (dot, space),
+* on Linux / macOS type <code>. </code> (dot, space),
 * drag and drop `build.bat`
   (`build` on Linux / macOS) to the terminal window
   and press enter,
