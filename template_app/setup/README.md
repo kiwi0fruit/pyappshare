@@ -23,8 +23,8 @@
 
 3. _(Optional. Needed only if the app developer is
   lazy)_ If on Windows install
-  [Build Tools for Visual Studio 2017](https://www.visualstudio.com/ru/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
-  from [visualstudio.com](https://www.visualstudio.com/ru/downloads/).
+  [Build Tools for Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
+  from [visualstudio.com](https://www.visualstudio.com/downloads/).
   Check Windows 8.1 SDK and Windows 10 SDK options.
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
