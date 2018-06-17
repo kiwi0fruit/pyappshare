@@ -1,4 +1,4 @@
-The MIT License (MIT)
+The MIT License (MIT) - covers everything in this repository
 
 Copyright (c) 2018 Peter Zagubisalo
 
