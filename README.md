@@ -18,4 +18,8 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
   * Install Git (for installing modules from GitHub) - _needed only if the app developer is lazy_,
   * Install Miniconda,
   * Create conda environment in the default location, etc.
-* The proposed user-side algorithm can be automated like in [this project](https://github.com/deto/Miniconda-Install).
+
+
+## Automatic user-side install
+
+* The proposed user-side algorithm can be automated like in [Miniconda-Install](https://github.com/deto/Miniconda-Install). Actually adapting Miniconda-Install is the best way to go but should fix non https problem first.
