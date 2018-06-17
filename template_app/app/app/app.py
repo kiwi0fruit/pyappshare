@@ -1,4 +1,4 @@
-# prevent GPL infecting:
+# ---- prevent GPL infecting: ----
 import pip
 
 class LicenseError(Exception):
@@ -9,7 +9,8 @@ installed_pkgs = [pkg.key for pkg in pip.get_installed_distributions()]
 for package in blacklisted_pkgs:
     if package in installed_pkgs:
         raise LicenseError('Uninstall {} module to use the app.'.format(package))
-#
+# ----
+
 import os
 
 def test():

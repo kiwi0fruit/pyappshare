@@ -13,13 +13,21 @@ setup(
     license='Proprietary',
 
     packages=find_packages(),
+
     # install_requires=['setuptools'],
+    
+    # add non .py files from MANIFEST.in:
+    include_package_data=True,
+
+    # create cross-platform executables:
     entry_points={
         'console_scripts': [
             'app=app.test:cli',
         ],
     },
-    # scripts=[
-    #     'scripts/myscript.bat',
-    # ],
+
+    scripts=[
+        'scripts/myscript.bat',
+        'scripts/myscript',
+    ],
 )
