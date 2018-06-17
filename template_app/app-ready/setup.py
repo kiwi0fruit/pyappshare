@@ -12,15 +12,15 @@ class PostInstallCommand(install):
         import app  # always import the main module to make sure it's installed
         import io
         from os import path as p
-        import inspect
+        from importlib.util import find_spec as find_module
         from shortcutter import ShortCutter
 
         error_log = io.StringIO()
 
         sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut('app')
-        sc.create_desktop_shortcut(p.join(p.dirname(inspect.getfile(app)), 'extra'),
-                                   'app_extar_dir')
+        app_dir = p.dirname(find_module('app').origin)
+        sc.create_desktop_shortcut(p.join(app_dir, 'extra'), 'app_extar_dir')
         sc.create_shortcut_to_env_terminal(menu=False)
 
         print(error_log.getvalue(), file=open(p.join(p.expanduser('~'),
