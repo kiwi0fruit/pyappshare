@@ -1,5 +1,3 @@
 *.egg-info
-build/
 dist/
 __pycache__/
-_build/
