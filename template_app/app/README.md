@@ -1,14 +1,17 @@
 # App
 
-Imports `test` function, has `app` CLI executable that prints PATH to show that the app runs in the activated environment.
+Imports `test` function, has `app` CLI executable
+that prints PATH to show that the app runs in the
+activated environment.
 
 
-# Build instructions (Windows)
+# Build instructions
 
 * open terminal with activated environment
-* run `build__to_clip.bat`
-* paste clipboard to the terminal
-* copy python module whenever you want
+* on Linux / macOS type ". "
+* drag and drop `build.bat`
+  (`build` on Linux / macOS) to the terminal window
+* copy python module from `dist/` whenever you want
 
 
 Hint: easily create shortcut to activated 
@@ -21,4 +24,4 @@ environment via Shortcutter:
 * cross-platform installation:
 
       pip install shortcut
-      shortcut --terminal
+      shortcutter --terminal

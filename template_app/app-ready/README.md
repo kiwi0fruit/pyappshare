@@ -1,14 +1,18 @@
 # App-ready
 
-Creates desktop shortcuts to app executable and app module folder via [shortcutter](https://github.com/kiwi0fruit/shortcutter). Logs shortcut creation errors to `~/app_install_error_log.txt`.
+Creates desktop shortcuts to app executable and app
+module folder via [shortcutter](https://github.com/kiwi0fruit/shortcutter).
+Logs shortcut creation errors to
+`~/app_install_error_log.txt`.
 
 
-# Build (Windows)
+# Build instructions
 
 * open terminal with activated environment
-* run `build__to_clip.bat`
-* paste clipboard to the terminal
-* copy python module whenever you want
+* on Linux / macOS type ". "
+* drag and drop `build.bat`
+  (`build` on Linux / macOS) to the terminal window
+* copy python module from `dist/` whenever you want
 
 
 Hint: easily create shortcut to activated 
@@ -21,4 +25,4 @@ environment via Shortcutter:
 * cross-platform installation:
 
       pip install shortcut
-      shortcut --terminal
+      shortcutter --terminal
