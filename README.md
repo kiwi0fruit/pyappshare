@@ -1,6 +1,6 @@
 # PyAppShare
 
-PyAppShare is a cookbook for creating cross-platform desktop python applications with shortcuts in a moment. It suggests end-user to install Miniconda and all you left to do is:
+PyAppShare is a cookbook for creating cross-platform desktop python applications with shortcuts and without GPL "infecting" in a moment. It suggests end-user to install Miniconda and all you left to do is:
 
 * Specify conda environment like in a [`setup/env_unix.yaml`](template_app/setup/env_unix.yaml) file by putting there all dependencies for your app, 
 * Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*.
@@ -12,7 +12,7 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 
 * The templates `setup.py` files already have:
   * Cross-platform app shortcuts creation via [shortcutter](https://github.com/kiwi0fruit/shortcutter) module for running the app and managing Miniconda installation. Shortcuts activate Miniconda environment (`app` in case of [`env_unix.yaml`](template_app/setup/env_unix.yaml)) and launch the application (shortcuts activate environment independent of whether Miniconda was added to the PATH or not),
-  * Sample PyQt stopper code that fixes licensing issues was added to the [`app.py`](template_app/app/app/app.py),
+  * Sample code of PyQt (and any other module) stopper that fixes GPL licensing issues was added to the [`app.py`](template_app/app/app/app.py),
 * The template [`setup/README.md`](template_app/setup/README.md) has install instructions for all platforms. Including how to:
   * Install Visual Studio compiler (for modules that need compiling and are not in conda defaults and conda-forge repos) - _needed only if the app developer is lazy_,
   * Install Git (for installing modules from GitHub) - _needed only if the app developer is lazy_,
