@@ -8,11 +8,12 @@ Logs shortcut creation errors to
 
 # Build instructions
 
-* open terminal with activated environment
-* on Linux / macOS type ". "
+* open terminal with activated environment,
+* on Linux / macOS type `. ` (dot, space),
 * drag and drop `build.bat`
   (`build` on Linux / macOS) to the terminal window
-* copy python module from `dist/` whenever you want
+  and press enter,
+* copy python module from `dist/` whenever you want.
 
 
 Hint: easily create shortcut to activated 
