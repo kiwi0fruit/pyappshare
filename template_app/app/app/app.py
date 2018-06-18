@@ -4,7 +4,7 @@ import os
 def debug_GPL_infecting():
     """
     Debug only function - not for production.
-    Loose test if import PySide2 and setting env var prevents importing PyQt.
+    Loose test if import PySide2 and setting env vars prevents importing PyQt.
     Should be performed on the conda environment that has installed PyQt.
     That's merely a helper not a panacea.
     """
