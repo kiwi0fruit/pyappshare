@@ -1,5 +1,6 @@
 import os
 
+
 def debug_GPL_infecting():
     """
     Debug only function - not for production.
