@@ -4,7 +4,8 @@ import os
 def debug_GPL_infecting():
     """
     Debug only function - not for production.
-    Loose test if import PySide2 and setting env vars prevents importing PyQt.
+    Loose test if pre-import of PySide2 and setting env vars prevents importing PyQt
+    by qtpy, pyqtgraph, enaml, matplotlib (better do it separately)
     Should be performed on the conda environment that has installed PyQt.
     That's merely a helper not a panacea.
     """
@@ -15,6 +16,7 @@ def debug_GPL_infecting():
     import PySide2
     import qtpy
     import pyqtgraph
+    import enaml
 
     b = ('PyQt4' in sys.modules) or ('PyQt5' in sys.modules) or ('sip' in sys.modules)
     print('PyQt was imported' if b else 'PyQt was not imported')
