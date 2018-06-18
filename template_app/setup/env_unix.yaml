@@ -7,10 +7,10 @@ dependencies:
 - pip>=10.0.1
 - setuptools
 - pyside2
-- qtpy  # make sure it doesn't install PyQt
-- enaml  # make sure it doesn't install PyQt
-- pyqtgraph  # make sure it doesn't install PyQt
-- matplotlib  # make sure it doesn't install PyQt
+- qtpy
+- enaml
+- pyqtgraph
+- matplotlib
 - pip:
   - shortcutter
   - "./app-0.1.0.tar.gz"
