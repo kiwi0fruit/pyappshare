@@ -1,7 +1,7 @@
 import os
 
 
-def debug_GPL_infecting():
+def debug_qt():
     """
     Debug only function - not for production.
     Loose test if pre-import of PySide2 and setting env vars prevents importing PyQt
