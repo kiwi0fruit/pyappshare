@@ -1,20 +1,22 @@
 import os
 
+def debug_GPL_infecting():
+    """
+    Debug only function - not for production.
+    Loose test if import PySide2 and setting env var prevents importing PyQt.
+    Should be performed on the conda environment that has installed PyQt.
+    That's merely a helper not a panacea.
+    """
+    import sys
+    import os
+    os.environ['QT_API'] = 'pyside2'
+    os.environ['PYQTGRAPH_QT_LIB'] = 'PySide2'
+    import PySide2
+    import qtpy
+    import pyqtgraph
 
-def check():
-    """prevent GPL infecting"""
-    from importlib.util import find_spec as find_module
-
-    class LicenseError(Exception):
-        pass
-
-    blacklisted = ['PyQt4', 'PyQt5', 'sip', 'PyQt', 'pyqt']
-    for mod in blacklisted:
-        if find_module(mod) is not None:
-            raise LicenseError("Try setting 'PYTHONNOUSERSITE=1' env var before activating conda env " +
-                               "or uninstall '{}' module from conda env to use the app.".format(mod))
-
-check()
+    b = ('PyQt4' in sys.modules) or ('PyQt5' in sys.modules) or ('sip' in sys.modules)
+    print('PyQt was imported' if b else 'PyQt was not imported')
 
 
 def test():
