@@ -1,6 +1,6 @@
 # PyAppShare
 
-PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment: with shortcuts and without PyQt GPL "infecting". It suggests end-user to install Miniconda and all you left to do is:
+PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment: with shortcuts and info how to make sure Qt GUI is LGPL. It suggests end-user to install Miniconda and all you left to do is:
 
 * Specify conda environment like in a [`setup/env_unix.yaml`](template_app/setup/env_unix.yaml) file by putting there all dependencies for your app, 
 * Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*.
