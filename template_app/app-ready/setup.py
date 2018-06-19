@@ -9,21 +9,22 @@ class PostInstallCommand(install):
         via shortcutter: https://github.com/kiwi0fruit/shortcutter
         Logs shortcut creation errors to ~/app_install_error_log.txt
         """
+        import app  # make sure the main module is installed
         import io
         from os import path as p
-        from importlib.util import find_spec as find_module
+        import inspect
         from shortcutter import ShortCutter
 
-        if find_module('app') is None:
-            # make sure the main module is installed:
-            raise ModuleNotFoundError("'{}' module was not found".format('app'))
+        # Find module without importing:
+        # from importlib.util import find_spec as find_module
+        # find_module('app').origin
 
         error_log = io.StringIO()
 
         sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut('app')
-        app_dir = p.dirname(find_module('app').origin)
-        sc.create_desktop_shortcut(p.join(app_dir, 'extra'), 'app_extar_dir')
+        app_dir = p.dirname(inspect.getfile('app'))
+        sc.create_desktop_shortcut(p.join(app_dir, 'extra'), 'app_extra_dir')
         sc.create_shortcut_to_env_terminal(menu=False)
 
         print(error_log.getvalue(), file=open(p.join(p.expanduser('~'),
