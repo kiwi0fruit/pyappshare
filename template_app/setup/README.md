@@ -51,14 +51,12 @@
           cd /d <ThisDir>
           set PYTHONNOUSERSITE=1
           conda env create --file env_win.yaml
-          conda remove --force pyqt sip
 
     * on Unix (Linux/macOS):
 
           cd <ThisDir>
           export PYTHONNOUSERSITE=1
           conda env create --file ./env_unix.yaml
-          conda remove --force pyqt sip
 
    * Important: do not specify custom
      `-p` / `--prefix` path: this might make
