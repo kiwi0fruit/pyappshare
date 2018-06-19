@@ -23,7 +23,7 @@ class PostInstallCommand(install):
 
         sc = ShortCutter(error_log=error_log)
         sc.create_desktop_shortcut('app')
-        app_dir = p.dirname(inspect.getfile('app'))
+        app_dir = p.dirname(inspect.getfile(app))
         sc.create_desktop_shortcut(p.join(app_dir, 'extra'), 'app_extra_dir')
         sc.create_shortcut_to_env_terminal(menu=False)
 
