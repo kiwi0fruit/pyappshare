@@ -48,6 +48,7 @@
       terminal then copy it's path from terminal to the
       text editor).
 
-4. If you need to uninstall environment:
+4. If you need to uninstall environment - run terminal with
+  activated root conda environment. Then type:
 
-        conda env remove --name app
+       conda env remove --name app
