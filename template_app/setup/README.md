@@ -31,10 +31,11 @@
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
 2. Create conda environment with the app:
-    * on Windows: run `install_win.bat` in this folder. To
-      debug press `start`, type `cmd`, press enter - you
-      will launch a command prompt. Then drag'n'drop
-      `install_win.bat` into the cmd window, press enter.
+    * on Windows: run `install_win.bat` in this folder.  
+      The script will close on error. To debug press `start`,
+      type `cmd`, press enter - you will launch a command
+      prompt. Then drag'n'drop `install_win.bat` into the
+      cmd window, press enter.
 
     * on Linux/macOS: open this folder in terminal, run
       `. ./install_unix` (current working dir should be this
