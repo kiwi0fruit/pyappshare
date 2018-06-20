@@ -5,6 +5,7 @@ set "miniconda_dir=%UserProfile%\Miniconda3"
 :: Begin Miniconda path confirmation
 If not exist "%miniconda_dir%\Scripts\conda.exe" goto no
 :ask
+echo:
 echo Is Miniconda/Anaconda installed to "%miniconda_dir%"? (yes/no)
 set INPUT=
 set /P INPUT=Type 'y' or 'n': %=%
@@ -13,6 +14,7 @@ if /I "%INPUT%"=="n" goto no
 echo Please type 'y' or 'n' only
 goto ask
 :no
+echo:
 echo Please type the path to Miniconda/Anaconda folder.
 echo (you can drag'n'drop or paste it right here)
 set /P miniconda_dir=Type the path (or 'x' to exit): %=%
