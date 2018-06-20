@@ -11,3 +11,4 @@ conda env create --file env_win.yaml
 
 :: do not specify custom -p/--prefix path
 :: this might make shortcut creation fail
+pause
