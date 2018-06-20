@@ -30,20 +30,20 @@
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-2. Make sure conda is callble from terminal by
+2. Install the app:
+    * on Windows: run `install_win.bat` in this folder.  
+      I assume that you didn't change default Miniconda3
+      install dir (`%UserProfile%\Miniconda3`).
+      Otherwise edit `install_win.bat` accordingly
+      and run it.
+
+    * on Unix (Linux/macOS): Make sure conda is callble from terminal by
   modifying the PATH. I assume that you didn't
   change default Miniconda3 install dir (otherwise
   drag'n'drop the dir to the terminal window or copy
   it's path from the file manager). Then go to this
   dir (again drag'n'drop to the terminal) and create
   isolated conda environment. Commands for this:
-    * on Windows:  
-      Run `install_win.bat` in this folder.  
-      I assume that you didn't change default
-      Miniconda3 install dir (`%UserProfile%\Miniconda3`).
-      otherwise edit `install_win.bat` and run it.
-
-    * on Unix (Linux/macOS):
 
           cd ~/miniconda3/bin
           export PATH="$PATH:$(pwd)"
