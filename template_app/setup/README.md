@@ -41,7 +41,10 @@
       run `. ./install_unix` (CWD should be this folder).  
       I assume that you didn't change default Miniconda3
       install dir (`~/miniconda3`). Otherwise edit
-      `install_unix` script accordingly and run it.
+      `install_unix` script accordingly and run it
+      (you can drag'n'drop Miniconda folder to the
+      terminal then copy it's path from terminal to the
+      text editor).
 
 4. If you need to uninstall environment:
 
