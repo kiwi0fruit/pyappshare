@@ -30,7 +30,7 @@
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-2. Create conda environment with the app (**on Windows**):  
+4. Create conda environment with the app (**on Windows**):  
 
     - run `install.bat` in this folder.  
 
@@ -40,7 +40,7 @@
       > drag'n'drop `install.bat` script into the cmd window,
       > press enter.
 
-3. Create conda environment with the app (**on Linux/macOS**):
+5. Create conda environment with the app (**on Linux/macOS**):
 
     - open this folder in terminal,
     - type `. ./install`,  
@@ -51,7 +51,7 @@
     - type dot (`.`), type space (` `),
     - drag'n'drop `install` script to the terminal, enter  
 
-4. If you need to uninstall environment - run terminal with
+6. If you need to uninstall environment - run terminal with
   activated root conda environment. Then type:
 
        conda env remove --name app
