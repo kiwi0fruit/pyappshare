@@ -37,13 +37,11 @@
   it's path from the file manager). Then go to this
   dir (again drag'n'drop to the terminal) and create
   isolated conda environment. Commands for this:
-    * on Windows:
-
-          cd /d %UserProfile%\Miniconda3\Scripts
-          set "PATH=%PATH%;%cd%"
-          cd /d <ThisDir>
-          set PYTHONNOUSERSITE=1
-          conda env create --file env_win.yaml
+    * on Windows:  
+      Run `install_win.bat` in this folder.  
+      I assume that you didn't change default
+      Miniconda3 install dir (`%UserProfile%\Miniconda3`).
+      otherwise edit `install_win.bat` and run it.
 
     * on Unix (Linux/macOS):
 
