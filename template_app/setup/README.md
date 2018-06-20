@@ -30,7 +30,7 @@
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-2. Install the app:
+2. Create conda environment with the app:
     * on Windows: run `install_win.bat` in this folder.  
       I assume that you didn't change default Miniconda3
       install dir (`%UserProfile%\Miniconda3`).
