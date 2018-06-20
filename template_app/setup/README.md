@@ -19,7 +19,8 @@
 
        git --version
 
-    If you don’t have it installed already, it will prompt you to install it.
+    If you don’t have it installed already, it will
+    prompt you to install it.
 
 3. _(Optional. Needed only if the app developer is
   lazy)_ If on Windows install
@@ -33,27 +34,21 @@
   modifying the PATH. I assume that you didn't
   change default Miniconda3 install dir (otherwise
   drag'n'drop the dir to the terminal window or copy
-  it's path from the file manager).
+  it's path from the file manager). Then go to this
+  dir (again drag'n'drop to the terminal) and create
+  isolated conda environment. Commands for this:
     * on Windows:
 
           cd /d %UserProfile%\Miniconda3\Scripts
           set "PATH=%PATH%;%cd%"
-
-    * on Unix (Linux/macOS):
-
-          cd ~/miniconda3/bin
-          export PATH="$PATH:$(pwd)"
-
-3. Go to this dir and run (drag'n'drop the dir to
-  the terminal window or copy from the file manager):
-    * on Windows:
-
           cd /d <ThisDir>
           set PYTHONNOUSERSITE=1
           conda env create --file env_win.yaml
 
     * on Unix (Linux/macOS):
 
+          cd ~/miniconda3/bin
+          export PATH="$PATH:$(pwd)"
           cd <ThisDir>
           export PYTHONNOUSERSITE=1
           conda env create --file ./env_unix.yaml
