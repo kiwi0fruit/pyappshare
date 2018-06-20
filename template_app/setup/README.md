@@ -32,22 +32,21 @@
 
 2. Create conda environment with the app:
     * on Windows: run `install_win.bat` in this folder.  
-      The script will close if on error (this should not
-      happen). To debug press `start`, type `cmd`, press
-      enter - you will launch a command prompt. Then
-      drag'n'drop `install_win.bat` into the cmd window,
-      press enter.
+      > The script will close if on error (this should not
+      > happen). To debug press `start`, type `cmd`, press
+      > enter - you will launch a command prompt. Then
+      > drag'n'drop `install_win.bat` into the cmd window,
+      > press enter.
 
     * on Linux/macOS: open this folder in terminal, run
       `. ./install_unix` (current working dir should be this
-      folder).
-
-      * I assume that you didn't change default Miniconda3
-        install dir (`~/miniconda3`). Otherwise edit
-        `install_unix` script accordingly and run it
-        (you can drag'n'drop Miniconda folder to the
-        terminal then copy it's path from terminal to the
-        text editor).
+      folder).  
+      > I assume that you didn't change default Miniconda3
+      > install dir (`~/miniconda3`). Otherwise edit
+      > `install_unix` script accordingly and run it
+      > (you can drag'n'drop Miniconda folder to the
+      > terminal then copy it's path from terminal to the
+      > text editor).
 
 4. If you need to uninstall environment - run terminal with
   activated root conda environment. Then type:
