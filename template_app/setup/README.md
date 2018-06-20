@@ -34,26 +34,14 @@
     * on Windows: run `install_win.bat` in this folder.  
       I assume that you didn't change default Miniconda3
       install dir (`%UserProfile%\Miniconda3`).
-      Otherwise edit `install_win.bat` accordingly
+      Otherwise edit `install_win.bat` script accordingly
       and run it.
 
-    * on Unix (Linux/macOS): Make sure conda is callble from terminal by
-  modifying the PATH. I assume that you didn't
-  change default Miniconda3 install dir (otherwise
-  drag'n'drop the dir to the terminal window or copy
-  it's path from the file manager). Then go to this
-  dir (again drag'n'drop to the terminal) and create
-  isolated conda environment. Commands for this:
-
-          cd ~/miniconda3/bin
-          export PATH="$PATH:$(pwd)"
-          cd <ThisDir>
-          export PYTHONNOUSERSITE=1
-          conda env create --file ./env_unix.yaml
-
-   * Important: do not specify custom
-     `-p` / `--prefix` path: this might make
-     shortcut creation fail.
+    * on Linux/macOS: open this folder in terminal,
+      run `. ./install_unix` (CWD should be this folder).  
+      I assume that you didn't change default Miniconda3
+      install dir (`~/miniconda3`). Otherwise edit
+      `install_unix` script accordingly and run it.
 
 4. If you need to uninstall environment:
 
