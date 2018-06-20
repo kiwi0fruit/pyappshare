@@ -22,6 +22,4 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 
 ## Automatic user-side install
 
-The proposed user-side algorithm can be automated like in [Miniconda-Install](https://github.com/deto/Miniconda-Install). Actually adapting Miniconda-Install is the best way to go but should fix non https and developer UX problems first.
-
-Ideas can be taken from [(conda) constructor](https://github.com/conda/constructor) and [Anaconda Project](https://github.com/Anaconda-Platform/anaconda-project) too. May be these projects would suit your needs better.
+The proposed user-side algorithm can be automated like in [Miniconda-Install](https://github.com/deto/Miniconda-Install) but I see no point in complicating things. Ideas can also be taken from [(conda) constructor](https://github.com/conda/constructor) and [Anaconda Project](https://github.com/Anaconda-Platform/anaconda-project). May be these projects would suit your needs better.
