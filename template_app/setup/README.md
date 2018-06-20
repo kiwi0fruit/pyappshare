@@ -31,18 +31,20 @@
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
 2. Create conda environment with the app:
-    * on Windows: run `install_win.bat` in this folder.  
-      I assume that you didn't change default Miniconda3
-      install dir (`%UserProfile%\Miniconda3`).
-      Otherwise edit `install_win.bat` script accordingly
-      and run it.
+    * on Windows: run `install_win.bat` in this folder. To
+      debug press `start`, type `cmd`, press enter - you
+      will launch a command prompt. Then drag'n'drop
+      `install_win.bat` into the cmd window, press enter.
 
-    * on Linux/macOS: open this folder in terminal,
-      run `. ./install_unix` (CWD should be this folder).  
-      I assume that you didn't change default Miniconda3
-      install dir (`~/miniconda3`). Otherwise edit
+    * on Linux/macOS: open this folder in terminal, run
+      `. ./install_unix` (current working dir should be this
+      folder).
+
+    * I assume that you didn't change default Miniconda3
+      install dir (`%UserProfile%\Miniconda3` or
+      `~/miniconda3`). Otherwise edit `install_win.bat` or
       `install_unix` script accordingly and run it
-      (you can drag'n'drop Miniconda folder to the
+      (on Linux you can drag'n'drop Miniconda folder to the
       terminal then copy it's path from terminal to the
       text editor).
 
