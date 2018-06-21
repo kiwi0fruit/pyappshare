@@ -6,7 +6,8 @@
   to the PATH unless you have a reason - the app starts
   nicely via shortcut to be created.
     * on Windows installation is straight-forward,
-    * [Linux install instruction](https://conda.io/docs/user-guide/install/linux.html),
+    * [Linux install instruction](https://conda.io/docs/user-guide/install/linux.html)
+      (open folder with downloaded Miniconda in the terminal before running the command),
     * [macOS install instruction](https://conda.io/docs/user-guide/install/macos.html).
 
 2. _(Optional. Needed only if the app developer is
