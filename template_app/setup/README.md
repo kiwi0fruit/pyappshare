@@ -35,9 +35,9 @@
 
     - run `install.bat` in this folder.  
 
-      > The script will close if on error (this should not
-      > happen). To debug press `start`, type `cmd`, press
-      > enter - you will launch a command prompt. Then
+      > If on error then the script will close (this shouldn't
+      > happen normally). To debug press `start`, type `cmd`,
+      > press enter - you will launch a command prompt. Then
       > drag'n'drop `install.bat` script into the cmd window,
       > press enter.
 
