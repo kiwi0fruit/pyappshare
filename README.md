@@ -8,6 +8,13 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 * Write installation instructions for the end-user using predefined template [`setup/README.md`](template_app/setup/README.md),
 * Pack `*.yaml` env, python modules, `README.md` to zip archive and send to the end-user: rough and ready but accessible and easy. See example in [`setup/`](template_app/setup) dir.
 
+
+## Examples
+
+* Simple [template_app](./template_app),
+* More advanced [Enaml video application](https://github.com/kiwi0fruit/enaml-video-app).
+
+
 ## Features
 
 * The templates `setup.py` files already have:
