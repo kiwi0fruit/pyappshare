@@ -6,6 +6,7 @@ dependencies:
 - python>=3.6
 - pip>=10.0.1
 - setuptools
+# - pywin32  # [Windows]
 - pyside2
 - qtpy
 - enaml
