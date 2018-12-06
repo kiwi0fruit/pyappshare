@@ -2,7 +2,7 @@
 
 PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment: with shortcuts and info how to make sure Qt GUI is LGPL. It suggests end-user to install Miniconda and all you left to do is:
 
-* Specify conda environment like in a [`setup/env_unix.yaml`](template_app/setup/env_unix.yaml) file by putting there all dependencies for your app, 
+* Specify conda environment like in a [`setup/env/unix.yml`](template_app/setup/env/unix.yml) file by putting there all dependencies for your app (additional OS'es and pre/post scripts see in [`setup/env`](template_app/setup/env)), 
 * Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*.
 * Create additional python module (for example "app-ready") using predefined template [`app-ready/setup.py`](template_app/app-ready/setup.py) that creates shortcuts and performs any additional user data manipulations after installation.
 * Write installation instructions for the end-user using predefined template [`setup/README.md`](template_app/setup/README.md),
@@ -18,7 +18,7 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 ## Features
 
 * The templates `setup.py` files already have:
-  * Cross-platform app shortcuts creation via [shortcutter](https://github.com/kiwi0fruit/shortcutter) module for running the app and managing Miniconda installation. Shortcuts activate Miniconda environment (`app` in case of [`env_unix.yaml`](template_app/setup/env_unix.yaml)) and launch the application (shortcuts activate environment independent of whether Miniconda was added to the PATH or not),
+  * Cross-platform app shortcuts creation via [shortcutter](https://github.com/kiwi0fruit/shortcutter) module for running the app and managing Miniconda installation. Shortcuts activate Miniconda environment (`app` in case of [`env/unix.yml`](template_app/setup/env/unix.yml)) and launch the application (shortcuts activate environment independent of whether Miniconda was added to the PATH or not),
   * Sample code of PyQt stopper-debugger that helps to fix GPL licensing issues was added to the [`app.py`](template_app/app/app/app.py). Actually [these license issues](https://github.com/kiwi0fruit/pyappshare/issues/3) are not that obvious... 
 * The template [`setup/README.md`](template_app/setup/README.md) has install instructions for all platforms. Including how to:
   * Install Visual Studio compiler (for modules that need compiling and are not in conda defaults and conda-forge repos) - _needed only if the app developer is lazy_,
