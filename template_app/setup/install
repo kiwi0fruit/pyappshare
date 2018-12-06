@@ -1,5 +1,11 @@
 #!/bin/bash
+this_script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+<<<<<<< HEAD
+# <custom vars>
+source "${this_script_dir}/env_pre"
+# </custom vars>
+=======
 # -------- <custom vars> ----
 env=app
 yaml="./env_unix.yml"
@@ -13,6 +19,7 @@ esac
 # don't forget to set <custom commands after activate>
 # at the end of the file!
 # -------- </custom vars> ----
+>>>>>>> b786a7d6ae08fc3732a69fe314ee65e3160e6a09
 
 
 # <miniconda path confirmation>
@@ -58,7 +65,6 @@ done
 
 
 # <main>
-this_script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${this_script_dir}"
 
 export PYTHONNOUSERSITE=1
@@ -69,10 +75,11 @@ _conda="${miniconda_dir}/${_bin}/conda"
 _activate="${miniconda_dir}/${_bin}/activate"
 _deactivate="${miniconda_dir}/${_bin}/deactivate"
 _pip="${_prefix}/${_bin}/pip"
+_python="${_prefix}/${_python}"
 _root_python="${miniconda_dir}/${_python}"
 
 "$_conda" env remove --name "$env"
-"$_root_python" "./_clear_global_channels.py" "$_conda"
+"$_root_python" "${this_script_dir}/_clear_global_channels.py" "$_conda"
 "$_conda" env create --file "$yaml"
 # Do not specify custom -p/--prefix path as
 # this might make shortcut creation fail.
@@ -83,11 +90,9 @@ source "$_activate" "$env"
 # </main>
 
 
-# -------- <custom commands after activate> ----
-# inverse order of channels:
-"$_conda" config --env --add channels conda-forge
-"$_conda" config --env --add channels defaults
-# -------- </custom commands after activate> ----
+# <custom commands after activate>
+source "${this_script_dir}/env_post"
+# </custom commands after activate>
 
 
 source "$_deactivate"

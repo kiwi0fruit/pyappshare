@@ -1,5 +1,11 @@
 @echo off
+set "this_script_dir=%~dp0"
 
+<<<<<<< HEAD
+:: <custom vars>
+call "%this_script_dir%\env_pre.bat"
+:: </custom vars>
+=======
 :: -------- <custom vars> ----
 set "env=app"
 set "yaml=env_win.yml"
@@ -7,6 +13,7 @@ set "yaml=env_win.yml"
 :: don't forget to set <custom commands after activate>
 :: at the end of the file!
 :: -------- </custom vars> ----
+>>>>>>> b786a7d6ae08fc3732a69fe314ee65e3160e6a09
 
 
 :: <miniconda path confirmation>
@@ -36,7 +43,6 @@ goto no
 
 
 :: <main>
-set "this_script_dir=%~dp0"
 cd /d %this_script_dir%
 
 set PYTHONNOUSERSITE=1
@@ -48,9 +54,10 @@ set "_activate=%miniconda_dir%\Scripts\activate.bat"
 set "_deactivate=%miniconda_dir%\Scripts\deactivate.bat"
 set "_pip=%_prefix%\Scripts\pip.exe"
 set "_root_python=%miniconda_dir%\python.exe"
+set "_python=%_prefix%\python.exe"
 
 "%_conda%" env remove --name %env%
-"%_root_python%" ".\_clear_global_channels.py" "%_conda%"
+"%_root_python%" "%this_script_dir%\_clear_global_channels.py" "%_conda%"
 "%_conda%" env create --file %yaml%
 :: Do not specify custom -p/--prefix path as
 :: this might make shortcut creation fail.
@@ -61,11 +68,9 @@ call "%_activate%" %env%
 :: </main>
 
 
-:: -------- <custom commands after activate> ----
-:: inverse order of channels:
-"%_conda%" config --env --add channels conda-forge
-"%_conda%" config --env --add channels defaults
-:: -------- </custom commands after activate> ----
+:: <custom commands after activate>
+call "%this_script_dir%\env_post.bat"
+:: </custom commands after activate>
 
 
 call "%_deactivate%"
