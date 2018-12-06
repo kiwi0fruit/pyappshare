@@ -3,6 +3,9 @@
 :: -------- <custom vars> ----
 set "env=app"
 set "yaml=env_win.yml"
+
+:: don't forget to set <custom commands after activate>
+:: at the end of the file!
 :: -------- </custom vars> ----
 
 
