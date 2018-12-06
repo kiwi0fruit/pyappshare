@@ -43,8 +43,8 @@
 
 5. Create conda environment with the app (**on Linux/macOS**):
 
-    - open this folder in terminal,
-    - type `. ./install`,  
+    - open *this folder* in terminal,
+    - type `. ./install`, enter,  
 
       >  **or**  
 
@@ -52,11 +52,19 @@
     - type dot (`.`), type space (` `),
     - drag'n'drop `install` script to the terminal, enter  
 
-6. If you need to uninstall environment - run terminal with
-  activated root conda environment. Then type:
 
-       conda env remove --name app
+## Uninstall
 
-    Sometimes conda environment is not deleted but renamed and placed to special trash folder inside root Miniconda installation. It's out of action this way but still takes disk space - you may need to delete it manually to free the space.
+If you need to uninstall environment - run terminal with
+activated root conda environment. Then type:
 
-7. If you need to reinstall the app (this would be with latest packages) simply run installation again: it will delete the appropriate environment first.
+    conda env remove --name app
+
+Sometimes conda environment is not deleted but renamed and placed to special trash folder inside root Miniconda installation. It's out of action this way but still takes disk space - you may need to delete it manually to free the space.
+
+
+## Reinstall
+
+If you need to reinstall the app (this would be with latest packages) simply run installation again: it will delete the appropriate environment first.
+
+*Save this folder somewhere in case you would like to reinstall it in future*.
