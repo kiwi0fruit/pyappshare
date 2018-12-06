@@ -1,9 +1,0 @@
-#!/bin/bash
-env=app
-yaml="./env_unix.yml"
-case "$(uname -s)" in
-    Darwin*)
-        yaml="./env_unix.yml" ;;
-    MINGW*)
-        yaml="./env_win.yml" ;;
-esac

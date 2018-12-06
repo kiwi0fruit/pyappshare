@@ -1,3 +1,3 @@
 @echo off
 set "env=app"
-set "yaml=env_win.yml"
+set "yaml=win.yml"

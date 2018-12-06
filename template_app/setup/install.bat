@@ -1,19 +1,11 @@
 @echo off
 set "this_script_dir=%~dp0"
+set run=call "%this_script_dir%\setup\path-run.bat"
+set call=call "%this_script_dir%\setup\path-call.bat"
 
-<<<<<<< HEAD
 :: <custom vars>
-call "%this_script_dir%\env_pre.bat"
+call "%this_script_dir%\env\pre.bat"
 :: </custom vars>
-=======
-:: -------- <custom vars> ----
-set "env=app"
-set "yaml=env_win.yml"
-
-:: don't forget to set <custom commands after activate>
-:: at the end of the file!
-:: -------- </custom vars> ----
->>>>>>> b786a7d6ae08fc3732a69fe314ee65e3160e6a09
 
 
 :: <miniconda path confirmation>
@@ -46,33 +38,24 @@ goto no
 cd /d %this_script_dir%
 
 set PYTHONNOUSERSITE=1
+set "PATH=%miniconda_dir%\Scripts;%PATH%"
 
-set "_prefix=%miniconda_dir%\envs\%env%"
-
-set "_conda=%miniconda_dir%\Scripts\conda.exe"
-set "_activate=%miniconda_dir%\Scripts\activate.bat"
-set "_deactivate=%miniconda_dir%\Scripts\deactivate.bat"
-set "_pip=%_prefix%\Scripts\pip.exe"
-set "_root_python=%miniconda_dir%\python.exe"
-set "_python=%_prefix%\python.exe"
-
-"%_conda%" env remove --name %env%
-"%_root_python%" "%this_script_dir%\_clear_global_channels.py" "%_conda%"
-"%_conda%" env create --file %yaml%
+"%miniconda_dir%\python.exe" "%this_script_dir%\setup\clear_global_channels.py" "%miniconda_dir%\Scripts\conda.exe"
+%run% conda env remove --name %env%
+%run% conda env create --file "%this_script_dir%\env\%yaml%"
 :: Do not specify custom -p/--prefix path as
 :: this might make shortcut creation fail.
 :: If you need so specify custom prefix
 :: first add %miniconda_dir%\Scripts to the PATH
-:: and change %_prefix% accordingly.
-call "%_activate%" %env%
+%call% activate %env%
 :: </main>
 
 
 :: <custom commands after activate>
-call "%this_script_dir%\env_post.bat"
+call "%this_script_dir%\env\post.bat"
 :: </custom commands after activate>
 
 
-call "%_deactivate%"
+%call% deactivate
 pause
 :exit

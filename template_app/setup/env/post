@@ -1,0 +1,6 @@
+#!/bin/bash
+# inverse order of channels:
+conda config --env --add channels conda-forge
+conda config --env --add channels defaults
+
+# python -m ipykernel install --user --name "$env"

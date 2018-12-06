@@ -1,25 +1,10 @@
 #!/bin/bash
 this_script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source="${this_script_dir}/setup/path-source"
 
-<<<<<<< HEAD
 # <custom vars>
-source "${this_script_dir}/env_pre"
+source "${this_script_dir}/env/pre"
 # </custom vars>
-=======
-# -------- <custom vars> ----
-env=app
-yaml="./env_unix.yml"
-case "$(uname -s)" in
-    Darwin*)
-        yaml="./env_unix.yml" ;;
-    MINGW*)
-        yaml="./env_win.yml" ;;
-esac
-
-# don't forget to set <custom commands after activate>
-# at the end of the file!
-# -------- </custom vars> ----
->>>>>>> b786a7d6ae08fc3732a69fe314ee65e3160e6a09
 
 
 # <miniconda path confirmation>
@@ -68,31 +53,22 @@ done
 cd "${this_script_dir}"
 
 export PYTHONNOUSERSITE=1
+export PATH="${miniconda_dir}/${_bin}:$PATH"
 
-_prefix="${miniconda_dir}/envs/$env"
-
-_conda="${miniconda_dir}/${_bin}/conda"
-_activate="${miniconda_dir}/${_bin}/activate"
-_deactivate="${miniconda_dir}/${_bin}/deactivate"
-_pip="${_prefix}/${_bin}/pip"
-_python="${_prefix}/${_python}"
-_root_python="${miniconda_dir}/${_python}"
-
-"$_conda" env remove --name "$env"
-"$_root_python" "${this_script_dir}/_clear_global_channels.py" "$_conda"
-"$_conda" env create --file "$yaml"
+"${miniconda_dir}/${_python}" "${this_script_dir}/setup/clear_global_channels.py" "${miniconda_dir}/${_bin}/conda"
+conda env remove --name "$env"
+conda env create --file "${this_script_dir}/env/$yaml"
 # Do not specify custom -p/--prefix path as
 # this might make shortcut creation fail.
 # If you need so specify custom prefix
 # first add ${miniconda_dir}/${_bin} to the PATH
-# and change ${_prefix} accordingly.
-source "$_activate" "$env"
+. "$source" activate "$env"
 # </main>
 
 
 # <custom commands after activate>
-source "${this_script_dir}/env_post"
+source "${this_script_dir}/env/post"
 # </custom commands after activate>
 
 
-source "$_deactivate"
+. "$source" deactivate
