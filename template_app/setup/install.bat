@@ -1,7 +1,7 @@
 @echo off
 
 :: -------- <custom vars> ----
-set "env=enaml_video_app"
+set "env=app"
 set "yaml=env_win.yml"
 :: -------- </custom vars> ----
 
