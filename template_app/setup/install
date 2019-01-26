@@ -57,8 +57,8 @@ cd "${this_script_dir}"
 export PYTHONNOUSERSITE=1
 export PATH="${miniconda_dir}/${_bin}:$PATH"
 
-"${miniconda_dir}/${_python}" "${this_script_dir}/setup/clear_global_channels.py" "${conda_path}"
 . "$source" activate root
+"${miniconda_dir}/${_python}" "${this_script_dir}/setup/clear_global_channels.py" "${conda_path}"
 
 conda env remove --name "$env"
 conda update --all
