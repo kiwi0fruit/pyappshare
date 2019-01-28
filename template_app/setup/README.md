@@ -58,6 +58,7 @@
 If you need to uninstall environment - run terminal with
 activated root conda environment. Then type:
 
+    conda remove --name app --all
     conda env remove --name app
 
 Sometimes conda environment is not deleted but renamed and placed to special trash folder inside root Miniconda installation. It's out of action this way but still takes disk space. You may need to delete it via `conda clean --help`. Manually deleting may break your conda installation.
