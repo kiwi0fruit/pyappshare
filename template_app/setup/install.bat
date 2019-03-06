@@ -36,8 +36,6 @@ set "_cnd=%conda%"
 :: </miniconda path confirmation>
 
 
-cd /d "%here%"
-
 set PYTHONNOUSERSITE=1
 set "PATH=%prefix%\Scripts;%prefix%\condabin;%PATH%"
 
@@ -54,6 +52,7 @@ set "PATH=%prefix%\Scripts;%prefix%\condabin;%PATH%"
 
 
 :: <custom commands after activate>
+cd /d "%here%\env"
 call "%here%\env\post.bat"
 :: </custom commands after activate>
 

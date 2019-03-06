@@ -49,8 +49,6 @@ done
 # </miniconda path confirmation>
 
 
-cd "$here"
-
 export PYTHONNOUSERSITE=1
 export PATH="$prefix/$_bin:$prefix/condabin:$PATH"
 
@@ -71,6 +69,7 @@ source "$(type -p activate)" "$env"
 
 
 # <custom commands after activate>
+cd "$here/env"
 source "$here/env/post"
 # </custom commands after activate>
 
