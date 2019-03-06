@@ -1,9 +1,7 @@
 #!/bin/bash
 env=app
 yaml="def.yml"
-case "$(uname -s)" in
-    Darwin*)
-        yaml="def.yml" ;;
-    MINGW*)
-        yaml="win.yml" ;;
-esac
+if [[ "$OSTYPE" == "msys" ]]; then
+    yaml="def.yml"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    yaml="def.yml"; fi
