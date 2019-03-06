@@ -54,9 +54,9 @@ export PATH="$prefix/$_bin:$prefix/condabin:$PATH"
 
 source "$(type -p activate)" base
 
-_cnd="conda"
+_cnd=conda
 if [[ "$OSTYPE" == "msys" ]]; then
-    _cnd="$(cygpath -w "$(type -p conda)")"; fi
+    _cnd="$(cygpath -w "$(type -p conda.exe)")"; fi
 "$prefix/$_python" "$here/setup/clear_global_channels.py" "$_cnd"
 
 conda remove -n "$env" --all
