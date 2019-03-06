@@ -1,4 +1,5 @@
 @echo off
+%run% pip install .\app-0.1.0.tar.gz
 %run% app-ready
 
 :: inverse order of channels:
