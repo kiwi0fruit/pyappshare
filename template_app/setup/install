@@ -52,7 +52,7 @@ done
 cd "$here"
 
 export PYTHONNOUSERSITE=1
-export PATH="$prefix/condabin:$prefix/$_bin:$PATH"
+export PATH="$prefix/$_bin:$prefix/condabin:$PATH"
 
 source "$(type -p activate)" base
 

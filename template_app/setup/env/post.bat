@@ -1,6 +1,6 @@
 @echo off
 :: inverse order of channels:
-%run% conda config --env --add channels conda-forge
-%run% conda config --env --add channels defaults
+%run% conda.exe config --env --add channels conda-forge
+%run% conda.exe config --env --add channels defaults
 
-:: %run% python -m ipykernel install --user --name %env%
+:: %run% python.exe -m ipykernel install --user --name %env%

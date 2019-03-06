@@ -39,24 +39,24 @@ set "_cnd=%conda%"
 cd /d "%here%"
 
 set PYTHONNOUSERSITE=1
-set "PATH=%prefix%\condabin;%prefix%\Scripts;%PATH%"
+set "PATH=%prefix%\Scripts;%prefix%\condabin;%PATH%"
 
-%call% activate base
+%call% activate.bat base
 "%prefix%\python.exe" "%here%\setup\clear_global_channels.py" "%_cnd%"
 
-%run% conda remove -n "%env%" --all
-%run% conda env remove --name "%env%"
-%run% conda update conda
-%run% conda env create --file "%here%\env\%yaml%"
+%run% conda.exe remove -n "%env%" --all
+%run% conda.exe env remove --name "%env%"
+%run% conda.exe update conda
+%run% conda.exe env create --file "%here%\env\%yaml%"
 
-%call% conda deactivate
-%call% activate "%env%"
+%call% conda.bat deactivate
+%call% activate.bat "%env%"
 
 
 :: <custom commands after activate>
 call "%here%\env\post.bat"
 :: </custom commands after activate>
 
-%call% conda deactivate
+%call% conda.bat deactivate
 pause
 :exit
