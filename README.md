@@ -3,8 +3,7 @@
 PyAppShare is a cookbook for creating cross-platform desktop python applications in a moment: with shortcuts and info how to make sure Qt GUI is LGPL. It suggests end-user to install Miniconda and all you left to do is:
 
 * Specify conda environment like in a [`setup/env/def.yml`](template_app/setup/env/def.yml) file by putting there all dependencies for your app (additional OS'es and pre/post scripts see in [`setup/env`](template_app/setup/env)), 
-* Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*.
-* Create additional python module (for example "app-ready") using predefined template [`app-ready/setup.py`](template_app/app-ready/setup.py) that creates shortcuts and performs any additional user data manipulations after installation.
+* Wrap your app as a python module (for example "app") using predefined template [`app/setup.py`](template_app/app/setup.py). *You can also add dependencies there but it's redundant if you do not plan to distribute the module separately*. Create additional exec entry point (for example "app-ready") using predefined template [`app/ready.py`](template_app/app/ready.py) that creates shortcuts and performs any additional user data manipulations after installation.
 * Write installation instructions for the end-user using predefined template [`setup/README.md`](template_app/setup/README.md),
 * Pack the whole setup folder (with `*.yml` env, python modules, `README.md`, etc.) to zip archive and send to the end-user: rough and ready but accessible and easy. See example in [`setup/`](template_app/setup) dir.
 

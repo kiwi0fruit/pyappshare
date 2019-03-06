@@ -1,4 +1,6 @@
 #!/bin/bash
+app-ready
+
 # inverse order of channels:
 conda config --env --add channels conda-forge
 conda config --env --add channels defaults

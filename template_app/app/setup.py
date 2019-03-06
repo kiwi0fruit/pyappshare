@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'app=app.app:cli',
+            'app-ready=app.ready:ready',
         ],
     },
 

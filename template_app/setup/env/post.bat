@@ -1,4 +1,6 @@
 @echo off
+%run% app-ready
+
 :: inverse order of channels:
 %run% conda.exe config --env --add channels conda-forge
 %run% conda.exe config --env --add channels defaults
