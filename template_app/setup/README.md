@@ -22,6 +22,8 @@
 
     If you don’t have it installed already, it will
     prompt you to install it.
+    
+    _**UPD: or you can install git via Conda.**_
 
 3. _(Optional. Needed only if the app developer is
   lazy)_ If on Windows install
