@@ -1,9 +1,10 @@
 #!/bin/bash
-pip install ./app-0.1.0.tar.gz
-app-ready
 
 # inverse order of channels:
 conda config --env --add channels conda-forge
 conda config --env --add channels defaults
 
+
+pip install ./app-0.1.0.tar.gz || . "$exi"
+app-ready
 # python -m ipykernel install --user --name "$env"

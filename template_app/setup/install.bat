@@ -1,10 +1,11 @@
 @echo off
 set "here=%~dp0"
+set exi=call "%here%\setup\exi.bat"
 set run=call "%here%\setup\path-run.bat"
 set call=call "%here%\setup\path-call.bat"
 
 :: <custom vars>
-call "%here%\env\pre.bat"
+call "%here%\env\pre.bat" || %exi%
 :: </custom vars>
 
 
@@ -36,25 +37,25 @@ set "_cnd=%conda%"
 :: </miniconda path confirmation>
 
 
-cd /d "%here%\env"
+cd /d "%here%\env" || %exi%
 set PYTHONNOUSERSITE=1
 set "PATH=%prefix%\Scripts;%prefix%\condabin;%PATH%"
 
-%call% activate.bat base
-"%prefix%\python.exe" "%here%\setup\clear_global_channels.py" "%_cnd%"
+%call% activate.bat base || %exi%
+"%prefix%\python.exe" "%here%\setup\clear_global_channels.py" "%_cnd%" || %exi%
 
-%run% conda.exe remove -n "%env%" --all
-%run% conda.exe env remove --name "%env%"
-%run% conda.exe update conda
-%run% conda.exe env create --file "%here%\env\%yaml%"
+%run% conda.exe remove -n "%env%" --all || %exi%
+%run% conda.exe env remove --name "%env%" || %exi%
+%run% conda.exe update conda || %exi%
+%run% conda.exe env create --file "%here%\env\%yaml%" || %exi%
 
-%call% conda.bat deactivate
-%call% activate.bat "%env%"
+%call% conda.bat deactivate || %exi%
+%call% activate.bat "%env%" || %exi%
 
 
 :: <custom commands after activate>
-cd /d "%here%\env"
-call "%here%\env\post.bat"
+cd /d "%here%\env" || %exi%
+call "%here%\env\post.bat" || %exi%
 :: </custom commands after activate>
 
 %call% conda.bat deactivate
