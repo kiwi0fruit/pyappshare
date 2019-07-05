@@ -1,2 +1,0 @@
-#!/bin/bash
-read -n 1 -s -r -p "Error occured. Press any key to exit" && exit 1

@@ -10,7 +10,10 @@
       (open folder with downloaded Miniconda in the terminal before running the command),
     * [macOS install instruction](https://conda.io/docs/user-guide/install/macos.html).
 
-2. _(Optional. Needed only if the app developer is
+2. If on **Windows** install [Git Bash](https://git-scm.com/downloads).
+  Install instructions are straight-forward.
+
+3. _(Optional if on Unix. Needed only if the app developer is
   lazy)_ Install [Git](https://git-scm.com/downloads).
   Install instructions are straight-forward. Another
   option on macOS is to install the Xcode Command
@@ -23,9 +26,9 @@
     If you don’t have it installed already, it will
     prompt you to install it.
     
-    _**UPD for developer: or you add git to conda deps.**_
+    _**UPD for developer: or you can add git to conda deps.**_
 
-3. _(Optional. Needed only if the app developer is
+4. _(Optional. Needed only if the app developer is
   lazy)_ If on Windows install
   [Build Tools for Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
   from [visualstudio.com](https://www.visualstudio.com/downloads/).
@@ -33,24 +36,15 @@
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-4. Create conda environment with the app (**on Windows**):  
+5. Create conda environment with the app:
 
-    - run `install.bat` in this folder.  
-
-      > If on error then the script will close (this shouldn't
-      > happen normally). To debug press `start`, type `cmd`,
-      > press enter - you will launch a command prompt. Then
-      > drag'n'drop `install.bat` script into the cmd window,
-      > press enter.
-
-5. Create conda environment with the app (**on Linux/macOS**):
-
-    - open *this folder* in terminal,
+    - open *this folder* in terminal (if on Windows:
+      right mouse click in the white space of the current folder then "Git Bash Here"),
     - type `. ./install`, enter,  
 
       >  **or**  
 
-    - open terminal,
+    - open terminal (Git Bash if on Windows),
     - type dot (`.`), type space (` `),
     - drag'n'drop `install` script to the terminal, enter  
 
