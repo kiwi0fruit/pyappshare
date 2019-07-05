@@ -1,0 +1,34 @@
+name: nn
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - pip>=10.0.1
+  - setuptools
+  - wheel
+  #
+  - numpy
+  - scipy
+  - sympy
+  - pandas
+  - matplotlib
+  - cython
+  - seaborn
+  - scikit-learn
+  #
+  - notebook
+  - jupyter
+  - shortcutter
+  - exec-wrappers
+  - python-language-server
+  - matplotlibhelper
+  #
+  - tensorflow
+  - future
+  # - keras
+  # - pytorch  # cloud
+  - pytorch-cpu>=1.1  # local
+  # - torchvision  # cloud
+  - torchvision-cpu  # local

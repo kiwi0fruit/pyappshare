@@ -1,0 +1,21 @@
+#!/bin/bash
+exi () { read -n 1 -s -r -p "Error occured. Press any key to exit" && exit 1; }
+herehere="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$herehere" || exi
+
+# install/update pyappshare:
+cd .. || exi
+git clone https://github.com/kiwi0fruit/pyappshare || true
+cd ./pyappshare || exi
+git pull || exi
+
+cd "$herehere" || exi
+
+# create temporal instance of pyappshare but with custom `./env` folder:
+rm -rf ./__temp__ || exi
+cp -rf ../pyappshare/template_app/setup ./__temp__ || exi
+rm -rf ./__temp__/env || exi
+cp -rf ./env ./__temp__ || exi
+
+# run pyappshare:
+source ./__temp__/install

@@ -13,6 +13,7 @@ PyAppShare is a cookbook for creating cross-platform desktop python applications
 * Simple [template_app](./template_app),
 * More advanced [Enaml video application](https://github.com/kiwi0fruit/enaml-video-app).
 * **NEW**: see example of how to build **conda noarch** package [here](https://github.com/kiwi0fruit/enaml-video-app/tree/master/enaml-video-app) ([meta.yaml](https://github.com/kiwi0fruit/enaml-video-app/blob/master/enaml-video-app/meta.yaml), [build](https://github.com/kiwi0fruit/enaml-video-app/blob/master/enaml-video-app/build)) that is based on the default conda-forge [template](https://github.com/conda-forge/staged-recipes/blob/master/recipes/example/meta.yaml).
+* **NEW**: see example how to use pyappshare to maintain conda evironment [here](./template_env). This will automatically install conda environment by specification (env yaml spec + post install bash script), register **activated** jupyter kernel and update it when installed again (via properly deleting the environment then creating it again).
 
 
 ## Features

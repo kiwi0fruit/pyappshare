@@ -1,10 +1,9 @@
 # Installation
 
 1. Install [Miniconda3](https://conda.io/miniconda.html)
-  (this instruction is for Python 3.6). I suggest
+  (this instruction is for Python 3.7). I suggest
   installing to default location and not adding Miniconda
-  to the PATH unless you have a reason - the app starts
-  nicely via shortcut to be created.
+  to the PATH unless you have a reason.
     * on Windows installation is straight-forward,
     * [Linux install instruction](https://conda.io/docs/user-guide/install/linux.html)
       (open folder with downloaded Miniconda in the terminal before running the command),
@@ -13,9 +12,8 @@
 2. If on **Windows** install [Git Bash](https://git-scm.com/downloads).
   Install instructions are straight-forward.
 
-3. _(Optional if on Unix. Needed only if the app developer is
-  lazy and the environment installs modules from GitHub)_
-  Install [Git](https://git-scm.com/downloads).
+3. _(Optional if on Unix. Needed only if the environment installs
+  modules from GitHub)_ Install [Git](https://git-scm.com/downloads).
   Install instructions are straight-forward. Another
   option on macOS is to install the Xcode Command
   Line Tools. On Mavericks (10.9) or above you can
@@ -29,19 +27,19 @@
     
     _**UPD for developer: or you can add git to conda deps.**_
 
-4. _(Optional. Needed only if the app developer is
-  lazy and the environment compiles some modules)_
-  If on Windows install
+4. _(Optional. Needed only if the the environment compiles some modules)_
+  Install compilers. If on Windows install
   [Build Tools for Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
   from [visualstudio.com](https://www.visualstudio.com/downloads/).
   Check Windows 8.1 SDK and Windows 10 SDK options.
   Previous version:
   [Microsoft Visual C++ Build Tools 2015](https://go.microsoft.com/fwlink/?LinkId=691126).
 
-5. Create conda environment with the app:
+5. Create conda environment:
 
     - open *this folder* in terminal (if on Windows:
-      right mouse click in the white space of the current folder then "Git Bash Here"),
+      right mouse click in the white space of the current folder
+      then "Git Bash Here"),
     - type `. ./install`, enter,  
 
       >  **or**  
@@ -67,7 +65,7 @@ break your conda installation.
 
 ## Reinstall
 
-If you need to reinstall the app (this would be with latest packages) simply run
+If you need to reinstall the env (this would be with latest packages) simply run
 installation again: it will delete the appropriate environment first.
 
 *Save this folder somewhere in case you would like to reinstall it in future*.
