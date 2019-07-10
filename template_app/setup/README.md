@@ -1,14 +1,14 @@
 # Installation
 
 1. Install [Miniconda3](https://conda.io/miniconda.html)
-  (this instruction is for Python 3.6). I suggest
+  (this instruction is for Python 3.6+). I suggest
   installing to default location and not adding Miniconda
   to the PATH unless you have a reason - the app starts
   nicely via shortcut to be created.
     * on Windows installation is straight-forward,
-    * [Linux install instruction](https://conda.io/docs/user-guide/install/linux.html)
+    * [Linux install instruction](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
       (open folder with downloaded Miniconda in the terminal before running the command),
-    * [macOS install instruction](https://conda.io/docs/user-guide/install/macos.html).
+    * [macOS install instruction](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html).
 
 2. If on **Windows** install [Git Bash](https://git-scm.com/downloads).
   Install instructions are straight-forward.
