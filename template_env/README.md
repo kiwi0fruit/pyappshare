@@ -37,6 +37,8 @@
 
 5. Create conda environment:
 
+    - First you need to copy this folder. Open terminal at user home dir and type `git clone https://github.com/kiwi0fruit/pyappshare`
+
     - open *this folder* in terminal (if on Windows:
       right mouse click in the white space of the current folder
       then "Git Bash Here"),
