@@ -5,7 +5,8 @@ conda config --env --add channels defaults
 conda config --env --add channels pytorch
 
 pip install wpca factor_analyzer || exi
-
+pip install git+"https://github.com/matangover/mypyls/archive/master.zip#egg=mypyls[default-mypy]" || exi
+pip install --user git+"https://github.com/numpy/numpy-stubs" || exi
 
 kernel="$env"
 python -m ipykernel install --user --name "$kernel" || exi
@@ -37,3 +38,13 @@ cat "$kernelpath" | python -c "import json; import sys; import os; \
 f = open(os.environ['kernelpath'], 'w'); dic = json.loads(sys.stdin.read()); \
 dic['argv'][0] = os.environ['wrap'].replace(chr(92), '/'); \
 json.dump(dic, f); f.close()"
+
+
+exec=mypy
+execdir="$(dirname "$(type -p "$exec")")"
+create-wrappers -t conda -b "$execdir" -f "$exec" -d "$(dirname "$execdir/wrap/$exec")" --conda-env-dir "$(dirname "$execdir")"
+
+
+exec=mypyls
+execdir="$(dirname "$(type -p "$exec")")"
+create-wrappers -t conda -b "$execdir" -f "$exec" -d "$(dirname "$execdir/wrap/$exec")" --conda-env-dir "$(dirname "$execdir")"

@@ -23,9 +23,13 @@ dependencies:
   - shortcutter
   - exec-wrappers
   - python-language-server
+  - mypy
+  - python-jsonrpc-server
+  - typed-ast
+  - mypy_extensions
   - matplotlibhelper
   #
-  - tensorflow
+  # - tensorflow
   - future
   # - keras
   # - pytorch  # cloud
