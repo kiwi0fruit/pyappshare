@@ -32,7 +32,6 @@ dependencies:
   # - tensorflow
   - future
   # - keras
-  # - pytorch  # cloud
-  - pytorch-cpu>=1.1  # local
-  # - torchvision  # cloud
-  - torchvision-cpu  # local
+  - pytorch>=1.3
+  - torchvision
+  - cpuonly
