@@ -12,15 +12,20 @@ source "$here/env/pre" || exi
 _bin="bin"
 _python="bin/python"
 _conda="bin/conda"
+prefix="$HOME/miniconda3"
 if [[ "$OSTYPE" == "msys" ]]; then
     _bin="Scripts"
     _python="python.exe"
     _conda="Scripts/conda.exe"
+    prefix="$HOME/Miniconda3"
 fi
 
-prefix="$HOME/miniconda3"
+if [[ ( "$1" != "--yes" ) && ( "$1" != "" ) ]]; then
+    prefix="$1"
+fi
+
 function yes_or_no {
-    if [[ "$1" == "--yes" ]]; then
+    if [[ "$1" != "" ]]; then
         return 0
     fi
     while true; do
