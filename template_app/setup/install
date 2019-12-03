@@ -12,12 +12,12 @@ source "$here/env/pre" || exi
 _bin="bin"
 _python="bin/python"
 _conda="bin/conda"
-prefix="$HOME/miniconda3"
+prefix="$HOME/miniconda"
 if [[ "$OSTYPE" == "msys" ]]; then
     _bin="Scripts"
     _python="python.exe"
     _conda="Scripts/conda.exe"
-    prefix="$HOME/Miniconda3"
+    prefix="$HOME/Miniconda"
 fi
 
 arg1="$1"
