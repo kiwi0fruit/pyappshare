@@ -1,0 +1,25 @@
+name: python3
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.6
+  - pip>=10.0.1
+  - setuptools
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib>=3.0.2
+  - notebook
+  - jupyter
+  - sympy
+  - opencv>=3.4
+  - featherhelper
+  - matplotlibhelper
+  - tabulatehelper
+  - cython
+  - jupyterlab
+  - ipympl
+  - nodejs
+  - shortcutter
+  - exec-wrappers

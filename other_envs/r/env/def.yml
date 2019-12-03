@@ -1,0 +1,7 @@
+name: r
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - r-essentials
+  - exec-wrappers
