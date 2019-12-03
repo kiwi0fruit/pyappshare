@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == "msys" ]]; then
     _bin="Scripts"
     _python="python.exe"
     _conda="Scripts/conda.exe"
-    prefix="$HOME/Miniconda"
+    prefix="$HOME/Miniconda3"
 fi
 
 arg1="$1"
