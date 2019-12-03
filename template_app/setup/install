@@ -26,9 +26,6 @@ if [[ ( "$arg1" != "--yes" ) && ( "$arg1" != "" ) ]]; then
 fi
 
 function yes_or_no {
-    if [[ "$1" != "" ]]; then
-        return 0
-    fi
     while true; do
         echo ""
         echo "Is Miniconda/Anaconda installed to \"$prefix\"? (yes/no)"
@@ -44,10 +41,12 @@ function yes_or_no {
 conda="$prefix/$_conda"
 while true; do
     if [ ! -f "$conda" ]; then
-        yes_or_no && break
-    else
         echo "\"$conda\" was not found!"
         arg1=""
+    elif [[ "$arg1" == "" ]]; then
+        yes_or_no && break
+    else
+        break
     fi
     echo ""
     echo "Please type the path to Miniconda/Anaconda folder."
