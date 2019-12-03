@@ -20,8 +20,9 @@ if [[ "$OSTYPE" == "msys" ]]; then
     prefix="$HOME/Miniconda3"
 fi
 
-if [[ ( "$1" != "--yes" ) && ( "$1" != "" ) ]]; then
-    prefix="$1"
+arg1="$1"
+if [[ ( "$arg1" != "--yes" ) && ( "$arg1" != "" ) ]]; then
+    prefix="$arg1"
 fi
 
 function yes_or_no {
@@ -42,10 +43,11 @@ function yes_or_no {
 
 conda="$prefix/$_conda"
 while true; do
-    if [ -f "$conda" ]; then
+    if [ ! -f "$conda" ]; then
         yes_or_no && break
     else
         echo "\"$conda\" was not found!"
+        arg1=""
     fi
     echo ""
     echo "Please type the path to Miniconda/Anaconda folder."
