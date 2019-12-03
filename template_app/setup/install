@@ -20,6 +20,9 @@ fi
 
 prefix="$HOME/miniconda3"
 function yes_or_no {
+    if [[ "$1" == "--yes" ]]; then
+        return 0
+    fi
     while true; do
         echo ""
         echo "Is Miniconda/Anaconda installed to \"$prefix\"? (yes/no)"
