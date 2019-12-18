@@ -5,8 +5,7 @@ conda config --env --add channels defaults
 conda config --env --add channels pytorch
 
 pip install wpca factor_analyzer || exi
-# pip install "https://github.com/matangover/mypyls/archive/master.zip#egg=mypyls[default-mypy]"
-pip install git+"https://github.com/kiwi0fruit/mypyls#egg=mypyls[default-mypy]" || exi
+pip install "https://github.com/matangover/mypyls/archive/master.zip#egg=mypyls[default-mypy]" || exi
 pip install --user git+"https://github.com/numpy/numpy-stubs" || exi
 
 kernel="$env"
