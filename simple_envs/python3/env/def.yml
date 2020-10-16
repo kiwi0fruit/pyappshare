@@ -1,0 +1,12 @@
+name: python3
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.6
+  - pip>=10.0.1
+  - numpy
+  - pandas
+  - tabulatehelper
+  - ipykernel
+  - exec-wrappers
