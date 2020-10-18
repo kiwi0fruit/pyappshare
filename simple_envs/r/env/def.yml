@@ -5,4 +5,5 @@ channels:
 dependencies:
   - r
   - r-irkernel
+  - jupyter
   - exec-wrappers
